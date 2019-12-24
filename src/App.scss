@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+
+body {
+  color: #fffaff;
+  background-color: #050401;
+  transition: background-color 0.3s ease;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.soon {
+    font-family: 'Lato', sans-serif;
+    margin-top: 1.2rem;
+    font-size: 2.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.panel {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.icon {
+    display: inline-block;
+    width: 700px;
+    height: 106px;
+    background-image: url(./images/DSBluWht.svg);
   }
-  to {
-    transform: rotate(360deg);
+
+.icon-violet {
+    background-image: url(./images/DSBlakWht.svg);
+}
+
+.icon-indigo {
+    background-image: url(./images/DSBluBlak.svg);
+}
+.icon-blue {
+    background-image: url(./images/DSBlakWht.svg);
+}
+.icon-green {
+    background-image: url(./images/DSOrngWht.svg);
+}
+
+.icon-yellow {
+    background-image: url(./images/DSBlakWht.svg);
+}
+
+.icon-orange {
+    background-image: url(./images/DSBlakWht.svg);
+}
+
+.icon-red {
+    background-image: url(./images/DSOrngBlak.svg);
+}
+
+
+
+.devspace {
+    position: fixed;
+    top: 25%;
+    text-align: center;
+}
+
+a {
+    font-style: italic;
+    color: inherit;
+
+}
+.center {
+    position: fixed;
+    bottom: 4%;
+    font-size: 1.2rem;
+    text-align: center;
+}
+    
+
+.color-violet {
+  background-color: #00aaff;
+  color: #fffaff;
+}
+.color-indigo {
+  background-color: #fffaff;
+  color: #050401;
+}
+.color-blue {
+  background-color: #fc5130;
+  color: #fffaff;
+}
+.color-green {
+  background-color: #050401;
+  color: #fffaff;
+}
+.color-yellow {
+  background-color: #00aaff;
+  color: #fffaff;
+}
+.color-orange {
+  background-color: #fc5130;
+  color: #fffaff;
+}
+.color-red {
+  background-color: #fffaff;
+  color: #050401;
+}
+
+@media screen and (max-width: 700px) {
+  .icon {
+    width: 350px;
+    height: 53px;
   }
 }
