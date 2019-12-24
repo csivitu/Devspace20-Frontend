@@ -44,22 +44,16 @@ class App extends React.Component {
           </div>
         </div>
         <div class="panel" data-color="violet">
-          <h2></h2>
         </div>
         <div class="panel" data-color="indigo">
-          <h2></h2>
         </div>
         <div class="panel" data-color="blue">
-          <h2></h2>
         </div>
         <div class="panel" data-color="green">
-          <h2></h2>
         </div>
         <div class="panel" data-color="yellow">
-          <h2></h2>
         </div>
         <div class="panel" data-color="orange">
-          <h2></h2>
         </div>
         <div class="panel" data-color="red">
           <div class="center">
