@@ -22,6 +22,7 @@ body {
     display: inline-block;
     width: 700px;
     height: 106px;
+    background-repeat: no-repeat;
     background-image: url(./images/DSBluWht.svg);
   }
 
@@ -103,6 +104,7 @@ a {
 
 @media screen and (max-width: 700px) {
   .icon {
+    background-repeat: no-repeat;
     width: 350px;
     height: 53px;
   }

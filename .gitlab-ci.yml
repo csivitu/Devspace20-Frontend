@@ -1,0 +1,47 @@
+image: node:10.16.3
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  - deploy
+
+before_script:
+  # Check for ssh-agent + rsync and install if not present
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - 'which rsync || ( apt-get update -y && apt-get install rsync -y )'
+  - eval $(ssh-agent -s)
+
+  # Inject the remote's private key
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+
+  # Append keyscan output into known hosts
+  - ssh-keyscan $SERVER_DOMAIN >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  - npm install
+  - npm install yarn -g
+  # Temporary Hack, don't modify veriables in sample.env
+  - cp sample.env .env.production
+  - yarn build
+
+test:
+  stage: test
+  script:
+    - npm run lint
+  only:
+    - master
+    - dev
+
+deploy:
+  stage: deploy
+  script:
+    - rsync -avuz $CI_PROJECT_DIR/build $SERVER_USER@$SERVER_DOMAIN:~/devspace20-frontend
+    # Non interactive ssh gracefully reloads server
+  only:
+    # Trigger deployments only from master branch
+    - master
+    - staging
