@@ -38,26 +38,26 @@ class App extends React.Component {
     return (
       <div className="App">
         <div class="panel" data-color="white">
-          <div class="devspace">
-            <span class="icon"></span>
-            <div class="soon">coming soon</div>
+          <div className="devspace">
+            <span className="icon"></span>
+            <div className="soon">coming soon</div>
           </div>
         </div>
-        <div class="panel" data-color="violet">
+        <div className="panel" data-color="violet">
         </div>
-        <div class="panel" data-color="indigo">
+        <div className="panel" data-color="indigo">
         </div>
-        <div class="panel" data-color="blue">
+        <div className="panel" data-color="blue">
         </div>
-        <div class="panel" data-color="green">
+        <div className="panel" data-color="green">
         </div>
-        <div class="panel" data-color="yellow">
+        <div className="panel" data-color="yellow">
         </div>
-        <div class="panel" data-color="orange">
+        <div className="panel" data-color="orange">
         </div>
-        <div class="panel" data-color="red">
-          <div class="center">
-            <div class="footer" >Take a look at Devspace 2019 <a href="https://devspace.csivit.com/2019">here</a>
+        <div className="panel" data-color="red">
+          <div className="center">
+            <div className="footer" >Take a look at Devspace 2019 <a href="https://devspace.csivit.com/2019">here</a>
             </div>
           </div>
         </div>
