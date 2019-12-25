@@ -57,8 +57,7 @@ class App extends React.Component {
         </div>
         <div class="panel" data-color="red">
           <div class="center">
-            <div class="footer" >Take a look at Devspace 2019
-                            <a href="https://devspace.csivit.com/2019"> here</a>
+            <div class="footer" >Take a look at Devspace 2019 <a href="https://devspace.csivit.com/2019">here</a>
             </div>
           </div>
         </div>
