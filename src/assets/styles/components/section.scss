@@ -1,0 +1,36 @@
+.section {
+    display:flex;
+    .section-heading {
+        min-height: 100vh;
+        top:0;
+        height: 100%;
+        background-color: $white;
+        color: $black;
+        div {
+            position: sticky;
+            top:0;
+            font-size: 14vw;
+            line-height: 0.50;
+            font-family: Langdon;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+        }
+    }
+
+    .section-content {
+        min-height: 100vh;
+        background-color: $blue;
+        flex-grow: 1;
+    }
+
+    .section-heading-left {
+        padding-left:3%;
+        div {
+            transform: rotate(-180deg);
+        }
+    }
+
+    .section-heading-right {
+        padding-right:6%;
+    }
+}

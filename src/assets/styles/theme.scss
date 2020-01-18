@@ -1,3 +1,35 @@
+@import './theme_variables.scss';
+
+// Import component styles
+@import './components/App.scss';
+@import './components//section.scss';
+
+$theme-colors: (
+  "primary": $blue,
+  "secondary": $red,
+  "dark": $black,
+  "light": $white
+) !default;
+
 @import '~bootstrap/scss/bootstrap.scss';
 
-@import './theme_variables.scss';
+body {
+    overflow-x: hidden;
+}
+
+.bg-red {
+    background-color: $red;
+}
+
+.bg-black {
+    background-color: $black;
+}
+
+@font-face {
+    font-family: 'Langdon';
+    src: url('../fonts/Langdon.otf');
+}
+
+.text-blue {
+    color: $text-blue;
+}
