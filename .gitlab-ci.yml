@@ -5,7 +5,7 @@ cache:
     - node_modules/
 
 stages:
-  - test
+#   - test
   - deploy
 
 before_script:
@@ -23,25 +23,20 @@ before_script:
   - ssh-keyscan $SERVER_DOMAIN >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
   - npm install
-  - npm install yarn -g
-  # Temporary Hack, don't modify veriables in sample.env
-  - cp sample.env .env.production
-  - yarn build
+  - npm run build
 
-test:
-  stage: test
-  script:
-    - npm run lint
-  only:
-    - master
-    - dev
+# test:
+#   stage: test
+#   script:
+#     - npm run lint
+#   only:
+#     - master
+#     - dev
 
 deploy:
   stage: deploy
   script:
-    - rsync -avuz $CI_PROJECT_DIR/build $SERVER_USER@$SERVER_DOMAIN:~/devspace20-frontend
+    - rsync -avuz $CI_PROJECT_DIR/build $SERVER_USER@$SERVER_DOMAIN:~/devspace-frontend-dev
     # Non interactive ssh gracefully reloads server
   only:
-    # Trigger deployments only from master branch
-    - master
-    - staging
+    - website_design
