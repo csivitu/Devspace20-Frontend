@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
 
 export default function Section(props) {
