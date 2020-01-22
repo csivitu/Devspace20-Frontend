@@ -14,7 +14,7 @@ export default function Section(props) {
         props.headingAlignment = 'left';
     }
     return (
-        <div className="section">
+        <div className="section" style={{backgroundColor: props.bgcolor}}>
             <div
             style = {{
                 order: contentOrder.heading,

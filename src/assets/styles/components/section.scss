@@ -1,36 +1,82 @@
 .section {
-    display:flex;
-    .section-heading {
-        min-height: 100vh;
-        top:0;
-        height: 100%;
-        background-color: $white;
-        color: $black;
-        div {
-            position: sticky;
-            top:0;
-            font-size: 14vw;
-            line-height: 0.50;
-            font-family: Langdon;
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-        }
+  display: flex;
+  .section-heading {
+    min-height: 100vh;
+    top: 0;
+    height: 100%;
+    background-color: $white;
+    color: $black;
+    div {
+      position: sticky;
+      top: 0;
+      font-size: 14vw;
+      line-height: 0.5;
+      font-family: Langdon;
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
     }
+  }
 
-    .section-content {
-        min-height: 100vh;
-        background-color: $blue;
-        flex-grow: 1;
-    }
+  .section-content {
+    min-height: 100vh;
+    // background-color: $blue;
+    flex-grow: 1;
+  }
 
-    .section-heading-left {
-        padding-left:3%;
-        div {
-            transform: rotate(-180deg);
-        }
+  .section-heading-left {
+    padding-left: 3%;
+    div {
+      transform: rotate(-180deg);
     }
+  }
 
-    .section-heading-right {
-        padding-right:6%;
-    }
+  .section-heading-right {
+    padding-right: 6%;
+  }
+}
+
+.register-box, .register-box-inactive {
+  background-color: $slightlyblack;
+  width: 85%;
+  height: 80%;
+  margin-left: 3vh;
+  margin-top: 12vh;
+  z-index: 2;
+  .heading-text {
+    color: $blue;
+    text-align: center;
+    font-weight: bold;
+  }
+  .event-description {
+    color: $white;
+    font-size: 3.3vh;
+    text-align: center;
+    margin-top: 3vh;
+  }
+  .register-button {
+    font-size: 2.5vh;
+    font-weight: 600;
+    border-style: none;
+    padding: 2vh 5vh 2vh 5vh;
+    background-color: $blue;
+    display: block;
+    margin-bottom: 0px;
+  }
+  .cost {
+    color: $blue;
+    text-align: center;
+    font-weight: bold;
+    background-color: $notsoblack;
+    font-size: 3rem;
+    padding: 0.865rem;
+  }
+  .hide {
+      display: none;
+  }
+}
+
+.register-box-inactive {
+    transform: scale(0.8) translate(-190px, 80px);
+    filter: brightness(80%) grayscale(60%);
+    z-index: 1;
 }

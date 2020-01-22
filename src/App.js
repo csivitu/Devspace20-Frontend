@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
-
+import classnames from 'classnames';
 
 
 function generateDevspaceFeatures() {
@@ -58,23 +58,106 @@ function generateDevspaceFeatures() {
     );
 
 }
+
+function generateRegistrationFeatures() {
+    const events = [
+        {
+            name: 'HACKATHON',
+            description: 'Grab your tickets early for lesser something something content pls blah blah access to talks'
+        },
+        {
+            name: 'DEVSPACE EARLY BIRD',
+            description: 'Grab your tickets early for lesser something something content pls blah blah access to talks',
+            cost: '₹ 275'
+        },
+        {
+            name: 'DEVSPACE',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
+            cost: '₹₹₹'
+        }
+    ]
+    function registerFeature(event) {
+        const classes = {
+            active: "register-box",
+            inactive: "register-box-inactive"
+        }
+        var getClass = {}
+        if (event.name === "DEVSPACE") {
+            getClass.box = classes.inactive;
+        }
+        else {
+            getClass.box = classes.active
+        }
+        if (event.name === "HACKATHON") {
+            getClass.display = "hide"
+        }
+        return (
+            <div className={classnames("d-flex", "flex-column "+getClass.box)}>
+                <h1 className="heading-text px-5 pt-4">{event.name}</h1>
+                <p className="event-description px-5">{event.description}</p>
+                <p className={classnames("cost mt-3 "+getClass.display)}>{event.cost}</p>
+                <div className="mt-auto p-5">
+                    <button className="register-button mx-auto">REGISTER</button>
+                </div>
+            </div>
+        )
+    }
+
+    const features = [];
+    for (const event of events) {
+        features.push((
+            <Col md={4} className="d-flex justify-content-center">
+                {registerFeature(event)}
+            </Col>
+        ))
+    }
+    return (
+        <Row className="justify-content-center">
+            {features}
+        </Row>
+    )
+}
 class App extends React.Component {
     componentDidMount() {
     }
     render() {
+        const colors = {
+            white: '#fffaff',
+            blue: '#00D5FF',
+            red: '#FF2A00',
+            black: '#050401',
+            notsoblack: '#151515',
 
+            textblue: 'rgba(6, 47, 123, 0.3)'
+        }
         return (
             <div>
-                {Section({
-                    headingText: 'DEVSPACE',
-                    content: (
-                        <Container className="pt-3">
-                            {generateDevspaceFeatures()}
-                        </Container>
-                    ),
-                    headingAlignment: 'right'
-                })}
-            </div>
+
+                <div>
+                    {Section({
+                        headingText: 'DEVSPACE',
+                        content: (
+                            <Container className="pt-3">
+                                {generateDevspaceFeatures()}
+                            </Container>
+                        ),
+                        headingAlignment: 'right',
+                        bgcolor: colors.blue
+                    })}
+                </div>
+                <div>
+                    {Section({
+                        headingText: 'REGISTER',
+                        content: (
+                            <Container className="pt-3" fluid={true}>
+                                {generateRegistrationFeatures()}
+                            </Container>
+                        ),
+                        headingAlignment: 'right',
+                        bgcolor: colors.notsoblack
+                    })}
+                </div>
+            </div >
         );
     }
 }
