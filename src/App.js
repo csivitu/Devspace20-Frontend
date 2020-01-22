@@ -137,7 +137,7 @@ class App extends React.Component {
                     {Section({
                         headingText: 'DEVSPACE',
                         content: (
-                            <Container className="pt-3">
+                            <Container fluid={true} className="pt-3">
                                 {generateDevspaceFeatures()}
                             </Container>
                         ),

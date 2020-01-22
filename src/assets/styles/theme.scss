@@ -13,8 +13,13 @@ $theme-colors: (
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-body {
+html, body {
     overflow-x: hidden;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 3rem;
 }
 
 .bg-red {
@@ -32,4 +37,10 @@ body {
 
 .text-blue {
     color: $text-blue;
+}
+
+@media (min-width: 1600px) {
+    html, body {
+        font-size: 24px;
+    }
 }
