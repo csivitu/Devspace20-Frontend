@@ -149,7 +149,7 @@ class App extends React.Component {
                     {Section({
                         headingText: 'REGISTER',
                         content: (
-                            <Container className="pt-3" fluid={true}>
+                            <Container className="pt-3 my-auto" fluid={true}>
                                 {generateRegistrationFeatures()}
                             </Container>
                         ),

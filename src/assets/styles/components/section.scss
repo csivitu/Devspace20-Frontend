@@ -20,6 +20,7 @@
   .section-content {
     min-height: 100vh;
     // background-color: $blue;
+    display: flex;
     flex-grow: 1;
   }
 
@@ -35,21 +36,18 @@
   }
 }
 
-.register-box, .register-box-inactive {
+@mixin register-box {
   background-color: $slightlyblack;
-  width: 85%;
-  height: 80%;
-  margin-left: 3vh;
-  margin-top: 12vh;
   z-index: 2;
   .heading-text {
     color: $blue;
     text-align: center;
     font-weight: bold;
+    font-size: 2rem;
   }
   .event-description {
     color: $white;
-    font-size: 3.3vh;
+    font-size: 1.8vw;
     text-align: center;
     margin-top: 3vh;
   }
@@ -71,12 +69,31 @@
     padding: 0.865rem;
   }
   .hide {
-      display: none;
+    display: none;
   }
 }
 
+.reg-container {
+  display: block;
+}
+.register-box {
+  @include register-box;
+}
+
 .register-box-inactive {
-    transform: scale(0.8) translate(-190px, 80px);
-    filter: brightness(80%) grayscale(60%);
-    z-index: 1;
+  @include register-box;
+  transform: scale(0.8) translate(-190px, 80px);
+  filter: brightness(80%) grayscale(60%);
+  z-index: 1;
+}
+
+@media (max-width: 780px) {
+  .register-box, .register-box-inactive {
+    width: 80%;
+    margin-bottom: 3vh;
+  }
+  .register-box-inactive {
+    @include register-box;
+    transform: scale(1) translate(0px, 0px);
+  }
 }
