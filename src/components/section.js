@@ -1,9 +1,27 @@
 
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 let sectionCount = 0;
 export default function Section(props) {
+    const [sectionHeight, setHeight] = useState('0');
+    const sectionContentRef = useRef(null);
+
+    function setHeadingHeight() {
+        const height = sectionContentRef.current.clientHeight;
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth < 768) {
+            setHeight('initial');
+        } else {
+            setHeight(height);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', setHeadingHeight);
+        setHeadingHeight();
+    });
     if (props.headingAlignment && props.headingAlignment === 'right') {
         props.sectionAlignment = 'left'
         props.sectionOrder = 2*sectionCount;
@@ -23,12 +41,14 @@ export default function Section(props) {
             <div
                 style={{
                     zIndex: headingLayer,
-                    order: props.headingOrder
+                    order: props.headingOrder,
+                    height: sectionHeight
                 }}
                 className={classNames('section-heading', 'section-heading-' + props.headingAlignment)}>
                 <div className="section-heading-text">{props.headingText}</div>
             </div>
             <div
+                ref={sectionContentRef}
                 style={{
                     backgroundColor: props.bgcolor,
                     zIndex: sectionLayer,
@@ -37,6 +57,9 @@ export default function Section(props) {
                 className={classNames('section-content', 'section-content-' + props.sectionAlignment)}>
                 {props.content}
             </div>
+            <div style={{
+                clear: 'both'
+            }}></div>
         </Fragment>
     );
 }

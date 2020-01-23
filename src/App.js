@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
@@ -34,7 +34,7 @@ function generateDevspaceFeatures() {
                 }}>
                     {heading}
                 </h1>
-                <p class="text-white">
+                <p className="text-white">
                     {content}
                 </p>
             </div>
@@ -45,7 +45,7 @@ function generateDevspaceFeatures() {
 
     for (const content of devspaceContent) {
         features.push((
-            <Col md={5} className="d-flex justify-content-center">
+            <Col key={content.heading} md={5} className="d-flex justify-content-center">
                 {devspaceFeature(content.heading, content.content)}
             </Col>
         ));
@@ -106,7 +106,7 @@ function generateRegistrationFeatures() {
     const features = [];
     for (const event of events) {
         features.push((
-            <Col md={4} className="d-flex justify-content-center">
+            <Col key={event.name} md={4} className="d-flex justify-content-center">
                 {registerFeature(event)}
             </Col>
         ))
@@ -117,49 +117,40 @@ function generateRegistrationFeatures() {
         </Row>
     )
 }
-class App extends React.Component {
-    componentDidMount() {
-    }
-    render() {
-        const colors = {
-            white: '#fffaff',
-            blue: '#00D5FF',
-            red: '#FF2A00',
-            black: '#050401',
-            notsoblack: '#151515',
+function App() {
+    const colors = {
+        white: '#fffaff',
+        blue: '#00D5FF',
+        red: '#FF2A00',
+        black: '#050401',
+        notsoblack: '#151515',
 
-            textblue: 'rgba(6, 47, 123, 0.3)'
-        }
-        return (
-            <div
-            style={{
-                display:'flex',
-                flexWrap: 'wrap',
-                flexDirection: 'row',
-            }}>
-                {Section({
-                    headingText: 'DEVSPACE',
-                    content: (
-                        <Container fluid={true} className="pt-3">
-                            {generateDevspaceFeatures()}
-                        </Container>
-                    ),
-                    headingAlignment: 'right',
-                    bgcolor: colors.blue
-                })}
-                {Section({
-                    headingText: 'REGISTER',
-                    content: (
-                        <Container className="pt-3" fluid={true}>
-                            {generateRegistrationFeatures()}
-                        </Container>
-                    ),
-                    headingAlignment: 'left',
-                    bgcolor: colors.notsoblack
-                })}
-            </div>
-        );
+        textblue: 'rgba(6, 47, 123, 0.3)'
     }
+    return (
+        <div>
+            {Section({
+                headingText: 'DEVSPACE',
+                content: (
+                    <Container fluid={true} className="pt-3">
+                        {generateDevspaceFeatures()}
+                    </Container>
+                ),
+                headingAlignment: 'right',
+                bgcolor: colors.blue
+            })}
+            {Section({
+                headingText: 'REGISTER',
+                content: (
+                    <Container className="pt-3" fluid={true}>
+                        {generateRegistrationFeatures()}
+                    </Container>
+                ),
+                headingAlignment: 'left',
+                bgcolor: colors.notsoblack
+            })}
+        </div>
+    );
 }
 
 export default App;

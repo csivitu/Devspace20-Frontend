@@ -1,11 +1,10 @@
 .section-content {
-  flex-basis: 85%;
+  width: 85%;
   min-height: 100vh;
 }
 
 .section-heading {
-  flex-basis: 15%;
-  min-height: 100vh;
+  width: 15%;
 
   .section-heading-text {
     font-size: 8rem;
@@ -23,13 +22,23 @@
     transform: rotate(180deg);
 }
 
+.section-heading-left, .section-content-left {
+    float:left
+}
+
+.section-heading-right, .section-content-right {
+    float: right;
+}
+
 @media screen and (max-width: 768px) {
   .section-content {
-    flex-basis: 100%;
+    float:none;
+    width:100%;
   }
   .section-heading {
-    flex-basis: 100%;
-  }
+    float:none;
+    width:100%;
+  }  
 }
 
 @mixin register-box {
