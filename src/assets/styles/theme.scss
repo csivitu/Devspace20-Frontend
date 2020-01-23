@@ -14,8 +14,8 @@ $theme-colors: (
 @import '~bootstrap/scss/bootstrap.scss';
 
 html, body {
-    overflow-x: hidden;
     font-size: 16px;
+    margin:0,
 }
 
 h1 {

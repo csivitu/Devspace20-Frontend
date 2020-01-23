@@ -1,39 +1,42 @@
 
-import React from 'react';
-import classnames from 'classnames';
+import React, { Fragment, useRef } from 'react';
+import classNames from 'classnames';
 
+let sectionCount = 0;
 export default function Section(props) {
-    const contentOrder = {
-        heading: 1,
-        content: 2
-    }
     if (props.headingAlignment && props.headingAlignment === 'right') {
-        contentOrder.heading = 2;
-        contentOrder.content = 1;
+        props.sectionAlignment = 'left'
+        props.sectionOrder = 2*sectionCount;
+        props.headingOrder = (2*sectionCount)+1;
     } else {
         props.headingAlignment = 'left';
+        props.sectionAlignment = 'right';
+        props.headingOrder = 2*sectionCount;
+        props.sectionOrder = (2*sectionCount)+1;
     }
-    return (
-        <div className="section" style={{backgroundColor: props.bgcolor}}>
-            <div
-            style = {{
-                order: contentOrder.heading,
 
-            }} 
-            className={classnames(
-                "section-heading",
-                "section-heading-blue",
-                "section-heading-" + props.headingAlignment)
-                }>
-                <div>{props.headingText}</div>
+    const headingLayer = (3*sectionCount);
+    const sectionLayer = (3*sectionCount)+2
+    sectionCount += 1;
+    return (
+        <Fragment>
+            <div
+                style={{
+                    zIndex: headingLayer,
+                    order: props.headingOrder
+                }}
+                className={classNames('section-heading', 'section-heading-' + props.headingAlignment)}>
+                <div className="section-heading-text">{props.headingText}</div>
             </div>
             <div
-            style = {{
-                order: contentOrder.content
-            }} 
-            className="section-content">
+                style={{
+                    backgroundColor: props.bgcolor,
+                    zIndex: sectionLayer,
+                    order: props.sectionOrder
+                }}
+                className={classNames('section-content', 'section-content-' + props.sectionAlignment)}>
                 {props.content}
             </div>
-        </div>
+        </Fragment>
     );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
@@ -92,10 +92,10 @@ function generateRegistrationFeatures() {
             getClass.display = "hide"
         }
         return (
-            <div className={classnames("d-flex", "flex-column "+getClass.box)}>
+            <div className={classnames("d-flex", "flex-column " + getClass.box)}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
-                <p className={classnames("cost mt-3 "+getClass.display)}>{event.cost}</p>
+                <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
                 <div className="mt-auto p-5">
                     <button className="register-button mx-auto">REGISTER</button>
                 </div>
@@ -131,33 +131,34 @@ class App extends React.Component {
             textblue: 'rgba(6, 47, 123, 0.3)'
         }
         return (
-            <div>
-
-                <div>
-                    {Section({
-                        headingText: 'DEVSPACE',
-                        content: (
-                            <Container fluid={true} className="pt-3">
-                                {generateDevspaceFeatures()}
-                            </Container>
-                        ),
-                        headingAlignment: 'right',
-                        bgcolor: colors.blue
-                    })}
-                </div>
-                <div>
-                    {Section({
-                        headingText: 'REGISTER',
-                        content: (
-                            <Container className="pt-3" fluid={true}>
-                                {generateRegistrationFeatures()}
-                            </Container>
-                        ),
-                        headingAlignment: 'right',
-                        bgcolor: colors.notsoblack
-                    })}
-                </div>
-            </div >
+            <div
+            style={{
+                display:'flex',
+                flexWrap: 'wrap',
+                flexDirection: 'row',
+                alignItems: 'flex-start'
+            }}>
+                {Section({
+                    headingText: 'DEVSPACE',
+                    content: (
+                        <Container fluid={true} className="pt-3">
+                            {generateDevspaceFeatures()}
+                        </Container>
+                    ),
+                    headingAlignment: 'right',
+                    bgcolor: colors.blue
+                })}
+                {Section({
+                    headingText: 'REGISTER',
+                    content: (
+                        <Container className="pt-3" fluid={true}>
+                            {generateRegistrationFeatures()}
+                        </Container>
+                    ),
+                    headingAlignment: 'left',
+                    bgcolor: colors.notsoblack
+                })}
+            </div>
         );
     }
 }
