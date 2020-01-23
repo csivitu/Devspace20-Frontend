@@ -136,7 +136,6 @@ class App extends React.Component {
                 display:'flex',
                 flexWrap: 'wrap',
                 flexDirection: 'row',
-                alignItems: 'flex-start'
             }}>
                 {Section({
                     headingText: 'DEVSPACE',
