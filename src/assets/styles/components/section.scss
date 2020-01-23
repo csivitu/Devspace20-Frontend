@@ -11,7 +11,6 @@
     line-height: 0.48;
     font-family: Langdon;
     writing-mode: vertical-lr;
-    text-orientation: mixed;
     position: sticky;
     top: 0;
     width:100%;
@@ -33,12 +32,19 @@
 @media screen and (max-width: 768px) {
   .section-content {
     float:none;
-    width:100%;
+    width:100vw;
   }
   .section-heading {
     float:none;
-    width:100%;
-  }  
+    width:100vw;
+    .section-heading-text {
+        font-size: 7rem;
+        writing-mode: horizontal-tb;
+        transform: none;
+        // line-height: 1;
+        padding-top:2rem;
+    }
+  }
 }
 
 @mixin register-box {
@@ -52,7 +58,6 @@
   }
   .event-description {
     color: $white;
-    font-size: 1.8vw;
     text-align: center;
     margin-top: 3vh;
   }

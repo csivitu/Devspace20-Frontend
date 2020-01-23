@@ -54,7 +54,7 @@ export default function Section(props) {
                     zIndex: sectionLayer,
                     order: props.sectionOrder
                 }}
-                className={classNames('section-content', 'section-content-' + props.sectionAlignment)}>
+                className={classNames('section-content', 'section-content-' + props.sectionAlignment, 'd-flex', 'flex-column', 'justify-content-center')}>
                 {props.content}
             </div>
             <div style={{
