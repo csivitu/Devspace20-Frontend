@@ -126,42 +126,42 @@ function generateRegistrationFeatures() {
 function generateCollabs() {
     const sponsors = [
         {
-            name: 'Github',
+            name: 'Github1',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github2',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github3',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github4',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github5',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github6',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github7',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github8',
             src: './assets/images/github.png'
         },
     ]
     const features = []
-    for (var i = 0; i < sponsors.length; i++) {
+    for (const sponsor of sponsors) {
         features.push((
-            <Col sm={5} md={3}>
+            <Col key={sponsor.name} sm={5} md={3}>
                 <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
             </Col>
         ))
@@ -347,49 +347,75 @@ function generateAboutUsFeatures() {
     );
 }
 
-function generateWorkshops() {
-    const speakers = [
-        {
-            name: 'WATSON AI',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
-        },
-        {
-            name: 'WATSON AI',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
-        },
-        {
-            name: 'WATSON AI',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
-        }
-    ]
-    function generateSpeakerCards(speaker) {
+function generateSpeakerCards(speakers) {
+    function generateCards(speaker) {
         return (
             <div className="speaker-div p-4">
                 <img className="mx-auto d-block speaker-img" src={speakerImg} alt="..."></img>
                 <p className="font-weight-bold talk-name">{speaker.name}</p>
                 <h4 className="font-italic">{speaker.company}</h4>
-                <p>{speaker.description}</p>
+                <p className="workshop-description">{speaker.description}</p>
             </div>
         )
     }
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={3}>
-                {generateSpeakerCards(speaker)}
+            <Col key={speaker.name} md={3} className="d-flex justify-content-center text-center">
+                {generateCards(speaker)}
             </Col>
         ));
     }
     return (
         <div>
+            <h2 className="top-description pl-5 ml-5">Something to make workshop sound interesting</h2>
+            <h2 className="top-description pl-5 ml-5">Something to make workshop sound interesting</h2>
             <Row className="justify-content-center">
                 {workshops}
             </Row>
         </div>
     )
+}
+function generateWorkshops() {
+    const speakers = [
+        {
+            name: 'WATSON AI1',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI2',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI3',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        }
+    ]
+    return generateSpeakerCards(speakers);
+}
+
+function generateTalks() {
+    const speakers = [
+        {
+            name: 'WATSON AI1',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI2',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI3',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        }
+    ]
+    return generateSpeakerCards(speakers);
 }
 
 function App() {
@@ -429,7 +455,9 @@ function App() {
                 Section({
                     headingText: 'TALKS',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateTalks()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack

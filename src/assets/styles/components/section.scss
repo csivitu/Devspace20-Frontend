@@ -9,12 +9,13 @@
   .section-heading-text {
     font-size: 8rem;
     line-height: 0.48;
-    font-family: Langdon;
+    font-family: LangdonFont;
     writing-mode: vertical-lr;
     position: sticky;
     top: 0;
     width:100%;
     text-transform: uppercase;
+    color: $black;
   }
 }
 
