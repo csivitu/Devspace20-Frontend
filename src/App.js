@@ -3,6 +3,7 @@ import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
 import githubLogo from './assets/images/github.png';
+import speakerImg from './assets/images/speaker.png';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -153,7 +154,7 @@ function generateCollabs() {
         },
     ]
     const features = []
-    for (var i=0; i<sponsors.length; i++) {
+    for (var i = 0; i < sponsors.length; i++) {
         features.push((
             <Col sm={5} md={3}>
                 <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
@@ -180,7 +181,7 @@ function generateCollabs() {
         )
     }
     return (
-        <div>
+        <div className="px-4">
             <p className="collabs-heading">These are our past collaborators</p>
             <Row className="justify-content-center">
                 {features}
@@ -194,27 +195,27 @@ function generateFAQCards() {
     const faqs = [
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         }
     ];
 
@@ -265,6 +266,51 @@ function generateAboutUsFeatures() {
     );
 }
 
+function generateWorkshops() {
+    const speakers = [
+        {
+            name: 'WATSON AI',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        }
+    ]
+    function generateSpeakerCards(speaker) {
+        return (
+            <div className="speaker-div p-4">
+                <img className="mx-auto d-block speaker-img" src={speakerImg} alt="..."></img>
+                <p className="font-weight-bold talk-name">{speaker.name}</p>
+                <h4 className="font-italic">{speaker.company}</h4>
+                <p>{speaker.description}</p>
+            </div>
+        )
+    }
+    const workshops = []
+    for (const speaker of speakers) {
+        workshops.push((
+            <Col key={speaker.name} md={3}>
+                {generateSpeakerCards(speaker)}
+            </Col>
+        ));
+    }
+    return (
+        <div>
+            <Row className="justify-content-center">
+                {workshops}
+            </Row>
+        </div>
+    )
+}
+
 function App() {
     const colors = {
         white: '#fffaff',
@@ -290,7 +336,9 @@ function App() {
                 Section({
                     headingText: 'WORKSHOPS',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateWorkshops()}
+                        </Container>
                     ),
                     headingAlignment: 'left',
                     bgcolor: colors.notsoblack

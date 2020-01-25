@@ -1,0 +1,18 @@
+.speaker-div {
+    background-color: $blue;
+}
+
+.talk-name {
+    font-size: 2.2vw;
+}
+.speaker-img {
+    // margin-top: -10em;
+    border: 1em $blue;
+    width: 100%;
+}
+
+@media (max-width: 780px) {
+    .speaker-img {
+        width: 50%;
+    }
+}

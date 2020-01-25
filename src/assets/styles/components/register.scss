@@ -1,0 +1,61 @@
+@mixin register-box {
+    background-color: $slightlyblack;
+    z-index: 2;
+    .heading-text {
+      color: $blue;
+      text-align: center;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .event-description {
+      color: $white;
+      text-align: center;
+      margin-top: 3vh;
+    }
+    .register-button {
+      font-size: 2.5vh;
+      font-weight: 600;
+      border-style: none;
+      padding: 2vh 5vh 2vh 5vh;
+      background-color: $blue;
+      display: block;
+      margin-bottom: 0px;
+    }
+    .cost {
+      color: $blue;
+      text-align: center;
+      font-weight: bold;
+      background-color: $notsoblack;
+      font-size: 3rem;
+      padding: 0.865rem;
+    }
+    .hide {
+      display: none;
+    }
+  }
+  
+  .reg-container {
+    display: block;
+  }
+  .register-box {
+    @include register-box;
+  }
+  
+  .register-box-inactive {
+    @include register-box;
+    transform: scale(0.8) translate(-190px, 80px);
+    filter: brightness(80%) grayscale(60%);
+    z-index: 1;
+  }
+  
+  @media (max-width: 780px) {
+    .register-box, .register-box-inactive {
+      width: 80%;
+      margin-bottom: 3vh;
+    }
+    .register-box-inactive {
+      @include register-box;
+      transform: scale(1) translate(0px, 0px);
+    }
+  }
+  
