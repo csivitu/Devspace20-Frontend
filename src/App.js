@@ -298,33 +298,33 @@ function generateAboutUsFeatures() {
                 </div>
 
                 <div className='d-flex justify-content-between w-60 mt-4'>
-                    <a 
-                        href='https://facebook.com/csivitu'  
+                    <a
+                        href='https://facebook.com/csivitu'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={facebookIcon} alt='' className='w-100'/>
+                        <img src={facebookIcon} alt='' className='w-100' />
                     </a>
-                    <a 
-                        href='https://github.com/csivitu'  
+                    <a
+                        href='https://github.com/csivitu'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={githubIcon} alt='' className='w-100'/>
+                        <img src={githubIcon} alt='' className='w-100' />
                     </a>
-                    <a 
-                        href='https://instagram.com/csivitu'  
+                    <a
+                        href='https://instagram.com/csivitu'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={instagramIcon} alt='' className='w-100'/>
+                        <img src={instagramIcon} alt='' className='w-100' />
                     </a>
-                    <a 
-                        href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'  
+                    <a
+                        href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={linkedinIcon} alt='' className='w-100'/>
+                        <img src={linkedinIcon} alt='' className='w-100' />
                     </a>
                 </div>
 
@@ -418,6 +418,75 @@ function generateTalks() {
     return generateSpeakerCards(speakers);
 }
 
+function generateInThePast() {
+    const sections = [
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+        {
+            image: require("./assets/images/devspace_audi.jpg"),
+            text: 'Biggest gathering in VIT'
+        },
+    ];
+
+
+    const sectionElem = [];
+    for (const section of sections) {
+        sectionElem.push((
+            <Col md={6} lg={4}>
+                <div class="past-card my-3">
+                    <div
+                        className="image-container">
+                        <img src={section.image} className="w-100" alt={section.text} />
+                    </div>
+                    <div className="past-heading-container text-center text-uppercase bg-dark py-2">
+                        <div class="past-heading">
+                            {section.text}
+                        </div>
+                    </div>
+                </div>
+            </Col>
+        ));
+    }
+
+    return (
+        <div class="p-3">
+            <p class="past-text text-light font-italic">These are our past collaborators/sponeors/something cool vfbgnhjmk,l.</p>
+            <Row>
+                {sectionElem}
+            </Row>
+        </div>
+    )
+}
 function App() {
     const colors = {
         white: '#fffaff',
@@ -511,7 +580,9 @@ function App() {
                 Section({
                     headingText: 'IN THE PAST',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateInThePast()}
+                        </Container>
                     ),
                     headingAlignment: 'left',
                     bgcolor: colors.notsoblack
