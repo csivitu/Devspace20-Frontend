@@ -139,6 +139,27 @@ function App() {
                 headingAlignment: 'right',
                 bgcolor: colors.blue
             })}
+            {
+                Section({
+                    headingText: 'WORKSHOPS',
+                    content: (
+                        <Container></Container>
+                    ),
+                    headingAlignment: 'left',
+                    bgcolor: colors.notsoblack
+                })
+            }
+            {
+                Section({
+                    headingText: 'TALKS',
+                    content: (
+                        <Container></Container>
+                    ),
+                    headingAlignment: 'right',
+                    bgcolor: colors.notsoblack
+                })
+            }
+            
             {Section({
                 headingText: 'REGISTER',
                 content: (
@@ -146,9 +167,49 @@ function App() {
                         {generateRegistrationFeatures()}
                     </Container>
                 ),
-                headingAlignment: 'left',
+                headingAlignment: 'right',
                 bgcolor: colors.notsoblack
             })}
+            {
+                Section({
+                    headingText: 'FAQ',
+                    content: (
+                        <Container></Container>
+                    ),
+                    headingAlignment: 'left',
+                    bgcolor: colors.blue
+                })
+            }
+            {
+                Section({
+                    headingText: 'COLLABS',
+                    content: (
+                        <Container></Container>
+                    ),
+                    headingAlignment: 'right',
+                    bgcolor: colors.notsoblack
+                })
+            }
+            {
+                Section({
+                    headingText: 'IN THE PAST',
+                    content: (
+                        <Container></Container>
+                    ),
+                    headingAlignment: 'left',
+                    bgcolor: colors.notsoblack
+                })
+            }
+            {
+                Section({
+                    headingText: 'ABOUT US',
+                    content: (
+                        <Container></Container>
+                    ),
+                    headingAlignment: 'right',
+                    bgcolor: colors.notsoblack
+                })
+            }
         </div>
     );
 }
