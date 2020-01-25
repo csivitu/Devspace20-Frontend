@@ -2,7 +2,7 @@ import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
-
+import githubLogo from './assets/images/github.png';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -117,6 +117,78 @@ function generateRegistrationFeatures() {
         </Row>
     )
 }
+function generateCollabs() {
+    const sponsors = [
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+    ]
+    const features = []
+    for (var i=0; i<sponsors.length; i++) {
+        features.push((
+            <Col sm={5} md={3}>
+                <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
+            </Col>
+        ))
+    }
+    function returnPartners() {
+        return (
+            <div>
+                <Row>
+                    <Col md={6}>
+                        <h3 className="sponsor-heading">COMMUNITY PARTNERS</h3>
+                    </Col>
+                    <Col>
+                        <h3 className="sponsor-heading">AUDIO PARTNERS</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h3 className="sponsor-heading">MEDIA PARTNERS</h3>
+                    </Col>
+                </Row>
+            </div>
+        )
+    }
+    return (
+        <div>
+            <p className="collabs-heading">These are our past collaborators</p>
+            <Row className="justify-content-center">
+                {features}
+            </Row>
+            {returnPartners()}
+        </div>
+    )
+}
 
 function generateFAQCards() {
     const faqs = [
@@ -182,14 +254,45 @@ function generateAboutUsFeatures() {
         'description': 'Computer Society of India - VIT Student Branch is composed of skilled designers, developers and tech enthusiasts working together to present a variety of solutions, services and products. To push technology forward, we organize several events, workshops and hackathons year in and out.',
     };
 
+    function generateHeading(headingText) {
+        return (
+            <h3 className='text-primary text-uppercase'>{headingText}</h3>
+        );
+    }
+
+    function generateFindUsContent() {
+        return (
+            <Col md={6}>
+                {generateHeading('Find Us')}
+            </Col>
+        );
+    }
+
+    function generateContactUsContent() {
+        return (
+            <Col className='text-left'>
+                {generateHeading('Contact Us')}
+                <div><div className='d-inline-block align-top'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
+                <div>
+                    <div className='d-inline-block align-top'>Phone:</div>
+                    <div className='d-inline-block'>
+                        <a href='tel:+91-9003781868'>+91-9003781868</a><br />
+                        <a href='tel:+91-9003781868'>+91-9003781868</a>
+                    </div>
+                </div>
+            </Col>
+        );
+    }
+
     return (
-        <div className='text-justify text-light mx-4'>
-            <h3 className='text-primary text-uppercase'>{content.heading}</h3>
+        <div className='text-justify text-light mx-4' style={{ fontSize: '1.4rem' }}>
+            {generateHeading(content.heading)}
             <p className='mt-3'>{content.description}</p>
-            <div className='d-flex justify-content-around'>
-                <div>FIND US</div>
-                <div>CONTACT US</div>
-            </div>
+            <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>csivit.com</a>
+            <Row className='mt-5'>
+                {generateFindUsContent()}
+                {generateContactUsContent()}
+            </Row>
         </div>
     );
 }
@@ -271,7 +374,9 @@ function App() {
                 Section({
                     headingText: 'COLLABS',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateCollabs()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack

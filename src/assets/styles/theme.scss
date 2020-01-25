@@ -3,6 +3,7 @@
 // Import component styles
 @import './components/App.scss';
 @import './components/section.scss';
+@import './components/collabs.scss';
 @import './components/faq.scss';
 @import './components/hackathon.scss';
 
@@ -26,6 +27,11 @@ html, body {
 
 h1 {
     font-size: 3rem;
+}
+
+a {
+    color: $white;
+    text-decoration: underline;
 }
 
 .bg-red {
