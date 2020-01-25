@@ -1,7 +1,9 @@
 import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import githubLogo from './assets/images/github.png';
 import speakerImg from './assets/images/speaker.png';
@@ -97,13 +99,18 @@ function generateRegistrationFeatures() {
         if (event.name === "HACKATHON") {
             getClass.display = "hide"
         }
+
+        function registerRoute() {
+            return '/register';
+        }
+
         return (
             <div className={classnames("d-flex", "flex-column " + getClass.box)}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
                 <div className="mt-auto p-5">
-                    <button className="register-button mx-auto">REGISTER</button>
+                    <button className="register-button mx-auto" onClick={registerRoute}>REGISTER</button>
                 </div>
             </div>
         )
@@ -298,33 +305,33 @@ function generateAboutUsFeatures() {
                 </div>
 
                 <div className='d-flex justify-content-between w-60 mt-4'>
-                    <a 
-                        href='https://facebook.com/csivitu'  
+                    <a
+                        href='https://facebook.com/csivitu'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={facebookIcon} alt='' className='w-100'/>
+                        <img src={facebookIcon} alt='' className='w-100' />
                     </a>
-                    <a 
-                        href='https://github.com/csivitu'  
+                    <a
+                        href='https://github.com/csivitu'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={githubIcon} alt='' className='w-100'/>
+                        <img src={githubIcon} alt='' className='w-100' />
                     </a>
-                    <a 
-                        href='https://instagram.com/csivitu'  
+                    <a
+                        href='https://instagram.com/csivitu'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={instagramIcon} alt='' className='w-100'/>
+                        <img src={instagramIcon} alt='' className='w-100' />
                     </a>
-                    <a 
-                        href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'  
+                    <a
+                        href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'
                         target='_blank'
                         className='w-12'
                         rel='noreferrer noopener'>
-                            <img src={linkedinIcon} alt='' className='w-100'/>
+                        <img src={linkedinIcon} alt='' className='w-100' />
                     </a>
                 </div>
 
@@ -428,108 +435,125 @@ function App() {
         textblue: 'rgba(6, 47, 123, 0.3)'
     }
     return (
-        <div>
-            {Section({
-                headingText: 'DEVSPACE',
-                content: (
-                    <Container fluid={true} className="pt-3">
-                        {generateDevspaceFeatures()}
-                    </Container>
-                ),
-                headingAlignment: 'right',
-                bgcolor: colors.blue
-            })}
-            {
-                Section({
-                    headingText: 'WORKSHOPS',
-                    content: (
-                        <Container fluid={true}>
-                            {generateWorkshops()}
-                        </Container>
-                    ),
-                    headingAlignment: 'left',
-                    bgcolor: colors.notsoblack
-                })
-            }
-            {
-                Section({
-                    headingText: 'TALKS',
-                    content: (
-                        <Container fluid={true}>
-                            {generateTalks()}
-                        </Container>
-                    ),
-                    headingAlignment: 'right',
-                    bgcolor: colors.notsoblack
-                })
-            }
-            <div className="hackathon">
-                <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
-                <div className="bg-dark hackathon-details pb-5">
-                    <p className="text-light p-5 hackathon-description text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie enim in est suscipit, sit amet tincidunt dolor aliquet. Duis quis quam ex. Quisque molestie lorem eget congue laoreet.
-                </p>
-                    <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
-                    <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
-                </div>
+        <Router>
+            <div>
+                <Switch>
+                    <Route exact path='/' component={() => {
+                        return (
+                            <>
+                                {Section({
+                                    headingText: 'DEVSPACE',
+                                    content: (
+                                        <Container fluid={true} className="pt-3">
+                                            {generateDevspaceFeatures()}
+                                        </Container>
+                                    ),
+                                    headingAlignment: 'right',
+                                    bgcolor: colors.blue
+                                })}
+                                {
+                                    Section({
+                                        headingText: 'WORKSHOPS',
+                                        content: (
+                                            <Container fluid={true}>
+                                                {generateWorkshops()}
+                                            </Container>
+                                        ),
+                                        headingAlignment: 'left',
+                                        bgcolor: colors.notsoblack
+                                    })
+                                }
+                                {
+                                    Section({
+                                        headingText: 'TALKS',
+                                        content: (
+                                            <Container fluid={true}>
+                                                {generateTalks()}
+                                            </Container>
+                                        ),
+                                        headingAlignment: 'right',
+                                        bgcolor: colors.notsoblack
+                                    })
+                                }
+                                <div className="hackathon">
+                                    <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
+                                    <div className="bg-dark hackathon-details pb-5">
+                                        <p className="text-light p-5 hackathon-description text-justify">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie enim in est suscipit, sit amet tincidunt dolor aliquet. Duis quis quam ex. Quisque molestie lorem eget congue laoreet.
+                                </p>
+                                        <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
+                                        <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
+                                    </div>
+                                </div>
+                                {Section({
+                                    headingText: 'REGISTER',
+                                    content: (
+                                        <Container className="pt-3" fluid={true}>
+                                            {generateRegistrationFeatures()}
+                                        </Container>
+                                    ),
+                                    headingAlignment: 'right',
+                                    bgcolor: colors.notsoblack
+                                })}
+                                {
+                                    Section({
+                                        headingText: 'FAQ',
+                                        content: (
+                                            <Container fluid={true}>
+                                                {generateFAQCards()}
+                                            </Container>
+                                        ),
+                                        headingAlignment: 'left',
+                                        bgcolor: colors.blue
+                                    })
+                                }
+                                {
+                                    Section({
+                                        headingText: 'COLLABS',
+                                        content: (
+                                            <Container fluid={true}>
+                                                {generateCollabs()}
+                                            </Container>
+                                        ),
+                                        headingAlignment: 'right',
+                                        bgcolor: colors.notsoblack
+                                    })
+                                }
+                                {
+                                    Section({
+                                        headingText: 'IN THE PAST',
+                                        content: (
+                                            <Container></Container>
+                                        ),
+                                        headingAlignment: 'left',
+                                        bgcolor: colors.notsoblack
+                                    })
+                                }
+                                {
+                                    Section({
+                                        headingText: 'ABOUT US',
+                                        content: (
+                                            <Container fluid={true}>
+                                                {generateAboutUsFeatures()}
+                                            </Container>
+                                        ),
+                                        headingAlignment: 'right',
+                                        bgcolor: colors.notsoblack
+                                    })
+                                }
+                            </>
+                        );
+                    }} />
+                    <Route path='/login' component={() => {
+                        const redirectUrl = encodeURIComponent(process.env.REACT_APP_REDIRECT_URL);
+                        const oauthState = encodeURIComponent(shortid.generate());
+                        localStorage.setItem('state', oauthState);
+                        window.location.href = `${process.env.REACT_APP_ACCOUNTS_URL}/oauth/authorize?clientId=${process.env.REACT_APP_CLIENT_ID}&state=${oauthState}&redirectUrl=${redirectUrl}`;
+                        return null;
+                    }}></Route>
+                </Switch>
             </div>
-            {Section({
-                headingText: 'REGISTER',
-                content: (
-                    <Container className="pt-3" fluid={true}>
-                        {generateRegistrationFeatures()}
-                    </Container>
-                ),
-                headingAlignment: 'right',
-                bgcolor: colors.notsoblack
-            })}
-            {
-                Section({
-                    headingText: 'FAQ',
-                    content: (
-                        <Container fluid={true}>
-                            {generateFAQCards()}
-                        </Container>
-                    ),
-                    headingAlignment: 'left',
-                    bgcolor: colors.blue
-                })
-            }
-            {
-                Section({
-                    headingText: 'COLLABS',
-                    content: (
-                        <Container fluid={true}>
-                            {generateCollabs()}
-                        </Container>
-                    ),
-                    headingAlignment: 'right',
-                    bgcolor: colors.notsoblack
-                })
-            }
-            {
-                Section({
-                    headingText: 'IN THE PAST',
-                    content: (
-                        <Container></Container>
-                    ),
-                    headingAlignment: 'left',
-                    bgcolor: colors.notsoblack
-                })
-            }
-            {
-                Section({
-                    headingText: 'ABOUT US',
-                    content: (
-                        <Container fluid={true}>
-                            {generateAboutUsFeatures()}
-                        </Container>
-                    ),
-                    headingAlignment: 'right',
-                    bgcolor: colors.notsoblack
-                })
-            }
-        </div>
+        </Router>
     );
 }
 
