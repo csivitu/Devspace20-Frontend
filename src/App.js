@@ -233,13 +233,14 @@ function generateFAQCards() {
     }
 
     const faqCards = [];
-
+    let i = 0;
     for (const faq of faqs) {
         faqCards.push((
-            <Col key={faq.q} md={5} className="d-flex justify-content-center my-4 p-4">
+            <Col key={i} md={5} className="d-flex justify-content-center my-4 p-4">
                 {generateFAQCard(faq)}
             </Col>
         ));
+        i+=1;
     }
 
     return (
@@ -254,14 +255,45 @@ function generateAboutUsFeatures() {
         'description': 'Computer Society of India - VIT Student Branch is composed of skilled designers, developers and tech enthusiasts working together to present a variety of solutions, services and products. To push technology forward, we organize several events, workshops and hackathons year in and out.',
     };
 
+    function generateHeading(headingText) {
+        return (
+            <h3 className='text-primary text-uppercase'>{headingText}</h3>
+        );
+    }
+
+    function generateFindUsContent() {
+        return (
+            <Col md={6}>
+                {generateHeading('Find Us')}
+            </Col>
+        );
+    }
+
+    function generateContactUsContent() {
+        return (
+            <Col className='text-left'>
+                {generateHeading('Contact Us')}
+                <div><div className='d-inline-block align-top'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
+                <div>
+                    <div className='d-inline-block align-top'>Phone:</div>
+                    <div className='d-inline-block'>
+                        <a href='tel:+91-9003781868'>+91-9003781868</a><br />
+                        <a href='tel:+91-9003781868'>+91-9003781868</a>
+                    </div>
+                </div>
+            </Col>
+        );
+    }
+
     return (
-        <div className='text-justify text-light mx-4'>
-            <h3 className='text-primary text-uppercase'>{content.heading}</h3>
+        <div className='text-justify text-light mx-4' style={{ fontSize: '1.4rem' }}>
+            {generateHeading(content.heading)}
             <p className='mt-3'>{content.description}</p>
-            <div className='d-flex justify-content-around'>
-                <div>FIND US</div>
-                <div>CONTACT US</div>
-            </div>
+            <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>csivit.com</a>
+            <Row className='mt-5'>
+                {generateFindUsContent()}
+                {generateContactUsContent()}
+            </Row>
         </div>
     );
 }
@@ -354,7 +386,16 @@ function App() {
                     bgcolor: colors.notsoblack
                 })
             }
-
+            <div className="hackathon">
+                <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
+                <div className="bg-dark hackathon-details pb-5">
+                    <p className="text-light p-5 hackathon-description text-justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie enim in est suscipit, sit amet tincidunt dolor aliquet. Duis quis quam ex. Quisque molestie lorem eget congue laoreet.
+                </p>
+                    <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
+                    <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
+                </div>
+            </div>
             {Section({
                 headingText: 'REGISTER',
                 content: (
@@ -369,7 +410,7 @@ function App() {
                 Section({
                     headingText: 'FAQ',
                     content: (
-                        <Container>
+                        <Container fluid={true}>
                             {generateFAQCards()}
                         </Container>
                     ),

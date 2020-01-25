@@ -1,0 +1,26 @@
+.hackathon {
+  .hackathon-heading {
+    font-size: 8rem;
+    font-family: Langdon;
+    width: 80%;
+    margin-bottom: 0;
+    padding-top:1rem;
+    padding-bottom: 1rem;
+    position: relative;
+  }
+  .hackathon-details {
+      padding-top: 5rem;
+      margin-top:-5rem;
+  }
+  .hackathon-description {
+    font: Italic 1.4rem Droid Serif;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .hackathon {
+        .hackathon-heading {
+            font-size: 5rem;
+        }
+    }
+}
