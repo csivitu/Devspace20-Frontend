@@ -26,6 +26,11 @@ h1 {
     font-size: 3rem;
 }
 
+a {
+    color: $white;
+    text-decoration: underline;
+}
+
 .bg-red {
     background-color: $red;
 }
