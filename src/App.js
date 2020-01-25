@@ -75,7 +75,7 @@ function generateRegistrationFeatures() {
             description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
             cost: '₹₹₹'
         }
-    ]
+    ];
     function registerFeature(event) {
         const classes = {
             active: "register-box",
@@ -189,6 +189,82 @@ function generateCollabs() {
         </div>
     )
 }
+
+function generateFAQCards() {
+    const faqs = [
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        }
+    ];
+
+    function generateFAQCard(faq) {
+        return (
+            <div className="faq">
+                <div className="bg-dark p-2 text-blue faq-heading">
+                    {faq.q}
+                </div>
+                <div className="bg-light p-2 faq-answer text-justify">
+                    {faq.a}
+                </div>
+            </div>
+        )
+    }
+
+    const faqCards = [];
+
+    for (const faq of faqs) {
+        faqCards.push((
+            <Col key={faq.q} md={5} className="d-flex justify-content-center my-4 p-4">
+                {generateFAQCard(faq)}
+            </Col>
+        ));
+    }
+
+    return (
+        <Row className="justify-content-center">
+            {faqCards}
+        </Row>
+    )
+}
+function generateAboutUsFeatures() {
+    const content = {
+        'heading': 'Computer Society of India - Vellore Institute of Technology',
+        'description': 'Computer Society of India - VIT Student Branch is composed of skilled designers, developers and tech enthusiasts working together to present a variety of solutions, services and products. To push technology forward, we organize several events, workshops and hackathons year in and out.',
+    };
+
+    return (
+        <div className='text-justify text-light mx-4'>
+            <h3 className='text-primary text-uppercase'>{content.heading}</h3>
+            <p className='mt-3'>{content.description}</p>
+            <div className='d-flex justify-content-around'>
+                <div>FIND US</div>
+                <div>CONTACT US</div>
+            </div>
+        </div>
+    );
+}
+
 function App() {
     const colors = {
         white: '#fffaff',
@@ -196,7 +272,6 @@ function App() {
         red: '#FF2A00',
         black: '#050401',
         notsoblack: '#151515',
-
         textblue: 'rgba(6, 47, 123, 0.3)'
     }
     return (
@@ -246,7 +321,9 @@ function App() {
                 Section({
                     headingText: 'FAQ',
                     content: (
-                        <Container></Container>
+                        <Container>
+                            {generateFAQCards()}
+                        </Container>
                     ),
                     headingAlignment: 'left',
                     bgcolor: colors.blue
@@ -278,7 +355,9 @@ function App() {
                 Section({
                     headingText: 'ABOUT US',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateAboutUsFeatures()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack
