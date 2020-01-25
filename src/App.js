@@ -270,7 +270,7 @@ function generateAboutUsFeatures() {
 
     function generateFindUsContent() {
         return (
-            <Col md={6}>
+            <Col md={6} className='mt-5'>
                 {generateHeading('Find Us')}
                 <iframe
                     className='map-frame mt-3'
@@ -285,7 +285,7 @@ function generateAboutUsFeatures() {
 
     function generateContactUsContent() {
         return (
-            <Col className='text-left'>
+            <Col className='text-left mt-5'>
                 {generateHeading('Contact Us')}
                 <div className='mt-3'>
                     <div className='d-inline-block mw-18'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
@@ -297,11 +297,35 @@ function generateAboutUsFeatures() {
                     </div>
                 </div>
 
-                <div className='d-flex justify-content-between w-50 mt-4'>
-                    <img src={facebookIcon} className='w-10' alt='' />
-                    <img src={githubIcon} className='w-10' alt='' />
-                    <img src={instagramIcon} className='w-10' alt='' />
-                    <img src={linkedinIcon} className='w-10' alt='' />
+                <div className='d-flex justify-content-between w-60 mt-4'>
+                    <a 
+                        href='https://facebook.com/csivitu'  
+                        target='_blank'
+                        className='w-12'
+                        rel='noreferrer noopener'>
+                            <img src={facebookIcon} alt='' className='w-100'/>
+                    </a>
+                    <a 
+                        href='https://github.com/csivitu'  
+                        target='_blank'
+                        className='w-12'
+                        rel='noreferrer noopener'>
+                            <img src={githubIcon} alt='' className='w-100'/>
+                    </a>
+                    <a 
+                        href='https://instagram.com/csivitu'  
+                        target='_blank'
+                        className='w-12'
+                        rel='noreferrer noopener'>
+                            <img src={instagramIcon} alt='' className='w-100'/>
+                    </a>
+                    <a 
+                        href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'  
+                        target='_blank'
+                        className='w-12'
+                        rel='noreferrer noopener'>
+                            <img src={linkedinIcon} alt='' className='w-100'/>
+                    </a>
                 </div>
 
                 <div className='mt-4'>View <a href='/codeofconduct' target='_blank' rel='noreferrer noopener'>Code of Conduct</a></div>
@@ -315,7 +339,7 @@ function generateAboutUsFeatures() {
             {generateHeading(content.heading)}
             <p className='mt-4 description'>{content.description}</p>
             <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
-            <Row className='mt-5'>
+            <Row>
                 {generateFindUsContent()}
                 {generateContactUsContent()}
             </Row>
