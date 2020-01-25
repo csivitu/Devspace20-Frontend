@@ -125,10 +125,10 @@ function generateAboutUsFeatures() {
     };
 
     return (
-        <div className='text-center text-light'>
-            <h2 className='text-primary text-uppercase'>{content.heading}</h2>
-            <p>{content.description}</p>
-            <div className='d-flex divider'>
+        <div className='text-justify text-light mx-4'>
+            <h3 className='text-primary text-uppercase'>{content.heading}</h3>
+            <p className='mt-3'>{content.description}</p>
+            <div className='d-flex justify-content-around'>
                 <div>FIND US</div>
                 <div>CONTACT US</div>
             </div>
