@@ -2,7 +2,8 @@
 
 // Import component styles
 @import './components/App.scss';
-@import './components//section.scss';
+@import './components/section.scss';
+@import './components/faq.scss';
 
 $theme-colors: (
   "primary": $blue,
