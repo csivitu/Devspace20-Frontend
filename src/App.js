@@ -236,7 +236,7 @@ function generateFAQCards() {
     let i = 0;
     for (const faq of faqs) {
         faqCards.push((
-            <Col key={i} md={5} className="d-flex justify-content-center my-4 p-4">
+            <Col key={i} md={5} className="d-flex justify-content-center p-4">
                 {generateFAQCard(faq)}
             </Col>
         ));
