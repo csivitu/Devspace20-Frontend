@@ -1,18 +1,35 @@
 .speaker-div {
+    margin-top: 10em;
     background-color: $blue;
 }
 
 .talk-name {
     font-size: 2.2vw;
 }
+
+.top-description {
+    color: white;
+    font: Italic 2vw Droid Serif;
+    margin-top: 2vh;
+}
+
+.workshop-description {
+    font-size: 1vw;
+}
 .speaker-img {
-    // margin-top: -10em;
-    border: 1em $blue;
+    margin-top: -10em;
+    border: 0.6em solid $blue;
+    box-shadow: 4px -4px $red;
+    z-index: 5;
     width: 100%;
 }
 
 @media (max-width: 780px) {
     .speaker-img {
+        width: 70%;
+    }
+    .speaker-div {
         width: 50%;
+        margin-bottom: 1rem
     }
 }
