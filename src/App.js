@@ -153,7 +153,7 @@ function generateCollabs() {
         },
     ]
     const features = []
-    for (const sponsor in sponsors) {
+    for (var i=0; i<sponsors.length; i++) {
         features.push((
             <Col sm={5} md={3}>
                 <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
