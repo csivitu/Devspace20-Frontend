@@ -3,6 +3,10 @@
 // Import component styles
 @import './components/App.scss';
 @import './components//section.scss';
+@import './components/aboutUs.scss';
+
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 $theme-colors: (
   "primary": $blue,
@@ -16,6 +20,7 @@ $theme-colors: (
 html, body {
     font-size: 16px;
     margin:0;
+    font-family: 'Lato', sans-serif;
 }
 
 h1 {

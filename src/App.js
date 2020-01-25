@@ -117,6 +117,25 @@ function generateRegistrationFeatures() {
         </Row>
     )
 }
+
+function generateAboutUsFeatures() {
+    const content = {
+        'heading': 'Computer Society of India - Vellore Institute of Technology',
+        'description': 'Computer Society of India - VIT Student Branch is composed of skilled designers, developers and tech enthusiasts working together to present a variety of solutions, services and products. To push technology forward, we organize several events, workshops and hackathons year in and out.',
+    };
+
+    return (
+        <div className='text-center text-light'>
+            <h2 className='text-primary text-uppercase'>{content.heading}</h2>
+            <p>{content.description}</p>
+            <div className='d-flex divider'>
+                <div>FIND US</div>
+                <div>CONTACT US</div>
+            </div>
+        </div>
+    );
+}
+
 function App() {
     const colors = {
         white: '#fffaff',
@@ -204,7 +223,9 @@ function App() {
                 Section({
                     headingText: 'ABOUT US',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateAboutUsFeatures()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack
