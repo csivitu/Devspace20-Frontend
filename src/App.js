@@ -2,7 +2,7 @@ import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
-
+import githubLogo from './assets/images/github.png';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -117,6 +117,78 @@ function generateRegistrationFeatures() {
         </Row>
     )
 }
+function generateCollabs() {
+    const sponsors = [
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+    ]
+    const features = []
+    for (const sponsor in sponsors) {
+        features.push((
+            <Col sm={5} md={3}>
+                <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
+            </Col>
+        ))
+    }
+    function returnPartners() {
+        return (
+            <div>
+                <Row>
+                    <Col md={6}>
+                        <h3 className="sponsor-heading">COMMUNITY PARTNERS</h3>
+                    </Col>
+                    <Col>
+                        <h3 className="sponsor-heading">AUDIO PARTNERS</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h3 className="sponsor-heading">MEDIA PARTNERS</h3>
+                    </Col>
+                </Row>
+            </div>
+        )
+    }
+    return (
+        <div>
+            <p className="collabs-heading">These are our past collaborators</p>
+            <Row className="justify-content-center">
+                {features}
+            </Row>
+            {returnPartners()}
+        </div>
+    )
+}
 function App() {
     const colors = {
         white: '#fffaff',
@@ -159,7 +231,7 @@ function App() {
                     bgcolor: colors.notsoblack
                 })
             }
-            
+
             {Section({
                 headingText: 'REGISTER',
                 content: (
@@ -184,7 +256,9 @@ function App() {
                 Section({
                     headingText: 'COLLABS',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateCollabs()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack
