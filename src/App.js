@@ -273,11 +273,12 @@ function generateAboutUsFeatures() {
             <Col md={6}>
                 {generateHeading('Find Us')}
                 <iframe
-                    className='map-frame mt-4'
+                    className='map-frame mt-3'
                     src={mapLink}
                     frameborder="0"
                     allowfullscreen=""
-                    title='Map'></iframe>
+                    alt="Anna Auditorium"
+                    title='Map' />
             </Col>
         );
     }
@@ -286,10 +287,10 @@ function generateAboutUsFeatures() {
         return (
             <Col className='text-left'>
                 {generateHeading('Contact Us')}
-                <div className='mt-4'>
-                    <div className='d-inline-block w-18'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
+                <div className='mt-3'>
+                    <div className='d-inline-block mw-18'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
                 <div>
-                    <div className='d-inline-block align-top w-18'>Phone:</div>
+                    <div className='d-inline-block align-top mw-18'>Phone:</div>
                     <div className='d-inline-block'>
                         <a href='tel:+919003781868'>+91-9003781868</a><br />
                         <a href='tel:+916379310870'>+91-6379310870</a>
@@ -312,7 +313,7 @@ function generateAboutUsFeatures() {
     return (
         <div className='text-justify text-light mx-4 about-us'>
             {generateHeading(content.heading)}
-            <p className='mt-3 description'>{content.description}</p>
+            <p className='mt-4 description'>{content.description}</p>
             <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
             <Row className='mt-5'>
                 {generateFindUsContent()}
