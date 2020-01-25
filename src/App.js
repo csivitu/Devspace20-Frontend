@@ -122,27 +122,27 @@ function generateFAQCards() {
     const faqs = [
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         },
         {
             q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
         }
     ];
 
@@ -160,13 +160,14 @@ function generateFAQCards() {
     }
 
     const faqCards = [];
-
+    let i = 0;
     for (const faq of faqs) {
         faqCards.push((
-            <Col key={faq.q} md={5} className="d-flex justify-content-center my-4 p-4">
+            <Col key={i} md={5} className="d-flex justify-content-center my-4 p-4">
                 {generateFAQCard(faq)}
             </Col>
         ));
+        i+=1;
     }
 
     return (
@@ -234,7 +235,16 @@ function App() {
                     bgcolor: colors.notsoblack
                 })
             }
-            
+            <div className="hackathon">
+                <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
+                <div className="bg-dark hackathon-details pb-5">
+                    <p className="text-light p-5 hackathon-description text-justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie enim in est suscipit, sit amet tincidunt dolor aliquet. Duis quis quam ex. Quisque molestie lorem eget congue laoreet.
+                </p>
+                    <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
+                    <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
+                </div>
+            </div>
             {Section({
                 headingText: 'REGISTER',
                 content: (
@@ -249,7 +259,7 @@ function App() {
                 Section({
                     headingText: 'FAQ',
                     content: (
-                        <Container>
+                        <Container fluid={true}>
                             {generateFAQCards()}
                         </Container>
                     ),
