@@ -2,7 +2,7 @@ import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
-
+import githubLogo from './assets/images/github.png';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -75,7 +75,7 @@ function generateRegistrationFeatures() {
             description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
             cost: '₹₹₹'
         }
-    ]
+    ];
     function registerFeature(event) {
         const classes = {
             active: "register-box",
@@ -117,7 +117,136 @@ function generateRegistrationFeatures() {
         </Row>
     )
 }
+function generateCollabs() {
+    const sponsors = [
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+        {
+            name: 'Github',
+            src: './assets/images/github.png'
+        },
+    ]
+    const features = []
+    for (var i=0; i<sponsors.length; i++) {
+        features.push((
+            <Col sm={5} md={3}>
+                <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
+            </Col>
+        ))
+    }
+    function returnPartners() {
+        return (
+            <div>
+                <Row>
+                    <Col md={6}>
+                        <h3 className="sponsor-heading">COMMUNITY PARTNERS</h3>
+                    </Col>
+                    <Col>
+                        <h3 className="sponsor-heading">AUDIO PARTNERS</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h3 className="sponsor-heading">MEDIA PARTNERS</h3>
+                    </Col>
+                </Row>
+            </div>
+        )
+    }
+    return (
+        <div>
+            <p className="collabs-heading">These are our past collaborators</p>
+            <Row className="justify-content-center">
+                {features}
+            </Row>
+            {returnPartners()}
+        </div>
+    )
+}
 
+function generateFAQCards() {
+    const faqs = [
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        },
+        {
+            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
+            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.' 
+        }
+    ];
+
+    function generateFAQCard(faq) {
+        return (
+            <div className="faq">
+                <div className="bg-dark p-2 text-blue faq-heading">
+                    {faq.q}
+                </div>
+                <div className="bg-light p-2 faq-answer text-justify">
+                    {faq.a}
+                </div>
+            </div>
+        )
+    }
+
+    const faqCards = [];
+
+    for (const faq of faqs) {
+        faqCards.push((
+            <Col key={faq.q} md={5} className="d-flex justify-content-center my-4 p-4">
+                {generateFAQCard(faq)}
+            </Col>
+        ));
+    }
+
+    return (
+        <Row className="justify-content-center">
+            {faqCards}
+        </Row>
+    )
+}
 function generateAboutUsFeatures() {
     const content = {
         'heading': 'Computer Society of India - Vellore Institute of Technology',
@@ -174,7 +303,6 @@ function App() {
         red: '#FF2A00',
         black: '#050401',
         notsoblack: '#151515',
-
         textblue: 'rgba(6, 47, 123, 0.3)'
     }
     return (
@@ -224,7 +352,9 @@ function App() {
                 Section({
                     headingText: 'FAQ',
                     content: (
-                        <Container></Container>
+                        <Container>
+                            {generateFAQCards()}
+                        </Container>
                     ),
                     headingAlignment: 'left',
                     bgcolor: colors.blue
@@ -234,7 +364,9 @@ function App() {
                 Section({
                     headingText: 'COLLABS',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateCollabs()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack
