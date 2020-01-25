@@ -2,8 +2,13 @@ import React from 'react';
 import Section from './components/section';
 import { Container, Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
+
 import githubLogo from './assets/images/github.png';
 import speakerImg from './assets/images/speaker.png';
+import facebookIcon from './assets/images/facebookIcon.svg';
+import githubIcon from './assets/images/githubIcon.svg';
+import instagramIcon from './assets/images/instagramIcon.svg';
+import linkedinIcon from './assets/images/linkedinIcon.svg';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -121,42 +126,42 @@ function generateRegistrationFeatures() {
 function generateCollabs() {
     const sponsors = [
         {
-            name: 'Github',
+            name: 'Github1',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github2',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github3',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github4',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github5',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github6',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github7',
             src: './assets/images/github.png'
         },
         {
-            name: 'Github',
+            name: 'Github8',
             src: './assets/images/github.png'
         },
     ]
     const features = []
-    for (var i = 0; i < sponsors.length; i++) {
+    for (const sponsor of sponsors) {
         features.push((
-            <Col sm={5} md={3}>
+            <Col key={sponsor.name} sm={5} md={3}>
                 <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
             </Col>
         ))
@@ -240,7 +245,7 @@ function generateFAQCards() {
                 {generateFAQCard(faq)}
             </Col>
         ));
-        i+=1;
+        i += 1;
     }
 
     return (
@@ -255,9 +260,11 @@ function generateAboutUsFeatures() {
         'description': 'Computer Society of India - VIT Student Branch is composed of skilled designers, developers and tech enthusiasts working together to present a variety of solutions, services and products. To push technology forward, we organize several events, workshops and hackathons year in and out.',
     };
 
+    const mapLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0287333403357!2d79.15346681537353!3d12.97001319085699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad47a01ae8e111%3A0x9575db6fe3bc68e2!2sAnna%20Auditorium!5e0!3m2!1sen!2sin!4v1579975266924!5m2!1sen!2sin";
+
     function generateHeading(headingText) {
         return (
-            <h3 className='text-primary text-uppercase'>{headingText}</h3>
+            <h3 className='text-primary text-left text-uppercase'>{headingText}</h3>
         );
     }
 
@@ -265,6 +272,13 @@ function generateAboutUsFeatures() {
         return (
             <Col md={6}>
                 {generateHeading('Find Us')}
+                <iframe
+                    className='map-frame mt-3'
+                    src={mapLink}
+                    frameborder="0"
+                    allowfullscreen=""
+                    alt="Anna Auditorium"
+                    title='Map' />
             </Col>
         );
     }
@@ -273,23 +287,34 @@ function generateAboutUsFeatures() {
         return (
             <Col className='text-left'>
                 {generateHeading('Contact Us')}
-                <div><div className='d-inline-block align-top'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
+                <div className='mt-3'>
+                    <div className='d-inline-block mw-18'>Email:</div><a href='mailto:askcsivit@gmail.com'>askcsivit@gmail.com</a></div>
                 <div>
-                    <div className='d-inline-block align-top'>Phone:</div>
+                    <div className='d-inline-block align-top mw-18'>Phone:</div>
                     <div className='d-inline-block'>
-                        <a href='tel:+91-9003781868'>+91-9003781868</a><br />
-                        <a href='tel:+91-9003781868'>+91-9003781868</a>
+                        <a href='tel:+919003781868'>+91-9003781868</a><br />
+                        <a href='tel:+916379310870'>+91-6379310870</a>
                     </div>
                 </div>
+
+                <div className='d-flex justify-content-between w-50 mt-4'>
+                    <img src={facebookIcon} className='w-10' alt='' />
+                    <img src={githubIcon} className='w-10' alt='' />
+                    <img src={instagramIcon} className='w-10' alt='' />
+                    <img src={linkedinIcon} className='w-10' alt='' />
+                </div>
+
+                <div className='mt-4'>View <a href='/codeofconduct' target='_blank' rel='noreferrer noopener'>Code of Conduct</a></div>
+                <div className='mt-2'><a href='/brochure' target='_blank' rel='noreferrer noopener'>Download Brochure</a></div>
             </Col>
         );
     }
 
     return (
-        <div className='text-justify text-light mx-4' style={{ fontSize: '1.4rem' }}>
+        <div className='text-justify text-light mx-4 about-us'>
             {generateHeading(content.heading)}
-            <p className='mt-3'>{content.description}</p>
-            <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>csivit.com</a>
+            <p className='mt-4 description'>{content.description}</p>
+            <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
             <Row className='mt-5'>
                 {generateFindUsContent()}
                 {generateContactUsContent()}
@@ -298,49 +323,75 @@ function generateAboutUsFeatures() {
     );
 }
 
-function generateWorkshops() {
-    const speakers = [
-        {
-            name: 'WATSON AI',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
-        },
-        {
-            name: 'WATSON AI',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
-        },
-        {
-            name: 'WATSON AI',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
-        }
-    ]
-    function generateSpeakerCards(speaker) {
+function generateSpeakerCards(speakers) {
+    function generateCards(speaker) {
         return (
             <div className="speaker-div p-4">
                 <img className="mx-auto d-block speaker-img" src={speakerImg} alt="..."></img>
                 <p className="font-weight-bold talk-name">{speaker.name}</p>
                 <h4 className="font-italic">{speaker.company}</h4>
-                <p>{speaker.description}</p>
+                <p className="workshop-description">{speaker.description}</p>
             </div>
         )
     }
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={3}>
-                {generateSpeakerCards(speaker)}
+            <Col key={speaker.name} md={3} className="d-flex justify-content-center text-center">
+                {generateCards(speaker)}
             </Col>
         ));
     }
     return (
         <div>
+            <h2 className="top-description pl-5 ml-5">Something to make workshop sound interesting</h2>
+            <h2 className="top-description pl-5 ml-5">Something to make workshop sound interesting</h2>
             <Row className="justify-content-center">
                 {workshops}
             </Row>
         </div>
     )
+}
+function generateWorkshops() {
+    const speakers = [
+        {
+            name: 'WATSON AI1',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI2',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI3',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        }
+    ]
+    return generateSpeakerCards(speakers);
+}
+
+function generateTalks() {
+    const speakers = [
+        {
+            name: 'WATSON AI1',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI2',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        },
+        {
+            name: 'WATSON AI3',
+            company: 'by IBM',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        }
+    ]
+    return generateSpeakerCards(speakers);
 }
 
 function App() {
@@ -380,7 +431,9 @@ function App() {
                 Section({
                     headingText: 'TALKS',
                     content: (
-                        <Container></Container>
+                        <Container fluid={true}>
+                            {generateTalks()}
+                        </Container>
                     ),
                     headingAlignment: 'right',
                     bgcolor: colors.notsoblack

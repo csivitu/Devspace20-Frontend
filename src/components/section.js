@@ -20,6 +20,7 @@ export default function Section(props) {
 
     useEffect(() => {
         window.addEventListener('resize', setHeadingHeight);
+        window.addEventListener('load', setHeadingHeight);
         setHeadingHeight();
     });
     if (props.headingAlignment && props.headingAlignment === 'right') {
