@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import shortid from 'shortid';
+import queryString from 'query-string';
 
 import githubLogo from './assets/images/github.png';
 import speakerImg from './assets/images/speaker.png';
@@ -550,7 +551,21 @@ function App() {
                         localStorage.setItem('state', oauthState);
                         window.location.href = `${process.env.REACT_APP_ACCOUNTS_URL}/oauth/authorize?clientId=${process.env.REACT_APP_CLIENT_ID}&state=${oauthState}&redirectUrl=${redirectUrl}`;
                         return null;
-                    }}></Route>
+                    }} />
+
+                    <Route path='/oauth/token' component={({ match, location }) => {
+                        const search = queryString.parse(location.search);
+                        const token = search.token;
+                        const state = search.state;
+
+                        // Only accept token if state matches
+                        if (state === localStorage.getItem('state')) {
+                            localStorage.setItem('token', token);
+                            localStorage.removeItem('state');
+                        }
+                        // this.isLoggedIn();
+                        return <Redirect to='/' />
+                    }} />
                 </Switch>
             </div>
         </Router>
