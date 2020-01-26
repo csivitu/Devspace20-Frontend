@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from './components/section';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import shortid from 'shortid';
 import queryString from 'query-string';
+import Lottie from 'react-lottie';
+
+import menuIcon from './assets/images/menu-V3.json';
+import devspaceBluWht from './assets/images/DSBluWht.svg';
 
 import githubLogo from './assets/images/github.png';
 import speakerImg from './assets/images/speaker.png';
@@ -284,7 +288,6 @@ function generateAboutUsFeatures() {
                     className='map-frame mt-3'
                     src={mapLink}
                     frameborder="0"
-                    allowfullscreen=""
                     alt="Anna Auditorium"
                     title='Map' />
             </Col>
@@ -495,6 +498,35 @@ function generateInThePast() {
         </div>
     )
 }
+
+function DevspaceNavbar() {
+    const [opened, setOpened] = useState(false);
+    const [stopped, setStopped] = useState(true);
+    return (
+        <Navbar fixed="top" bg="dark" variant="dark" className="p-3 devspaceNav">
+            <div class="navbar-menu-icon" onClick={() => {
+                        setOpened(!opened);
+                        setStopped(false);
+                    }}>
+                <Lottie options={{
+                    animationData: menuIcon,
+                    autoplay: false,
+                    loop: false
+                }}
+                    isClickToPauseDisabled={true}
+                    height={32}
+                    width={32}
+                    speed={2}
+                    direction={opened ? 1 : -1}
+                    isStopped={stopped} />
+            </div>
+            <Nav className="ml-auto">
+                <img src={devspaceBluWht} class="devspaceLogo" alt="Devspace Logo"></img>
+            </Nav>
+        </Navbar>
+    )
+}
+
 function App() {
     const colors = {
         white: '#fffaff',
@@ -511,6 +543,8 @@ function App() {
                     <Route exact path='/' component={() => {
                         return (
                             <>
+                            {DevspaceNavbar()}
+                            <div className="mt-5"></div>
                                 {Section({
                                     headingText: 'DEVSPACE',
                                     content: (

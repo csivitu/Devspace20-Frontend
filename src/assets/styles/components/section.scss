@@ -1,10 +1,10 @@
 .section-content {
-  width: 85%;
+  width: 88%;
   min-height: 100vh;
 }
 
 .section-heading {
-  width: 15%;
+  width: 12%;
 
   .section-heading-text {
     font-size: 8rem;
@@ -12,7 +12,7 @@
     font-family: LangdonFont;
     writing-mode: vertical-lr;
     position: sticky;
-    top: 0;
+    top: 4.7rem;
     width:100%;
     text-transform: uppercase;
     color: $black;
