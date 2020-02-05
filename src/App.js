@@ -116,7 +116,7 @@ function generateRegistrationFeatures(loggedIn) {
                 return (
                     <Link to="/pay" className="reg-link">
                         <form method="post">
-                            <input type="text" value={localStorage.getItem('token')} readOnly hidden />
+                            <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
                             <button className="register-button mx-auto">{event.button}</button>
                         </form>
                     </Link>
