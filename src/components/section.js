@@ -50,6 +50,7 @@ export default function Section(props) {
             </div>
             <div
                 ref={sectionContentRef}
+                name={props.name}
                 style={{
                     backgroundColor: props.bgcolor,
                     zIndex: sectionLayer,

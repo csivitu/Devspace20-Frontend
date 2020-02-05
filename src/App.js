@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 import queryString from 'query-string';
 import Lottie from 'react-lottie';
+import scroll, { Link as ScrollLink } from 'react-scroll';
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht.svg';
@@ -266,6 +267,41 @@ function generateFAQCards() {
         </Row>
     )
 }
+
+function generateSocialMediaIcons() {
+    return (
+        <>
+            <a
+                href='https://facebook.com/csivitu'
+                target='_blank'
+                className='w-12 social-media-icon'
+                rel='noreferrer noopener'>
+                <img src={facebookIcon} alt='' className='w-100' />
+            </a>
+            <a
+                href='https://github.com/csivitu'
+                target='_blank'
+                className='w-12 social-media-icon'
+                rel='noreferrer noopener'>
+                <img src={githubIcon} alt='' className='w-100' />
+            </a>
+            <a
+                href='https://instagram.com/csivitu'
+                target='_blank'
+                className='w-12 social-media-icon'
+                rel='noreferrer noopener'>
+                <img src={instagramIcon} alt='' className='w-100' />
+            </a>
+            <a
+                href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'
+                target='_blank'
+                className='w-12 social-media-icon'
+                rel='noreferrer noopener'>
+                <img src={linkedinIcon} alt='' className='w-100' />
+            </a>
+        </>
+    );
+}
 function generateAboutUsFeatures() {
     const content = {
         'heading': 'Computer Society of India - Vellore Institute of Technology',
@@ -309,34 +345,7 @@ function generateAboutUsFeatures() {
                 </div>
 
                 <div className='d-flex justify-content-between w-60 mt-4'>
-                    <a
-                        href='https://facebook.com/csivitu'
-                        target='_blank'
-                        className='w-12'
-                        rel='noreferrer noopener'>
-                        <img src={facebookIcon} alt='' className='w-100' />
-                    </a>
-                    <a
-                        href='https://github.com/csivitu'
-                        target='_blank'
-                        className='w-12'
-                        rel='noreferrer noopener'>
-                        <img src={githubIcon} alt='' className='w-100' />
-                    </a>
-                    <a
-                        href='https://instagram.com/csivitu'
-                        target='_blank'
-                        className='w-12'
-                        rel='noreferrer noopener'>
-                        <img src={instagramIcon} alt='' className='w-100' />
-                    </a>
-                    <a
-                        href='https://linkedin.com/company/computer-society-of-india-vit-student-chapter/'
-                        target='_blank'
-                        className='w-12'
-                        rel='noreferrer noopener'>
-                        <img src={linkedinIcon} alt='' className='w-100' />
-                    </a>
+                    {generateSocialMediaIcons()}
                 </div>
 
                 <div className='mt-4'>View <a href='/codeofconduct' target='_blank' rel='noreferrer noopener'>Code of Conduct</a></div>
@@ -346,7 +355,7 @@ function generateAboutUsFeatures() {
     }
 
     return (
-        <div className='text-justify text-light mx-4 about-us'>
+        <div className='text-justify text-light mx-4 about-us mt-3'>
             {generateHeading(content.heading)}
             <p className='mt-4 description'>{content.description}</p>
             <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
@@ -499,31 +508,97 @@ function generateInThePast() {
     )
 }
 
+function Sidebar(open) {
+    const sidebarLinks = [{
+        section: "Home",
+        link: null
+    },
+    {
+        section: "In Devspace",
+        link: 'features'
+    },
+    {
+        section: "Workshops",
+        link: 'workshops'
+    },
+    {
+        section: "Talks",
+        link: 'talks'
+    },
+    {
+        section: "Hackathon",
+        link: 'hackathon'
+    },
+    {
+        section: "Register!",
+        link: 'register'
+    },
+    {
+        section: "Past Collaborators",
+        link: 'collabs'
+    }, {
+        section: "Devspace 2019",
+        link: 'inThePast',
+    }, {
+        section: "FAQs",
+        link: 'faq',
+    }, {
+        section: "About Us",
+        link: 'aboutUs',
+    }];
+
+    const sideBarLinksElems = [];
+
+    for (const sectionLink of sidebarLinks) {
+        sideBarLinksElems.push((
+                <ScrollLink className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={500} offset= {-60} activeClass="active">
+                    {sectionLink.section}
+                </ScrollLink>
+        ));
+    }
+    return (
+        <div className={classnames("sidebar", {
+            open: open
+        })}>
+            {sideBarLinksElems}
+            <div class="social-media">
+                {generateSocialMediaIcons()}
+            </div>
+        </div>
+    )
+}
+
+
 function DevspaceNavbar() {
     const [opened, setOpened] = useState(false);
     const [stopped, setStopped] = useState(true);
+
     return (
-        <Navbar fixed="top" bg="dark" variant="dark" className="p-3 devspaceNav">
-            <div class="navbar-menu-icon" onClick={() => {
-                        setOpened(!opened);
-                        setStopped(false);
-                    }}>
-                <Lottie options={{
-                    animationData: menuIcon,
-                    autoplay: false,
-                    loop: false
-                }}
-                    isClickToPauseDisabled={true}
-                    height={32}
-                    width={32}
-                    speed={2}
-                    direction={opened ? 1 : -1}
-                    isStopped={stopped} />
-            </div>
-            <Nav className="ml-auto">
-                <img src={devspaceBluWht} class="devspaceLogo" alt="Devspace Logo"></img>
-            </Nav>
-        </Navbar>
+        <>
+            <Navbar fixed="top" bg="dark" variant="dark" className="p-3 devspaceNav">
+                <div class="navbar-menu-icon" onClick={() => {
+                    setOpened(!opened);
+                    setStopped(false);
+                }}>
+                    <Lottie options={{
+                        animationData: menuIcon,
+                        autoplay: false,
+                        loop: false
+                    }}
+                        isClickToPauseDisabled={true}
+                        height={32}
+                        width={32}
+                        speed={2}
+                        direction={opened ? 1 : -1}
+                        isStopped={stopped} />
+                </div>
+                <Nav className="ml-auto">
+                    <img src={devspaceBluWht} class="devspaceLogo" alt="Devspace Logo"></img>
+                </Nav>
+            </Navbar>
+
+            {Sidebar(opened)}
+        </>
     )
 }
 
@@ -543,10 +618,11 @@ function App() {
                     <Route exact path='/' component={() => {
                         return (
                             <>
-                            {DevspaceNavbar()}
-                            <div className="mt-5"></div>
+                                {DevspaceNavbar()}
+                                <div className="mt-5"></div>
                                 {Section({
                                     headingText: 'DEVSPACE',
+                                    name: 'features',
                                     content: (
                                         <Container fluid={true} className="pt-3">
                                             {generateDevspaceFeatures()}
@@ -558,6 +634,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'WORKSHOPS',
+                                        name: 'workshops',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateWorkshops()}
@@ -570,6 +647,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'TALKS',
+                                        name: 'talks',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateTalks()}
@@ -579,7 +657,7 @@ function App() {
                                         bgcolor: colors.notsoblack
                                     })
                                 }
-                                <div className="hackathon">
+                                <div name='hackathon' className="hackathon">
                                     <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
                                     <div className="bg-dark hackathon-details pb-5">
                                         <p className="text-light p-5 hackathon-description text-justify">
@@ -591,6 +669,7 @@ function App() {
                                 </div>
                                 {Section({
                                     headingText: 'REGISTER',
+                                    name: 'register',
                                     content: (
                                         <Container className="pt-3" fluid={true}>
                                             {generateRegistrationFeatures()}
@@ -602,6 +681,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'FAQ',
+                                        name: 'faq',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateFAQCards()}
@@ -614,6 +694,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'COLLABS',
+                                        name: 'collabs',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateCollabs()}
@@ -626,6 +707,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'IN THE PAST',
+                                        name: 'inThePast',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateInThePast()}
@@ -638,6 +720,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'ABOUT US',
+                                        name:'aboutUs',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateAboutUsFeatures()}
