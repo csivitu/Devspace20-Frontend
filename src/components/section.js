@@ -8,13 +8,15 @@ export default function Section(props) {
     const sectionContentRef = useRef(null);
 
     function setHeadingHeight() {
-        const height = sectionContentRef.current.clientHeight;
-        const screenWidth = window.innerWidth;
+        if (sectionContentRef.current) {
+            const height = sectionContentRef.current.clientHeight;
+            const screenWidth = window.innerWidth;
 
-        if (screenWidth < 768) {
-            setHeight('initial');
-        } else {
-            setHeight(height);
+            if (screenWidth < 768) {
+                setHeight('initial');
+            } else {
+                setHeight(height);
+            }
         }
     }
 

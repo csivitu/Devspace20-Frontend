@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 import queryString from 'query-string';
 import Lottie from 'react-lottie';
-import { scroller, Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 
 import menuIcon from './assets/images/menu-V3.json';
@@ -18,6 +18,7 @@ import facebookIcon from './assets/images/facebookIcon.svg';
 import githubIcon from './assets/images/githubIcon.svg';
 import instagramIcon from './assets/images/instagramIcon.svg';
 import linkedinIcon from './assets/images/linkedinIcon.svg';
+import devspaceVideo from './assets/videos/dev_10001-0250.m4v';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -90,7 +91,6 @@ function generateRegistrationFeatures(loggedIn) {
         },
     ];
     function registerFeature(event) {
-        console.log(event.isLoggedIn)
         var getClass = {}
         if (event.name === "HACKATHON") {
             getClass.display = "hide"
@@ -104,15 +104,32 @@ function generateRegistrationFeatures(loggedIn) {
         // function registerRoute() {
         //     return '/register';
         // }
+        function paymentLink(button) {
+            if (button === "REGISTER") {
+                return (
+                    <Link to="/login" className="reg-link">
+                        <button className="register-button mx-auto">{event.button}</button>
+                    </Link>
+                )
+            }
+            else {
+                return (
+                    <Link to="/pay" className="reg-link">
+                        <form method="post">
+                            <input type="text" value={localStorage.getItem('token')} readOnly hidden />
+                            <button className="register-button mx-auto">{event.button}</button>
+                        </form>
+                    </Link>
+                )
+            }
+        }
         return (
             <div className={classnames("d-flex", "flex-column", "register-box")}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
                 <div className="mt-auto p-5">
-                    <Link to="/login" className="register-button mx-auto">
-                        {event.button}
-                    </Link>
+                    {paymentLink(event.button)}
                 </div>
             </div>
         )
@@ -170,7 +187,7 @@ function generateCollabs() {
     const features = []
     for (const sponsor of sponsors) {
         features.push((
-            <Col key={sponsor.name} sm={5} md={3}>
+            <Col key={sponsor.name} xs={5} md={3}>
                 <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
             </Col>
         ))
@@ -319,7 +336,7 @@ function generateAboutUsFeatures() {
                 <iframe
                     className='map-frame mt-3'
                     src={mapLink}
-                    frameborder="0"
+                    frameBorder="0"
                     alt="Anna Auditorium"
                     title='Map' />
             </Col>
@@ -479,13 +496,13 @@ function generateInThePast() {
     for (const section of sections) {
         sectionElem.push((
             <Col md={6} lg={4}>
-                <div class="past-card my-3">
+                <div className="past-card my-3">
                     <div
                         className="image-container">
                         <img src={section.image} className="w-100" alt={section.text} />
                     </div>
                     <div className="past-heading-container text-center text-uppercase bg-dark py-2">
-                        <div class="past-heading">
+                        <div className="past-heading">
                             {section.text}
                         </div>
                     </div>
@@ -495,8 +512,8 @@ function generateInThePast() {
     }
 
     return (
-        <div class="p-3">
-            <p class="past-text text-light font-italic">These are our past collaborators/sponeors/something cool vfbgnhjmk,l.</p>
+        <div className="p-3">
+            <p className="past-text text-light font-italic">These are our past collaborators/sponeors/something cool vfbgnhjmk,l.</p>
             <Row>
                 {sectionElem}
             </Row>
@@ -507,7 +524,7 @@ function generateInThePast() {
 function Sidebar(open, setOpen) {
     const sidebarLinks = [{
         section: "Home",
-        link: null
+        link: "features"
     },
     {
         section: "In Devspace",
@@ -550,11 +567,11 @@ function Sidebar(open, setOpen) {
 
     for (const sectionLink of sidebarLinks) {
         sideBarLinksElems.push((
-                <ScrollLink onClick={() => {
-                    setOpen(false);
-                }} className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={600} offset= {-60} activeClass="active">
-                    {sectionLink.section}
-                </ScrollLink>
+            <ScrollLink onClick={() => {
+                setOpen(false);
+            }} className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={600} offset={-60} activeclassname="active" key={sectionLink.section}>
+                {sectionLink.section}
+            </ScrollLink>
         ));
     }
     return (
@@ -562,7 +579,7 @@ function Sidebar(open, setOpen) {
             open: open
         })}>
             {sideBarLinksElems}
-            <div class="social-media">
+            <div className="social-media">
                 {generateSocialMediaIcons()}
             </div>
         </div>
@@ -577,7 +594,7 @@ function DevspaceNavbar() {
     return (
         <>
             <Navbar fixed="top" bg="dark" variant="dark" className="p-3 devspaceNav">
-                <div class="navbar-menu-icon" onClick={() => {
+                <div className="navbar-menu-icon" onClick={() => {
                     setOpened(!opened);
                     setStopped(false);
                 }}>
@@ -594,7 +611,7 @@ function DevspaceNavbar() {
                         isStopped={stopped} />
                 </div>
                 <Nav className="ml-auto">
-                    <img src={devspaceBluWht} class="devspaceLogo" alt="Devspace Logo"></img>
+                    <img src={devspaceBluWht} className="devspaceLogo" alt="Devspace Logo"></img>
                 </Nav>
             </Navbar>
 
@@ -603,13 +620,42 @@ function DevspaceNavbar() {
     )
 }
 
+function landingPage() {
+    return (
+        <div>
+            <Row className="content">
+                <Col lg={2}></Col>
+                <Col lg={10}>
+                    <Row>
+                        <img src={devspaceBluWht} alt="..." className="devspace-logo"></img>
+                    </Row>
+                    <Row>
+                        <p className="description">20th - 22nd March</p>
+                        <p className="description">Vellore Institute of Technology, Vellore</p>
+                    </Row>
+                    <Row>
+                        <button className="register-button">REGISTER</button>
+                    </Row>
+                </Col>
+            </Row>
+            <video src={devspaceVideo} className="video" autoPlay></video>
+        </div>
+    )
+}
+
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
     useEffect(() => {
-        if(loggedIn) {
-            scroller.scrollTo('register');
+        if (localStorage.getItem('token') === null) {
+            setloggedIn(false);
         }
-    })
+        else {
+            setloggedIn(true);
+        }
+        // if (loggedIn) {
+        //     scroller.scrollTo('register');
+        // }
+    }, [loggedIn])
     const colors = {
         white: '#fffaff',
         blue: '#00D5FF',
@@ -627,6 +673,7 @@ function App() {
                             <>
                                 {DevspaceNavbar()}
                                 <div className="mt-5"></div>
+                                {landingPage()}
                                 {Section({
                                     headingText: 'DEVSPACE',
                                     name: 'features',
@@ -764,6 +811,11 @@ function App() {
                     }} />
                     <Route path='/pay' component={() => {
 
+                    }} />
+                    <Route path='/logout' component={() => {
+                        localStorage.removeItem('token');
+                        setloggedIn(false);
+                        return <Redirect to='/' />;
                     }} />
                 </Switch>
             </div>
