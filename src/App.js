@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Section from './components/section';
 import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import classnames from 'classnames';
 import shortid from 'shortid';
 import queryString from 'query-string';
 import Lottie from 'react-lottie';
-import { Link as ScrollLink } from 'react-scroll';
+import { scroller, Link as ScrollLink } from 'react-scroll';
+
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht.svg';
@@ -73,50 +74,45 @@ function generateDevspaceFeatures() {
 
 }
 
-function generateRegistrationFeatures() {
+function generateRegistrationFeatures(loggedIn) {
+
     const events = [
         {
             name: 'HACKATHON',
-            description: 'Grab your tickets early for lesser something something content pls blah blah access to talks'
-        },
-        {
-            name: 'DEVSPACE EARLY BIRD',
             description: 'Grab your tickets early for lesser something something content pls blah blah access to talks',
-            cost: '₹ 275'
+            isLoggedIn: loggedIn.toString()
         },
         {
             name: 'DEVSPACE',
             description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
-            cost: '₹₹₹'
-        }
+            cost: '₹₹₹',
+            isLoggedIn: loggedIn.toString()
+        },
     ];
     function registerFeature(event) {
-        const classes = {
-            active: "register-box",
-            inactive: "register-box-inactive"
-        }
+        console.log(event.isLoggedIn)
         var getClass = {}
-        if (event.name === "DEVSPACE") {
-            getClass.box = classes.inactive;
-        }
-        else {
-            getClass.box = classes.active
-        }
         if (event.name === "HACKATHON") {
             getClass.display = "hide"
         }
-
-        function registerRoute() {
-            return '/register';
+        if (event.isLoggedIn === "true") {
+            event.button = "PAY NOW"
         }
-
+        else {
+            event.button = "REGISTER"
+        }
+        // function registerRoute() {
+        //     return '/register';
+        // }
         return (
-            <div className={classnames("d-flex", "flex-column " + getClass.box)}>
+            <div className={classnames("d-flex", "flex-column", "register-box")}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
                 <div className="mt-auto p-5">
-                    <button className="register-button mx-auto" onClick={registerRoute}>REGISTER</button>
+                    <Link to="/login" className="register-button mx-auto">
+                        {event.button}
+                    </Link>
                 </div>
             </div>
         )
@@ -608,6 +604,12 @@ function DevspaceNavbar() {
 }
 
 function App() {
+    const [loggedIn, setloggedIn] = useState(false);
+    useEffect(() => {
+        if(loggedIn) {
+            scroller.scrollTo('register');
+        }
+    })
     const colors = {
         white: '#fffaff',
         blue: '#00D5FF',
@@ -677,7 +679,7 @@ function App() {
                                     name: 'register',
                                     content: (
                                         <Container className="pt-3" fluid={true}>
-                                            {generateRegistrationFeatures()}
+                                            {generateRegistrationFeatures(loggedIn)}
                                         </Container>
                                     ),
                                     headingAlignment: 'right',
@@ -725,7 +727,7 @@ function App() {
                                 {
                                     Section({
                                         headingText: 'ABOUT US',
-                                        name:'aboutUs',
+                                        name: 'aboutUs',
                                         content: (
                                             <Container fluid={true}>
                                                 {generateAboutUsFeatures()}
@@ -757,7 +759,11 @@ function App() {
                             localStorage.removeItem('state');
                         }
                         // this.isLoggedIn();
+                        setloggedIn(true);
                         return <Redirect to='/' />
+                    }} />
+                    <Route path='/pay' component={() => {
+
                     }} />
                 </Switch>
             </div>

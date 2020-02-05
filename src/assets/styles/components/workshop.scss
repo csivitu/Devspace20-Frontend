@@ -4,17 +4,18 @@
 }
 
 .talk-name {
-    font-size: 2.2vw;
+    font-size: 1.2rem;
 }
 
 .top-description {
     color: white;
-    font: Italic 2vw Droid Serif;
+    font: Italic 1rem Droid Serif;
     margin-top: 2vh;
+    text-justify: auto;
 }
 
 .workshop-description {
-    font-size: 1vw;
+    font-size: 1rem;
 }
 .speaker-img {
     margin-top: -10em;
@@ -29,7 +30,10 @@
         width: 70%;
     }
     .speaker-div {
-        width: 50%;
-        margin-bottom: 1rem
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+    .speaker-img {
+        margin-top: -10em;
     }
 }
