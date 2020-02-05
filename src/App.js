@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 import queryString from 'query-string';
 import Lottie from 'react-lottie';
-import scroll, { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht.svg';
@@ -508,7 +508,7 @@ function generateInThePast() {
     )
 }
 
-function Sidebar(open) {
+function Sidebar(open, setOpen) {
     const sidebarLinks = [{
         section: "Home",
         link: null
@@ -534,15 +534,18 @@ function Sidebar(open) {
         link: 'register'
     },
     {
-        section: "Past Collaborators",
-        link: 'collabs'
-    }, {
-        section: "Devspace 2019",
-        link: 'inThePast',
-    }, {
         section: "FAQs",
         link: 'faq',
-    }, {
+    },
+    {
+        section: "Past Collaborators",
+        link: 'collabs'
+    },
+    {
+        section: "Devspace 2019",
+        link: 'inThePast',
+    },
+    {
         section: "About Us",
         link: 'aboutUs',
     }];
@@ -551,7 +554,9 @@ function Sidebar(open) {
 
     for (const sectionLink of sidebarLinks) {
         sideBarLinksElems.push((
-                <ScrollLink className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={500} offset= {-60} activeClass="active">
+                <ScrollLink onClick={() => {
+                    setOpen(false);
+                }} className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={600} offset= {-60} activeClass="active">
                     {sectionLink.section}
                 </ScrollLink>
         ));
@@ -597,7 +602,7 @@ function DevspaceNavbar() {
                 </Nav>
             </Navbar>
 
-            {Sidebar(opened)}
+            {Sidebar(opened, setOpened)}
         </>
     )
 }

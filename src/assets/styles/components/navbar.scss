@@ -27,6 +27,12 @@
         font-size: 1.4rem;
         color: $white;
         padding: 0.4rem 1.2rem;
+
+        &:hover {
+            background-color: $black; 
+            color: $white;
+            cursor: pointer;  
+        }
     }
 
     .active {
@@ -52,10 +58,12 @@
 @media screen and (max-width: 1024px) {
     .sidebar {
         width: 40vw;
+        left: -40vw;
     }
 }
 @media screen and (max-width: 768px) {
     .sidebar {
         width: 75vw;
+        left: -75vw;
     }
 }
