@@ -114,12 +114,12 @@ function generateRegistrationFeatures(loggedIn) {
             }
             else {
                 return (
-                    <Link to="/api/pay" className="reg-link">
-                        <form method="post">
+                    <div className="reg-link">
+                        <form action="/api/pay" method="post">
                             <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
                             <button className="register-button mx-auto">{event.button}</button>
                         </form>
-                    </Link>
+                    </div>
                 )
             }
         }
