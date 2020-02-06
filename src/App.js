@@ -114,7 +114,7 @@ function generateRegistrationFeatures(loggedIn) {
             }
             else {
                 return (
-                    <Link to="/pay" className="reg-link">
+                    <Link to="/api/pay" className="reg-link">
                         <form method="post">
                             <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
                             <button className="register-button mx-auto">{event.button}</button>
@@ -808,9 +808,6 @@ function App() {
                         // this.isLoggedIn();
                         setloggedIn(true);
                         return <Redirect to='/' />
-                    }} />
-                    <Route path='/pay' component={() => {
-
                     }} />
                     <Route path='/logout' component={() => {
                         localStorage.removeItem('token');
