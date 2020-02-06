@@ -370,7 +370,7 @@ function generateAboutUsFeatures() {
     return (
         <div className='text-justify text-light mx-4 about-us mt-3'>
             {generateHeading(content.heading)}
-            <p className='mt-4 description'>{content.description}</p>
+            <p className='mt-4 main-description'>{content.description}</p>
             <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
             <Row>
                 {generateFindUsContent()}
