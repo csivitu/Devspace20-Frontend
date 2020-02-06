@@ -124,7 +124,7 @@ function generateRegistrationFeatures(loggedIn) {
             }
         }
         return (
-            <div className={classnames("d-flex", "flex-column", "register-box")}>
+            <div className={classnames("d-flex", "flex-column", "register-box", "mx-4")}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
@@ -213,7 +213,7 @@ function generateCollabs() {
     }
     return (
         <div className="px-4">
-            <p className="collabs-heading">These are our past collaborators</p>
+            <p className="section-content-heading">These are our past collaborators</p>
             <Row className="justify-content-center">
                 {features}
             </Row>
@@ -384,7 +384,9 @@ function generateSpeakerCards(speakers) {
     function generateCards(speaker) {
         return (
             <div className="speaker-div p-4">
-                <img className="mx-auto d-block speaker-img" src={speakerImg} alt="..."></img>
+                <div className="speaker-img mx-auto">
+                    <img className="w-100 d-block" src={speakerImg} alt="..."></img>
+                </div>
                 <p className="font-weight-bold talk-name">{speaker.name}</p>
                 <h4 className="font-italic">{speaker.company}</h4>
                 <p className="workshop-description">{speaker.description}</p>
@@ -401,8 +403,8 @@ function generateSpeakerCards(speakers) {
     }
     return (
         <div>
-            <h2 className="top-description pl-5 ml-5">Something to make workshop sound interesting</h2>
-            <h2 className="top-description pl-5 ml-5">Something to make workshop sound interesting</h2>
+            <h2 className="section-content-heading pl-5 ml-5">Something to make workshop sound interesting</h2>
+            <h2 className="section-content-heading pl-5 ml-5">Something to make workshop sound interesting</h2>
             <Row className="justify-content-center">
                 {workshops}
             </Row>
@@ -513,7 +515,7 @@ function generateInThePast() {
 
     return (
         <div className="p-3">
-            <p className="past-text text-light font-italic">These are our past collaborators/sponeors/something cool vfbgnhjmk,l.</p>
+            <p className="section-content-heading text-light font-italic">These are our past collaborators/sponeors/something cool vfbgnhjmk,l.</p>
             <Row>
                 {sectionElem}
             </Row>
@@ -569,7 +571,7 @@ function Sidebar(open, setOpen) {
         sideBarLinksElems.push((
             <ScrollLink onClick={() => {
                 setOpen(false);
-            }} className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={600} offset={-60} activeclassname="active" key={sectionLink.section}>
+            }} className="sidebar-link" to={sectionLink.link} spy={true} smooth={true} duration={400} offset={-60} activeclassname="active" key={sectionLink.section}>
                 {sectionLink.section}
             </ScrollLink>
         ));

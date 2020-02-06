@@ -49,6 +49,13 @@ a {
     background-color: $black;
 }
 
+.section-content-heading {
+    font-size: 1.5rem;
+    color: $white;
+    font-family: Droid serif;
+    font-style: italic;
+}
+
 @font-face {
     font-family: 'LangdonFont';
     src: url('../fonts/Langdon.otf');

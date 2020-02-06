@@ -20,9 +20,13 @@
 .speaker-img {
     margin-top: -10em;
     border: 0.6em solid $blue;
-    box-shadow: 4px -4px $red;
+    box-shadow: 0.2rem -0.2rem $red;
     z-index: 5;
     width: 100%;
+
+    img {
+        box-shadow: 0 0.125rem 0.25rem $notsoblack;
+    }
 }
 
 @media (max-width: 780px) {
