@@ -10,7 +10,7 @@ import { Link as ScrollLink } from 'react-scroll';
 
 
 import menuIcon from './assets/images/menu-V3.json';
-import devspaceBluWht from './assets/images/DSBluWht.svg';
+import devspaceBluWht from './assets/images/DSBluWht_1@4x.png';
 
 import githubLogo from './assets/images/github.png';
 import speakerImg from './assets/images/speaker.png';
@@ -23,20 +23,20 @@ import devspaceVideo from './assets/videos/dev_10001-0250.m4v';
 function generateDevspaceFeatures() {
     const devspaceContent = [
         {
-            heading: "Reinvening Experience",
-            content: "An investment in knowledge earns the highest dividends; come have a hands-on session in workshops that equip you for the future."
+            heading: "Redesigning Innovation",
+            content: "In a world driven by the need for constant innovation, learn how to step away from the status quo from the people who did it themselves."
         },
         {
             heading: "Inspiring Keynotes",
-            content: "An investment in knowledge earns the highest dividends; come have a hands-on session in workshops that equip you for the future."
+            content: "We can only achieve as much as we aim to. Hear from people who achieved the impossible and experience their passion and enthusiasm."
         },
         {
-            heading: "Learning Sessions",
-            content: "An investment in knowledge earns the highest dividends; come have a hands-on session in workshops that equip you for the future."
+            heading: "Interactive Learning",
+            content: "An investment in knowledge returns the highest dividends; take workshops from professionals who are as involved in your learning as you are."
         },
         {
             heading: "Hackathon",
-            content: "An investment in knowledge earns the highest dividends; come have a hands-on session in workshops that equip you for the future."
+            content: "Our flagship hackathon demands the technology of the future, the innovations that will change the industry, ideas that will change the world. Do you have what it takes?"
         }
     ];
 
@@ -86,7 +86,7 @@ function generateRegistrationFeatures(loggedIn) {
         {
             name: 'DEVSPACE',
             description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
-            cost: '₹₹₹',
+            cost: '₹250',
             isLoggedIn: loggedIn.toString()
         },
     ];
@@ -225,28 +225,28 @@ function generateCollabs() {
 function generateFAQCards() {
     const faqs = [
         {
-            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
+            q: 'How is Devspace different from other hackathons?',
+            a: 'Devspace is more than a hackathon, it also consists of expert talks and workshops conducted by industry professionals.'
         },
         {
-            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
+            q: 'Do I need to pay for the hackathon?',
+            a: 'No, the hackathon is completely free of cost. Devspace registration fees are only for the opportunity to interact with industry experts at the hands on workshops and talks.'
         },
         {
-            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
+            q: 'What is the filtering process for the hackathon?',
+            a: 'We\'re looking for you, an innovator, creator, dreamer who can make ideas come to life. All filtering processes will be carried out via Devfolio, so just apply and leave the rest to us.'
         },
         {
-            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
+            q: 'Can we participate in teams for the hackathon?',
+            a: 'A team can consist of 2-5 members once the filtering process has been completed.'
         },
         {
-            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
+            q: 'Error 404: team not found',
+            a: 'Don\'t worry! All individual participants will be provided teams on the spot'
         },
         {
-            q: 'Lorem ipsum dolor sit amet, consectutur adipiscing elit?',
-            a: 'When opportunities walk to you, grab them! A chance to see the functioning of industries, come and be a part of our startup expo.'
+            q: 'How will I know if I\'ve been registered or not?',
+            a: 'After registering online, you will receive a confirmation email with transaction details from csivit.'
         }
     ];
 
@@ -318,7 +318,7 @@ function generateSocialMediaIcons() {
 function generateAboutUsFeatures() {
     const content = {
         'heading': 'Computer Society of India - Vellore Institute of Technology',
-        'description': 'Computer Society of India - VIT Student Branch is composed of skilled designers, developers and tech enthusiasts working together to present a variety of solutions, services and products. To push technology forward, we organize several events, workshops and hackathons year in and out.',
+        'description': 'The Computer Society of India is the largest body of non-profit computer professionals in India. We are a group of skilled designers, developers and tech enthusiasts who engage in pushing technology forward. We organise a wide range of workshops, conferences, competitions and non-technical events to facilitate the growth of participants. Visit our website, csivit.com, to see more of who we are and the work we do.',
     };
 
     const mapLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0287333403357!2d79.15346681537353!3d12.97001319085699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad47a01ae8e111%3A0x9575db6fe3bc68e2!2sAnna%20Auditorium!5e0!3m2!1sen!2sin!4v1579975266924!5m2!1sen!2sin";
@@ -361,7 +361,7 @@ function generateAboutUsFeatures() {
                     {generateSocialMediaIcons()}
                 </div>
 
-                <div className='mt-4'>View <a href='/codeofconduct' target='_blank' rel='noreferrer noopener'>Code of Conduct</a></div>
+                <div className='mt-4'>View <a href='https://devfolio.co/code-of-conduct' target='_blank' rel='noreferrer noopener'>Code of Conduct</a></div>
                 <div className='mt-2'><a href='/brochure' target='_blank' rel='noreferrer noopener'>Download Brochure</a></div>
             </Col>
         );
@@ -456,40 +456,40 @@ function generateTalks() {
 function generateInThePast() {
     const sections = [
         {
-            image: require("./assets/images/devspace_audi.jpg"),
+            image: require("./assets/images/inthepast1.jpg"),
             text: 'Biggest gathering in VIT'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast2.jpg"),
+            text: 'Speakers from renowned Companies'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast3.jpg"),
+            text: 'Lots of schwags'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast4.jpg"),
+            text: 'Feel the passion'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast5.jpg"),
+            text: 'Biggest developers conference'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast6.jpg"),
+            text: 'Awesome Talks'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast7.jpg"),
+            text: 'Interact with speakers'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast8.jpg"),
+            text: 'No Game, No Life'
         },
         {
-            image: require("./assets/images/devspace_audi.jpg"),
-            text: 'Biggest gathering in VIT'
+            image: require("./assets/images/inthepast9.jpg"),
+            text: 'Personalized guidance'
         },
     ];
 
@@ -497,7 +497,7 @@ function generateInThePast() {
     const sectionElem = [];
     for (const section of sections) {
         sectionElem.push((
-            <Col md={6} lg={4}>
+            <Col key={section.text} md={6} lg={4}>
                 <div className="past-card my-3">
                     <div
                         className="image-container">
@@ -526,7 +526,7 @@ function generateInThePast() {
 function Sidebar(open, setOpen) {
     const sidebarLinks = [{
         section: "Home",
-        link: "features"
+        link: "landing"
     },
     {
         section: "In Devspace",
@@ -624,7 +624,7 @@ function DevspaceNavbar() {
 
 function landingPage() {
     return (
-        <div>
+        <div name="landing">
             <Row className="content">
                 <Col lg={2}></Col>
                 <Col lg={10}>
@@ -717,7 +717,7 @@ function App() {
                                     <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
                                     <div className="bg-dark hackathon-details pb-5">
                                         <p className="text-light p-5 hackathon-description text-justify">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie enim in est suscipit, sit amet tincidunt dolor aliquet. Duis quis quam ex. Quisque molestie lorem eget congue laoreet.
+                                        In our signature 36-hour hack, participants proposed and implemented solutions using emerging technologies such as Machine Learning, Artificial Intelligence, Augmented and Virtual Reality, Blockchain and Fintech or by innovating in various fields such as Defense and Surveillance, Space and Technology, Education Tech and Entertainment Tech. Each team was given the creative freedom to implement their innovative ideas through an application or a prototype. 
                                 </p>
                                         <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
                                         <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
