@@ -416,17 +416,17 @@ function generateWorkshops() {
         {
             name: 'WATSON AI1',
             company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+            description: 'Learn how to use IBM Watson\'s platform'
         },
         {
-            name: 'WATSON AI2',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+            name: 'Competitive Coding',
+            company: 'by Coding Blocks',
+            description: 'Learn the do\'s and dont\'s of the coding world'
         },
         {
-            name: 'WATSON AI3',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+            name: 'Voice UI ',
+            company: 'by Amazon',
+            description: 'Learn how to make Alexa sing to your tune'
         }
     ]
     return generateSpeakerCards(speakers);
@@ -435,19 +435,19 @@ function generateWorkshops() {
 function generateTalks() {
     const speakers = [
         {
-            name: 'WATSON AI1',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+            name: 'Mohan Ram',
+            company: 'Digital Ocean',
+            description: 'Simplifying the Cloud a session on scaling'
         },
         {
-            name: 'WATSON AI2',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+            name: 'LAWRENCE MOHANRAJ',
+            company: 'IBM',
+            description: 'Embracing innovation in the digital era'
         },
         {
-            name: 'WATSON AI3',
-            company: 'by IBM',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+            name: 'VISHWAPRASATH K.S.',
+            company: 'Mozilla',
+            description: 'Web AR & Mixed reality on browsers'
         }
     ]
     return generateSpeakerCards(speakers);
