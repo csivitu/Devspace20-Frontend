@@ -114,12 +114,12 @@ function generateRegistrationFeatures(loggedIn) {
             }
             else {
                 return (
-                    <Link to="/pay" className="reg-link">
-                        <form method="post">
+                    <div className="reg-link">
+                        <form action="/api/pay" method="post">
                             <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
                             <button className="register-button mx-auto">{event.button}</button>
                         </form>
-                    </Link>
+                    </div>
                 )
             }
         }
@@ -370,7 +370,7 @@ function generateAboutUsFeatures() {
     return (
         <div className='text-justify text-light mx-4 about-us mt-3'>
             {generateHeading(content.heading)}
-            <p className='mt-4 description'>{content.description}</p>
+            <p className='mt-4 main-description'>{content.description}</p>
             <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
             <Row>
                 {generateFindUsContent()}
@@ -810,9 +810,6 @@ function App() {
                         // this.isLoggedIn();
                         setloggedIn(true);
                         return <Redirect to='/' />
-                    }} />
-                    <Route path='/pay' component={() => {
-
                     }} />
                     <Route path='/logout' component={() => {
                         localStorage.removeItem('token');
