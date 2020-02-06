@@ -23,6 +23,7 @@ before_script:
   - ssh-keyscan $SERVER_DOMAIN >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
   - npm install
+  - cp sample.env .env.production
   - npm run build
 
 # test:
