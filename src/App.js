@@ -666,6 +666,11 @@ function LandingPage() {
                         20th - 22nd March<br />
                         Vellore Institute of Technology
                     </div>
+                    <Link to="/login" className="reg-link">
+                        <button className="btn-outline-primary register-button font-weight-bold mt-5 px-4 py-2 mx-auto" style={{
+                            fontSize: '1.2rem'
+                        }}>REGISTER</button>
+                    </Link>
                 </div>
             </div>
             <video ref={videoRef} src={devspaceVideo} className="video" muted></video>
