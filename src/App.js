@@ -108,7 +108,7 @@ function generateRegistrationFeatures(loggedIn) {
             if (button === "REGISTER") {
                 return (
                     <Link to="/login" className="reg-link">
-                        <button className="register-button mx-auto">{event.button}</button>
+                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto">{event.button}</button>
                     </Link>
                 )
             }
@@ -117,7 +117,7 @@ function generateRegistrationFeatures(loggedIn) {
                     <div className="reg-link">
                         <form action="/api/pay" method="post">
                             <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
-                            <button className="register-button mx-auto">{event.button}</button>
+                            <button className="btn-outline-primary register-button px-5 py-3 mx-auto">{event.button}</button>
                         </form>
                     </div>
                 )
@@ -128,7 +128,7 @@ function generateRegistrationFeatures(loggedIn) {
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
-                <div className="mt-auto p-5">
+                <div className="mt-auto p-5 text-center">
                     {paymentLink(event.button)}
                 </div>
             </div>
@@ -605,13 +605,13 @@ function DevspaceNavbar() {
     useEffect(() => {
         window.addEventListener("scroll", () => {
             const scrollPos = -document.body.getBoundingClientRect().top;
-            setShowNav(scrollPos > (window.innerHeight*0.3));
+            setShowNav(scrollPos > (window.innerHeight * 0.3));
         })
     }, []);
 
     return (
         <>
-            <Navbar fixed="top" bg="dark" variant="dark" className={classnames('p-3','devspaceNav', {
+            <Navbar fixed="top" bg="dark" variant="dark" className={classnames('p-3', 'devspaceNav', {
                 'slideIn': showNav
             })}>
                 <div className="navbar-menu-icon" onClick={() => {
@@ -630,8 +630,11 @@ function DevspaceNavbar() {
                         direction={opened ? 1 : -1}
                         isStopped={stopped} />
                 </div>
-                <Nav className="ml-auto">
-                    <img src={devspaceBluWht} className="devspaceLogo" alt="Devspace Logo"></img>
+                <Nav className="ml-auto align-items-center">
+                    <Link to="/login" className="reg-link">
+                        <button className="btn-outline-primary register-button px-4 py-2 mx-auto">REGISTER</button>
+                    </Link>
+                    <img src={devspaceBluWht} className="ml-4 devspaceLogo" alt="Devspace Logo"></img>
                 </Nav>
             </Navbar>
 
@@ -642,7 +645,7 @@ function DevspaceNavbar() {
 
 function LandingPage() {
     const videoRef = useRef(null);
-    const [fadeIn, setFadeIn ] = useState(false);
+    const [fadeIn, setFadeIn] = useState(false);
 
     useEffect(() => {
         if (videoRef) {
