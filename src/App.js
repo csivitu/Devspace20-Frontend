@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Section from './components/section';
 import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
@@ -402,13 +402,9 @@ function generateSpeakerCards(speakers) {
         ));
     }
     return (
-        <div>
-            <h2 className="section-content-heading pl-5 ml-5">Something to make workshop sound interesting</h2>
-            <h2 className="section-content-heading pl-5 ml-5">Something to make workshop sound interesting</h2>
-            <Row className="justify-content-center">
-                {workshops}
-            </Row>
-        </div>
+        <Row className="justify-content-center">
+            {workshops}
+        </Row>
     )
 }
 function generateWorkshops() {
@@ -429,7 +425,13 @@ function generateWorkshops() {
             description: 'Learn how to make Alexa sing to your tune'
         }
     ]
-    return generateSpeakerCards(speakers);
+    return (
+        <div>
+            <h2 className="section-content-heading pl-5 ml-5">Workshops at Devspace 2019</h2>
+            {generateSpeakerCards(speakers)}
+        </div>
+    )
+
 }
 
 function generateTalks() {
@@ -450,7 +452,12 @@ function generateTalks() {
             description: 'Web AR & Mixed reality on browsers'
         }
     ]
-    return generateSpeakerCards(speakers);
+    return (
+        <div>
+            <h2 className="section-content-heading pl-5 ml-5">Talks at Devspace 2019</h2>
+            {generateSpeakerCards(speakers)}
+        </div>
+    )
 }
 
 function generateInThePast() {
@@ -592,10 +599,21 @@ function Sidebar(open, setOpen) {
 function DevspaceNavbar() {
     const [opened, setOpened] = useState(false);
     const [stopped, setStopped] = useState(true);
+    const [showNav, setShowNav] = useState(false);
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            const scrollPos = -document.body.getBoundingClientRect().top;
+            setShowNav(scrollPos > (window.innerHeight*0.3));
+        })
+    }, []);
 
     return (
         <>
-            <Navbar fixed="top" bg="dark" variant="dark" className="p-3 devspaceNav">
+            <Navbar fixed="top" bg="dark" variant="dark" className={classnames('p-3','devspaceNav', {
+                'slideIn': showNav
+            })}>
                 <div className="navbar-menu-icon" onClick={() => {
                     setOpened(!opened);
                     setStopped(false);
@@ -622,25 +640,32 @@ function DevspaceNavbar() {
     )
 }
 
-function landingPage() {
+function LandingPage() {
+    const videoRef = useRef(null);
+    const [fadeIn, setFadeIn ] = useState(false);
+
+    useEffect(() => {
+        if (videoRef) {
+            videoRef.current.play();
+            setFadeIn(true);
+        }
+    }, [videoRef]);
     return (
-        <div name="landing">
-            <Row className="content">
-                <Col lg={2}></Col>
-                <Col lg={10}>
-                    <Row>
-                        <img src={devspaceBluWht} alt="..." className="devspace-logo"></img>
-                    </Row>
-                    <Row>
-                        <p className="description">20th - 22nd March</p>
-                        <p className="description">Vellore Institute of Technology, Vellore</p>
-                    </Row>
-                    <Row>
-                        <button className="register-button">REGISTER</button>
-                    </Row>
-                </Col>
-            </Row>
-            <video src={devspaceVideo} className="video" autoPlay></video>
+        <div className="landing" name="landing">
+            <div className={classnames('landing-content', 'd-flex', 'align-items-center', 'justify-content-center', {
+                fadeIn: fadeIn
+            })}>
+                <div className="w-75">
+                    <div className="landingLogo mb-5">
+                        <img src={devspaceBluWht} className="w-100" alt="Devspace Logo"></img>
+                    </div>
+                    <div className="landing-description text-white font-weight-bold">
+                        20th - 22nd March<br />
+                        Vellore Institute of Technology
+                    </div>
+                </div>
+            </div>
+            <video ref={videoRef} src={devspaceVideo} className="video" muted></video>
         </div>
     )
 }
@@ -674,8 +699,7 @@ function App() {
                         return (
                             <>
                                 {DevspaceNavbar()}
-                                <div className="mt-5"></div>
-                                {landingPage()}
+                                {LandingPage()}
                                 {Section({
                                     headingText: 'DEVSPACE',
                                     name: 'features',
@@ -717,7 +741,7 @@ function App() {
                                     <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
                                     <div className="bg-dark hackathon-details pb-5">
                                         <p className="text-light p-5 hackathon-description text-justify">
-                                        In our signature 36-hour hack, participants proposed and implemented solutions using emerging technologies such as Machine Learning, Artificial Intelligence, Augmented and Virtual Reality, Blockchain and Fintech or by innovating in various fields such as Defense and Surveillance, Space and Technology, Education Tech and Entertainment Tech. Each team was given the creative freedom to implement their innovative ideas through an application or a prototype. 
+                                            In our signature 36-hour hack, participants proposed and implemented solutions using emerging technologies such as Machine Learning, Artificial Intelligence, Augmented and Virtual Reality, Blockchain and Fintech or by innovating in various fields such as Defense and Surveillance, Space and Technology, Education Tech and Entertainment Tech. Each team was given the creative freedom to implement their innovative ideas through an application or a prototype.
                                 </p>
                                         <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
                                         <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
