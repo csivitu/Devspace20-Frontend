@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-ro
 import classnames from 'classnames';
 import shortid from 'shortid';
 import queryString from 'query-string';
-import Lottie from 'react-lottie';
+import { Lottie } from '@crello/react-lottie';
 import { Link as ScrollLink } from 'react-scroll';
 
 
@@ -618,7 +618,7 @@ function DevspaceNavbar() {
                     setOpened(!opened);
                     setStopped(false);
                 }}>
-                    <Lottie options={{
+                    <Lottie config={{
                         animationData: menuIcon,
                         autoplay: false,
                         loop: false
