@@ -1,15 +1,29 @@
 .collabs-heading {
-    text-align: center;
-    color: white;
-    font: Italic 1.5rem Droid Serif;
+  text-align: center;
+  color: white;
+  font: Italic 1.5rem Droid Serif;
 }
 
 .sponsor-heading {
-    color: $blue;
-    text-align: center;
-    font-weight: bold;
+  color: $blue;
+  text-align: center;
+  font-weight: bold;
 }
 
 .sponsor-image {
-    width: 100%;
+  width: 100%;
+}
+
+.collabs-container {
+  padding: 0 1.5rem;
+}
+
+.collab-logo {
+    padding: 0 7rem;
+}
+
+@media screen and (max-width: 768px) {
+  .collabs-container {
+    padding: 0 0;
+  }
 }

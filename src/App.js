@@ -193,7 +193,7 @@ function generateCollabs() {
     const features = []
     for (const sponsor of sponsors) {
         features.push((
-            <Col key={sponsor.name} className="d-flex justify-content-center align-items-center px-5" xs={5} md={3}>
+            <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
                 <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
             </Col>
         ))
@@ -233,14 +233,14 @@ function generateCollabs() {
         const features = []
         for (const sponsor of sponsors) {
             features.push((
-                <Col key={sponsor.name} className="d-flex justify-content-center align-items-center px-5" xs={5} md={3}>
+                <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
                     <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
                 </Col>
             ))
         }
         return (
             <div className="py-3 mt-4">
-                <h3 className="sponsor-heading">PAST COLLABORATORS</h3>
+                <h3 className="sponsor-heading text-uppercase">PAST COLLABORATORS</h3>
                 <Row className="justify-content-center">
                     {features}
                 </Row>
@@ -248,8 +248,8 @@ function generateCollabs() {
         )
     }
     return (
-        <div className="p-4">
-            <p className="section-content-heading">Collaborators for Devspace 2020</p>
+        <div className="collabs-container pt-5">
+            <h3 className="sponsor-heading text-uppercase">Collaborators for Devspace 2020</h3>
             <Row className="justify-content-center">
                 {features}
             </Row>
@@ -404,7 +404,7 @@ function generateAboutUsFeatures() {
     }
 
     return (
-        <div className='text-justify text-light mx-4 about-us mt-3'>
+        <div className='text-justify text-light mx-4 about-us mt-5 mb-3'>
             {generateHeading(content.heading)}
             <p className='mt-4 main-description'>{content.description}</p>
             <a href='https://csivit.com' target='_blank' rel='noreferrer noopener'>https://csivit.com</a>
@@ -597,7 +597,7 @@ function Sidebar(open, setOpen) {
         link: 'hackathon'
     },
     {
-        section: "Register!",
+        section: "Register",
         link: 'register'
     },
     {
