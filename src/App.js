@@ -12,8 +12,6 @@ import { Link as ScrollLink } from 'react-scroll';
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht_1@4x.png';
 
-import githubLogo from './assets/images/github.png';
-import speakerImg from './assets/images/speaker.png';
 import facebookIcon from './assets/images/facebookIcon.svg';
 import githubIcon from './assets/images/githubIcon.svg';
 import instagramIcon from './assets/images/instagramIcon.svg';
@@ -663,10 +661,13 @@ function LandingPage() {
                 fadeIn: fadeIn
             })}>
                 <div className="w-75">
-                    <div className="landingLogo mb-5">
+                    <div className="landingLogo mb-2">
                         <img src={devspaceBluWht} className="w-100" alt="Devspace Logo"></img>
                     </div>
-                    <div className="landing-description text-white font-weight-bold">
+                    <div className="landing-events text-white">
+                        Hackathon | Capture The Flag | Workshops | Talks
+                    </div>
+                    <div className="landing-description text-white font-weight-bold mt-4">
                         20th - 22nd March<br />
                         Vellore Institute of Technology
                     </div>
