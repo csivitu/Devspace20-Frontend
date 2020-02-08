@@ -392,7 +392,7 @@ function generateSpeakerCards(speakers) {
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={3} className="d-flex justify-content-centerr">
+            <Col key={speaker.name} md={3} className="d-flex justify-content-center">
                 {generateCards(speaker)}
             </Col>
         ));
@@ -425,8 +425,8 @@ function generateWorkshops() {
         }
     ]
     return (
-        <div>
-            <h2 className="section-content-heading pl-5 ml-5">Workshops at Devspace 2019</h2>
+        <div class="px-5">
+            <h2 className="section-content-heading workshops-heading pl-5">Workshops at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
     )
@@ -456,7 +456,7 @@ function generateTalks() {
     ]
     return (
         <div>
-            <h2 className="section-content-heading pl-5 ml-5">Talks at Devspace 2019</h2>
+            <h2 className="section-content-heading talks-heading pl-5 ml-5">Talks at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
     )
@@ -661,13 +661,13 @@ function LandingPage() {
                 fadeIn: fadeIn
             })}>
                 <div className="w-75">
-                    <div className="landingLogo mb-2">
+                    <div className="landingLogo mb-4">
                         <img src={devspaceBluWht} className="w-100" alt="Devspace Logo"></img>
                     </div>
-                    <div className="landing-events text-white">
-                        Hackathon | Capture The Flag | Workshops | Talks
+                    <div className="landing-events text-white font-weight-bold">
+                        Hackathon | Capture the Flag | Workshops | Talks
                     </div>
-                    <div className="landing-description text-white font-weight-bold mt-4">
+                    <div className="landing-description text-white mt-4">
                         20th - 22nd March<br />
                         Vellore Institute of Technology
                     </div>

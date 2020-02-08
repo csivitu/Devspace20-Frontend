@@ -29,6 +29,7 @@
         left:0;
         overflow: hidden;
         z-index:1;
+        opacity:0.7;
         // position: absolute;
     }
 }
@@ -46,3 +47,27 @@
     font-size: 2rem;
     text-shadow: 0.05rem 0.05rem #1515159f;
 }
+
+@media screen and (max-width: 1000px) {
+    .landing {
+        .video {
+            width: 120%;
+            left: -20vw;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .landing {
+        .video {
+            width: 300%;
+            left: -150vw;
+            opacity:0.7;
+        }
+    }
+
+    .landingLogo {
+        width: 60vw;
+    }
+}
+
