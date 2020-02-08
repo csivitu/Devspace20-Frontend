@@ -23,10 +23,6 @@ import devspaceVideo from './assets/videos/dev_10001-0250.m4v';
 function generateDevspaceFeatures() {
     const devspaceContent = [
         {
-            heading: "Redesigning Innovation",
-            content: "In a world driven by the need for constant innovation, learn how to step away from the status quo from the people who did it themselves."
-        },
-        {
             heading: "Inspiring Keynotes",
             content: "We can only achieve as much as we aim to. Hear from people who achieved the impossible and experience their passion and enthusiasm."
         },
@@ -37,7 +33,11 @@ function generateDevspaceFeatures() {
         {
             heading: "Hackathon",
             content: "Our flagship hackathon demands the technology of the future, the innovations that will change the industry, ideas that will change the world. Do you have what it takes?"
-        }
+        },
+        {
+            heading: "Capture The Flag",
+            content: "In a world driven by the need for constant innovation, learn how to step away from the status quo from the people who did it themselves."
+        },
     ];
 
     function devspaceFeature(heading, content) {
@@ -152,50 +152,46 @@ function generateRegistrationFeatures(loggedIn) {
 function generateCollabs() {
     const sponsors = [
         {
-            name: 'Github1',
-            src: './assets/images/github.png'
+            name: 'Devfolio',
+            image: require("./assets/images/sponsors/Devfolio-White.png")
         },
         {
-            name: 'Github2',
-            src: './assets/images/github.png'
+            name: 'Matic',
+            image: require("./assets/images/sponsors/matic.png")
         },
         {
-            name: 'Github3',
-            src: './assets/images/github.png'
+            name: 'Balsamiq',
+            image: require("./assets/images/sponsors/balsamiq-logo-print.png")
         },
         {
-            name: 'Github4',
-            src: './assets/images/github.png'
+            name: 'Coworkable',
+            image: require("./assets/images/sponsors/Coworkable_logo_black.png")
         },
         {
-            name: 'Github5',
-            src: './assets/images/github.png'
+            name: 'Creative Tim',
+            image: require("./assets/images/sponsors/creative-tim-transparent-bg.png")
         },
         {
-            name: 'Github6',
-            src: './assets/images/github.png'
+            name: 'Jetbrains',
+            image: require("./assets/images/sponsors/jetbrains.png"),
         },
         {
-            name: 'Github7',
-            src: './assets/images/github.png'
-        },
-        {
-            name: 'Github8',
-            src: './assets/images/github.png'
+            name: '.tech',
+            image: require("./assets/images/sponsors/White-Powered-By-Tech.png")
         },
     ]
     const features = []
     for (const sponsor of sponsors) {
         features.push((
-            <Col key={sponsor.name} xs={5} md={3}>
-                <img className="sponsor-image mx-auto" src={githubLogo} alt="..."></img>
+            <Col key={sponsor.name} className="d-flex justify-content-center align-items-center px-4" xs={5} md={3}>
+                <img className="sponsor-image mx-auto" src={sponsor.image} alt="..."></img>
             </Col>
         ))
     }
     function returnPartners() {
         return (
             <div>
-                <Row>
+                {/* <Row>
                     <Col md={6}>
                         <h3 className="sponsor-heading">COMMUNITY PARTNERS</h3>
                     </Col>
@@ -207,13 +203,13 @@ function generateCollabs() {
                     <Col>
                         <h3 className="sponsor-heading">MEDIA PARTNERS</h3>
                     </Col>
-                </Row>
+                </Row> */}
             </div>
         )
     }
     return (
         <div className="px-4">
-            <p className="section-content-heading">These are our past collaborators</p>
+            <p className="section-content-heading">Collaborators for Devspace 2020</p>
             <Row className="justify-content-center">
                 {features}
             </Row>
@@ -384,10 +380,12 @@ function generateSpeakerCards(speakers) {
     function generateCards(speaker) {
         return (
             <div className="speaker-div p-4">
-                <div className="speaker-img mx-auto">
-                    <img className="w-100 d-block" src={speakerImg} alt="..."></img>
+                <div className="speaker-shadow  mx-auto">
+                    <div className="speaker-img">
+                        <img className="w-100 d-block" src={speaker.image} alt="..."></img>
+                    </div>
                 </div>
-                <p className="font-weight-bold talk-name">{speaker.name}</p>
+                <p className="font-weight-bold talk-name mt-4 mb-1">{speaker.name}</p>
                 <h4 className="font-italic">{speaker.company}</h4>
                 <p className="workshop-description">{speaker.description}</p>
             </div>
@@ -396,7 +394,7 @@ function generateSpeakerCards(speakers) {
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={3} className="d-flex justify-content-center text-center">
+            <Col key={speaker.name} md={3} className="d-flex justify-content-centerr">
                 {generateCards(speaker)}
             </Col>
         ));
@@ -412,17 +410,20 @@ function generateWorkshops() {
         {
             name: 'WATSON AI1',
             company: 'by IBM',
-            description: 'Learn how to use IBM Watson\'s platform'
+            description: 'Learn how to use IBM Watson\'s platform',
+            image: require("./assets/images/workshops/KrishnaB.png")
         },
         {
             name: 'Competitive Coding',
             company: 'by Coding Blocks',
-            description: 'Learn the do\'s and dont\'s of the coding world'
+            description: 'Learn the do\'s and dont\'s of the coding world',
+            image: require("./assets/images/workshops/PrateekNarang.png")
         },
         {
             name: 'Voice UI ',
             company: 'by Amazon',
-            description: 'Learn how to make Alexa sing to your tune'
+            description: 'Learn how to make Alexa sing to your tune',
+            image: require("./assets/images/workshops/Sohan.png")
         }
     ]
     return (
@@ -439,17 +440,20 @@ function generateTalks() {
         {
             name: 'Mohan Ram',
             company: 'Digital Ocean',
-            description: 'Simplifying the Cloud a session on scaling'
+            description: 'Simplifying the Cloud a session on scaling',
+            image: require("./assets/images/speakers/MohanRam.png")
         },
         {
             name: 'LAWRENCE MOHANRAJ',
             company: 'IBM',
-            description: 'Embracing innovation in the digital era'
+            description: 'Embracing innovation in the digital era',
+            image: require("./assets/images/speakers/LawrenceMohanraj.png")
         },
         {
             name: 'VISHWAPRASATH K.S.',
             company: 'Mozilla',
-            description: 'Web AR & Mixed reality on browsers'
+            description: 'Web AR & Mixed reality on browsers',
+            image: require("./assets/images/speakers/ViswaKS.png")
         }
     ]
     return (

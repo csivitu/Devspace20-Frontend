@@ -3,8 +3,16 @@
     background-color: $blue;
 }
 
+.speaker-shadow {
+    box-shadow: 0 0.125rem 0.5rem #15151567;
+    margin-top: -10em;
+    width: 100%;
+}
+
 .talk-name {
     font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .top-description {
@@ -18,26 +26,20 @@
     font-size: 1rem;
 }
 .speaker-img {
-    margin-top: -10em;
     border: 0.6em solid $blue;
-    box-shadow: 0.2rem -0.2rem $red;
+    box-shadow: 0.125rem -0.125rem $red;
     z-index: 5;
-    width: 100%;
-
-    img {
-        box-shadow: 0 0.125rem 0.25rem $notsoblack;
-    }
 }
 
 @media (max-width: 780px) {
-    .speaker-img {
+    .speaker-shadow {
         width: 70%;
     }
     .speaker-div {
         width: 80%;
         margin-bottom: 1rem;
     }
-    .speaker-img {
+    .speaker-shadow {
         margin-top: -10em;
     }
 }
