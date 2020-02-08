@@ -11,7 +11,6 @@ import { Link as ScrollLink } from 'react-scroll';
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht_1@4x.png';
-import goal from './assets/images/goal.png';
 
 import facebookIcon from './assets/images/facebookIcon.svg';
 import githubIcon from './assets/images/githubIcon.svg';
