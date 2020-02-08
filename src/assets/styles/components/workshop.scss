@@ -11,7 +11,7 @@
 
 .talk-name {
   font-size: 2rem;
-  line-height: 1.2;
+  line-height: 1.1;
   font-weight: bolder;
   text-transform: uppercase;
 }
@@ -31,9 +31,11 @@
   text-justify: auto;
 }
 
-.workshop-description {
+.workshop-description, .talks-description {
+    text-align: justify;
   font-size: 1rem;
 }
+
 .speaker-img {
   img {
     filter: grayscale(100%);
@@ -52,6 +54,15 @@
   .speaker-shadow {
     width: 70%;
   }
+
+  .speaker-header {
+    min-height: 0rem;
+    margin-bottom: 1rem;
+  }
+
+  .talks-heading, .workshops-heading {
+      text-align: center;
+  }
   .speaker-div {
     width: 80%;
     margin-bottom: 1rem;
@@ -60,8 +71,8 @@
     margin-top: -10em;
   }
 
-  .workshops-heading,
-  .talks-heading {
-    display: none;
-  }
+//   .workshops-heading,
+//   .talks-heading {
+//     display: none;
+//   }
 }

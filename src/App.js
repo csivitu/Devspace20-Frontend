@@ -45,7 +45,7 @@ function generateDevspaceFeatures() {
 
     function devspaceFeature(heading, content, image) {
         return (
-            <div className="w-100 bg-dark p-4 my-4 mx-3 features" style={{
+            <div className="w-100 bg-dark p-4 mx-3 features" style={{
                 boxShadow: '0px 0px 18px #00000066',
                 position: 'relative',
 
@@ -86,7 +86,7 @@ function generateRegistrationFeatures(loggedIn) {
     const events = [
         {
             name: 'HACKATHON',
-            description: 'Participate in a free hack with high aspirations and higher stakes',
+            description: 'Participate in a free hack with high aspirations and higher stakes. Registrations opening soon on devfolio (Teams of size 2-5)',
             isLoggedIn: loggedIn.toString()
         },
         {
@@ -100,8 +100,8 @@ function generateRegistrationFeatures(loggedIn) {
         var getClass = {}
         if (event.name === "HACKATHON") {
             getClass.display = "hide"
-        }
-        if (event.isLoggedIn === "true") {
+            event.button = 'COMING SOON';
+        } else if (event.isLoggedIn === "true") {
             event.button = "PAY NOW"
         }
         else {
@@ -130,11 +130,11 @@ function generateRegistrationFeatures(loggedIn) {
             }
         }
         return (
-            <div className={classnames("d-flex", "flex-column", "register-box", "mx-4")}>
+            <div className={classnames("d-flex", "flex-column", "register-box", "mx-4", "justify-content-between", "pb-5", "pt-3")}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
-                <div className="mt-auto p-5 text-center">
+                <div className="mt-auto px-4 text-center">
                     {paymentLink(event.button)}
                 </div>
             </div>
@@ -144,13 +144,13 @@ function generateRegistrationFeatures(loggedIn) {
     const features = [];
     for (const event of events) {
         features.push((
-            <Col key={event.name} md={4} className="d-flex justify-content-center">
+            <Col key={event.name} md={4} className="d-flex justify-content-center pb-2">
                 {registerFeature(event)}
             </Col>
         ))
     }
     return (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center my-5">
             {features}
         </Row>
     )
@@ -185,36 +185,70 @@ function generateCollabs() {
             name: '.tech',
             image: require("./assets/images/sponsors/White-Powered-By-Tech.png")
         },
+        {
+            name: 'taskade',
+            image: require("./assets/images/sponsors/taskade.png")
+        }
     ]
     const features = []
     for (const sponsor of sponsors) {
         features.push((
-            <Col key={sponsor.name} className="d-flex justify-content-center align-items-center px-4" xs={5} md={3}>
-                <img className="sponsor-image mx-auto" src={sponsor.image} alt="..."></img>
+            <Col key={sponsor.name} className="d-flex justify-content-center align-items-center px-5" xs={5} md={3}>
+                <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
             </Col>
         ))
     }
     function returnPartners() {
+        const sponsors = [
+            {
+                name: 'Amazon Alexa',
+                image: require("./assets/images/pastcollabs/amazon_alexa.png")
+            },
+            {
+                name: 'Coding Blocks',
+                image: require("./assets/images/pastcollabs/coding-blocks.png")
+            },
+            {
+                name: 'Digital Ocean',
+                image: require("./assets/images/pastcollabs/DigitalOcean.png")
+            },
+            {
+                name: 'Github',
+                image: require("./assets/images/pastcollabs/github.png")
+            },
+            {
+                name: 'IBM',
+                image: require("./assets/images/pastcollabs/ibm.png")
+            },
+            {
+                name: 'Python Software Foundation',
+                image: require("./assets/images/pastcollabs/psf.png")
+            },
+            {
+                name: 'Sketch',
+                image: require("./assets/images/pastcollabs/sketch.png")
+            }
+        ];
+
+        const features = []
+        for (const sponsor of sponsors) {
+            features.push((
+                <Col key={sponsor.name} className="d-flex justify-content-center align-items-center px-5" xs={5} md={3}>
+                    <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                </Col>
+            ))
+        }
         return (
-            <div>
-                {/* <Row>
-                    <Col md={6}>
-                        <h3 className="sponsor-heading">COMMUNITY PARTNERS</h3>
-                    </Col>
-                    <Col>
-                        <h3 className="sponsor-heading">AUDIO PARTNERS</h3>
-                    </Col>
+            <div className="py-3 mt-4">
+                <h3 className="sponsor-heading">PAST COLLABORATORS</h3>
+                <Row className="justify-content-center">
+                    {features}
                 </Row>
-                <Row>
-                    <Col>
-                        <h3 className="sponsor-heading">MEDIA PARTNERS</h3>
-                    </Col>
-                </Row> */}
             </div>
         )
     }
     return (
-        <div className="px-4">
+        <div className="p-4">
             <p className="section-content-heading">Collaborators for Devspace 2020</p>
             <Row className="justify-content-center">
                 {features}
@@ -277,7 +311,7 @@ function generateFAQCards() {
     }
 
     return (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center py-3">
             {faqCards}
         </Row>
     )
@@ -395,20 +429,20 @@ function generateSpeakerCards(speakers) {
                     <p className="font-weight-bold talk-name mt-4 mb-0">{speaker.name}</p>
                     <h4 className="font-italic talk-company mt-0">{speaker.company}</h4>
                 </div>
-                <p className="workshop-description">{speaker.description}</p>
+                <p className="workshop-description ">{speaker.description}</p>
             </div>
         )
     }
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={4} className="d-flex justify-content-center py-5 px-4">
+            <Col key={speaker.name} md={4} className="d-flex justify-content-center py-3 px-4">
                 {generateCards(speaker)}
             </Col>
         ));
     }
     return (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center mt-2 pb-2">
             {workshops}
         </Row>
     )
@@ -435,8 +469,8 @@ function generateWorkshops() {
         }
     ]
     return (
-        <div class="px-5">
-            <h2 className="section-content-heading workshops-heading mt-4">Workshops at Devspace 2019</h2>
+        <div class="talks-container">
+            <h2 className="section-content-heading workshops-heading mb-5 mt-4">Workshops at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
     )
@@ -448,7 +482,7 @@ function generateTalks() {
         {
             name: 'Mohan Ram',
             company: 'Digital Ocean',
-            description: 'Simplifying the Cloud a session on scaling',
+            description: 'Simplifying the Cloud a session on scaling.Simplifying the Cloud a session on scaling.Simplifying the Cloud a session on scaling',
             image: require("./assets/images/speakers/MohanRam.png")
         },
         {
@@ -465,8 +499,8 @@ function generateTalks() {
         }
     ]
     return (
-        <div className="px-5">
-            <h2 className="section-content-heading talks-heading ml-5">Talks at Devspace 2019</h2>
+        <div className="talks-container">
+            <h2 className="section-content-heading talks-heading mb-5 mt-4">Talks at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
     )
@@ -670,14 +704,14 @@ function LandingPage() {
             <div className={classnames('landing-content', 'd-flex', 'align-items-center', 'justify-content-center', {
                 fadeIn: fadeIn
             })}>
-                <div className="w-75">
-                    <div className="landingLogo mb-4">
+                <div className="w-80">
+                    <div className="landingLogo">
                         <img src={devspaceBluWht} className="w-100" alt="Devspace Logo"></img>
                     </div>
                     <div className="landing-events text-white font-weight-bold">
                         Hackathon | Capture the Flag | Workshops | Talks
                     </div>
-                    <div className="landing-description text-white mt-4">
+                    <div className="landing-description text-white">
                         20th - 22nd March<br />
                         Vellore Institute of Technology
                     </div>
@@ -766,8 +800,8 @@ function App() {
                                         <p className="text-light p-5 hackathon-description text-justify">
                                             In our signature 36-hour hack, participants proposed and implemented solutions using emerging technologies such as Machine Learning, Artificial Intelligence, Augmented and Virtual Reality, Blockchain and Fintech or by innovating in various fields such as Defense and Surveillance, Space and Technology, Education Tech and Entertainment Tech. Each team was given the creative freedom to implement their innovative ideas through an application or a prototype.
                                 </p>
-                                        <h1 className="text-primary text-uppercase text-center mb-2">Tracks</h1>
-                                        <h1 className="text-light text-uppercase text-center">Coming Soon!</h1>
+                                        <h1 className="text-primary text-uppercase text-center mb-3">Tracks</h1>
+                                        <h2 className="text-light text-uppercase text-center">Coming Soon!</h2>
                                     </div>
                                 </div>
                                 {Section({

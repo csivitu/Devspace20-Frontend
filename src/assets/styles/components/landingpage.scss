@@ -3,6 +3,7 @@
     height: 100vh;
     overflow: hidden;
     position: relative;
+    background-color: $black;
 
     .landing-content {
         position: absolute;
@@ -21,12 +22,12 @@
 
     .video {
         position: absolute;
-        width: 100%;
+        width: 110%;
         height: auto;
         margin-left: auto;
         margin-right: auto;
         top: 0;
-        left:0;
+        left:0vw;
         overflow: hidden;
         z-index:1;
         opacity:0.9;
@@ -37,10 +38,12 @@
 
 .landingLogo {
     width: 40vw;
+    margin-bottom: 1.5rem;
 }
 
 .landing-description {
     font-size: 1.5rem;
+    margin-top: 1.5rem;
 } 
 
 .landing-events {
@@ -60,14 +63,25 @@
 @media screen and (max-width: 768px) {
     .landing {
         .video {
-            width: 300%;
+            width: 320%;
             left: -150vw;
-            opacity:0.7;
+            opacity:0.4;
+        }
+
+        .landing-content {
+            padding-bottom: 6rem;
         }
     }
 
     .landingLogo {
-        width: 60vw;
+        width: 65vw;
+        margin-bottom: 1.5rem;
+    }
+
+    .landing-events {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+
     }
 }
 

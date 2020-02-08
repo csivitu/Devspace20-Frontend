@@ -10,7 +10,9 @@
   .event-description {
     color: $white;
     text-align: center;
-    margin-top: 3vh;
+    margin-top: 2rem;
+    font-size: 1.08rem;
+    text-align: justify;
   }
   .register-button {
     font-size: 1.2rem;
@@ -49,13 +51,17 @@
     color: $blue;
     text-align: center;
     // font-weight: bold;
-    background-color: $notsoblack;
+    background-color: #050401a2;
     font-size: 2.2rem;
     padding: 0.3rem;
   }
   .hide {
     display: none;
   }
+}
+
+.register-section-container {
+    min-height: 85vh;
 }
 
 .reg-container {

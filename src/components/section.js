@@ -60,7 +60,7 @@ export default function Section(props) {
                     zIndex: sectionLayer,
                     order: props.sectionOrder,
                 }}
-                className={classNames('section-content', 'section-content-' + props.sectionAlignment, 'd-flex', 'flex-column', 'justify-content-center', {
+                className={classNames('section-content', 'section-content-' + props.sectionAlignment, 'd-flex', 'flex-column', 'justify-content-center', props.name + '-section-container', {
                     'w-100': props.hideHeading,
                 })}>
                 {props.content}

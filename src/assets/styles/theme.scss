@@ -32,12 +32,16 @@ body {
   margin: 0;
   font-family: "Lato", sans-serif;
   scroll-behavior: smooth;
-  background-color: $notsoblack;
+  background-color: $white;
   color: $notsoblack;
 }
 
 h1 {
   font-size: 3rem;
+}
+
+.w-80 {
+    width: 80%;
 }
 
 a {
