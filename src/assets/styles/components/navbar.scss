@@ -9,8 +9,11 @@
 .devspaceNav {
     box-shadow: 0rem 0.3rem 0.8rem #151515c7;
     z-index: 3;
-    margin-top: -5rem;
     transition: all ease 0.7s;
+}
+
+.navSlide {
+    margin-top: -5rem;
 }
 .slideIn {
     margin-top: 0;

@@ -54,3 +54,11 @@
     }
   }
 }
+
+@media screen and (max-width: 1200px) {
+    .section-heading {
+        .section-heading-text {
+            font-size: 7.5rem;
+        }
+    }
+}

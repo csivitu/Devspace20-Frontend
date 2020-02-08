@@ -11,6 +11,7 @@ import { Link as ScrollLink } from 'react-scroll';
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht_1@4x.png';
+import goal from './assets/images/goal.png';
 
 import facebookIcon from './assets/images/facebookIcon.svg';
 import githubIcon from './assets/images/githubIcon.svg';
@@ -22,35 +23,43 @@ function generateDevspaceFeatures() {
     const devspaceContent = [
         {
             heading: "Inspiring Keynotes",
-            content: "We can only achieve as much as we aim to. Hear from people who achieved the impossible and experience their passion and enthusiasm."
+            content: "We can only achieve as much as we aim to. Hear from people who achieved the impossible and experience their passion and enthusiasm.",
+            image: require('./assets/images/keynote.svg'),
         },
         {
             heading: "Interactive Learning",
-            content: "An investment in knowledge returns the highest dividends; take workshops from professionals who are as involved in your learning as you are."
+            content: "An investment in knowledge returns the highest dividends; take workshops from professionals who are as involved in your learning as you are.",
+            image: require('./assets/images/mike.svg'),
         },
         {
             heading: "Hackathon",
-            content: "Our flagship hackathon demands the technology of the future, the innovations that will change the industry, ideas that will change the world. Do you have what it takes?"
+            content: "Our flagship hackathon demands the technology of the future, the innovations that will change the industry, ideas that will change the world. Do you have what it takes?",
+            image: require('./assets/images/browser.svg'),
+
         },
         {
-            heading: "Capture The Flag",
-            content: "In a world driven by the need for constant innovation, learn how to step away from the status quo from the people who did it themselves."
+            heading: (<span>Capture the <br />Flag</span>),
+            content: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy and attack defense CTF, only at Devspace.",
+            image: require('./assets/images/goal.png'),
         },
     ];
 
-    function devspaceFeature(heading, content) {
+    function devspaceFeature(heading, content, image) {
         return (
-            <div className="w-100 bg-dark p-4 my-4 mx-3" style={{
-                boxShadow: '0px 0px 18px #00000066'
+            <div className="w-100 bg-dark p-4 my-4 mx-3 features" style={{
+                boxShadow: '0px 0px 18px #00000066',
+                position: 'relative',
+
             }}>
-                <h1 className="text-primary text-uppercase" style={{
-                    minHeight: '40%'
-                }}>
+                <h1 className="text-primary text-uppercase mb-3 features-heading">
                     {heading}
                 </h1>
-                <p className="text-white">
+                <p className="text-white text-justify features-para">
                     {content}
                 </p>
+
+                <img src={image} alt='feature' className="features-image" style={{
+                }}/>
             </div>
         )
     }
@@ -60,7 +69,7 @@ function generateDevspaceFeatures() {
     for (const content of devspaceContent) {
         features.push((
             <Col key={content.heading} md={5} className="d-flex justify-content-center">
-                {devspaceFeature(content.heading, content.content)}
+                {devspaceFeature(content.heading, content.content, content.image)}
             </Col>
         ));
     }
@@ -78,12 +87,12 @@ function generateRegistrationFeatures(loggedIn) {
     const events = [
         {
             name: 'HACKATHON',
-            description: 'Grab your tickets early for lesser something something content pls blah blah access to talks',
+            description: 'Participate in a free hack with high aspirations and higher stakes',
             isLoggedIn: loggedIn.toString()
         },
         {
             name: 'DEVSPACE',
-            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
+            description: 'Gain insight to the industry with interactive talks and hands on workshops by prominent individuals.',
             cost: '₹250',
             isLoggedIn: loggedIn.toString()
         },
@@ -377,7 +386,7 @@ function generateAboutUsFeatures() {
 function generateSpeakerCards(speakers) {
     function generateCards(speaker) {
         return (
-            <div className="speaker-div p-4">
+            <div className="speaker-div p-4 text-center">
                 <div className="speaker-shadow  mx-auto">
                     <div className="speaker-img">
                         <img className="w-100 d-block" src={speaker.image} alt="..."></img>
@@ -406,9 +415,9 @@ function generateSpeakerCards(speakers) {
 function generateWorkshops() {
     const speakers = [
         {
-            name: 'WATSON AI1',
+            name: 'WATSON AI',
             company: 'by IBM',
-            description: 'Learn how to use IBM Watson\'s platform',
+            description: 'Learn how to use IBM Watson\'s platform to bring AI tools and apps to your data.',
             image: require("./assets/images/workshops/KrishnaB.png")
         },
         {
@@ -598,7 +607,7 @@ function Sidebar(open, setOpen) {
 }
 
 
-function DevspaceNavbar() {
+function DevspaceNavbar(slide) {
     const [opened, setOpened] = useState(false);
     const [stopped, setStopped] = useState(true);
     const [showNav, setShowNav] = useState(false);
@@ -614,7 +623,8 @@ function DevspaceNavbar() {
     return (
         <>
             <Navbar fixed="top" bg="dark" variant="dark" className={classnames('p-3', 'devspaceNav', {
-                'slideIn': showNav
+                'slideIn': showNav,
+                'navSlide': slide,
             })}>
                 <div className="navbar-menu-icon" onClick={() => {
                     setOpened(!opened);
@@ -633,9 +643,9 @@ function DevspaceNavbar() {
                         isStopped={stopped} />
                 </div>
                 <Nav className="ml-auto align-items-center">
-                    <Link to="/login" className="reg-link">
+                    <ScrollLink to='register' spy={true} smooth={true} duration={400} offset={-60} activeclassname="active">
                         <button className="btn-outline-primary register-button px-4 py-2 mx-auto">REGISTER</button>
-                    </Link>
+                    </ScrollLink>
                     <img src={devspaceBluWht} className="ml-4 devspaceLogo" alt="Devspace Logo"></img>
                 </Nav>
             </Navbar>
@@ -671,11 +681,11 @@ function LandingPage() {
                         20th - 22nd March<br />
                         Vellore Institute of Technology
                     </div>
-                    <Link to="/login" className="reg-link">
+                    <ScrollLink to='register' spy={true} smooth={true} duration={400} offset={-60} activeclassname="active">
                         <button className="btn-outline-primary register-button font-weight-bold mt-5 px-4 py-2 mx-auto" style={{
                             fontSize: '1.2rem'
                         }}>REGISTER</button>
-                    </Link>
+                    </ScrollLink>
                 </div>
             </div>
             <video ref={videoRef} src={devspaceVideo} className="video" muted></video>
@@ -711,7 +721,7 @@ function App() {
                     <Route exact path='/' component={() => {
                         return (
                             <>
-                                {DevspaceNavbar()}
+                                {DevspaceNavbar(true)}
                                 {LandingPage()}
                                 {Section({
                                     headingText: 'DEVSPACE',
@@ -853,6 +863,31 @@ function App() {
                         setloggedIn(false);
                         return <Redirect to='/' />;
                     }} />
+
+                    <Route exact path='/register' component={() => {
+                        return (<>
+                            {DevspaceNavbar(false)}
+                            <div className="mt-5"></div>
+                            {Section({
+                                headingText: 'REGISTER',
+                                showHeading: false,
+                                name: 'register',
+                                content: (
+                                    <Container className="pt-3" fluid={true}>
+                                    <h1 className='text-center text-white text-uppercase' style={{
+                                        fontFamily: '\'Bebas Neue\', cursive',
+                                        fontSize: '6rem'
+                                    }}>Register</h1>
+                                        {generateRegistrationFeatures(loggedIn)}
+                                    </Container>
+                                ),
+                                headingAlignment: 'right',
+                                bgcolor: colors.notsoblack
+                            })}
+                        </>)
+                    }} />
+                    {/* <Route path='/paid' component={
+                    }/> */}
                 </Switch>
             </div>
         </Router>

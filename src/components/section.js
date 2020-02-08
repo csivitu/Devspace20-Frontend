@@ -47,7 +47,9 @@ export default function Section(props) {
                     order: props.headingOrder,
                     height: sectionHeight
                 }}
-                className={classNames('section-heading', 'section-heading-' + props.headingAlignment)}>
+                className={classNames('section-heading', 'section-heading-' + props.headingAlignment, {
+                    'd-none': props.hideHeading
+                })}>
                 <div className="section-heading-text"><div className="heading-text-fix">{props.headingText}</div></div>
             </div>
             <div
@@ -56,9 +58,11 @@ export default function Section(props) {
                 style={{
                     backgroundColor: props.bgcolor,
                     zIndex: sectionLayer,
-                    order: props.sectionOrder
+                    order: props.sectionOrder,
                 }}
-                className={classNames('section-content', 'section-content-' + props.sectionAlignment, 'd-flex', 'flex-column', 'justify-content-center')}>
+                className={classNames('section-content', 'section-content-' + props.sectionAlignment, 'd-flex', 'flex-column', 'justify-content-center', {
+                    'w-100': props.hideHeading,
+                })}>
                 {props.content}
             </div>
             <div style={{
