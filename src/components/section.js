@@ -48,7 +48,7 @@ export default function Section(props) {
                     height: sectionHeight
                 }}
                 className={classNames('section-heading', 'section-heading-' + props.headingAlignment)}>
-                <div className="section-heading-text">{props.headingText}</div>
+                <div className="section-heading-text"><div className="heading-text-fix">{props.headingText}</div></div>
             </div>
             <div
                 ref={sectionContentRef}
