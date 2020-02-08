@@ -1,49 +1,67 @@
 .speaker-div {
-    margin-top: 10em;
-    background-color: $blue;
+  margin-top: 10em;
+  background-color: $blue;
 }
 
 .speaker-shadow {
-    box-shadow: 0 0.125rem 0.5rem #15151567;
-    margin-top: -10em;
-    width: 100%;
+  box-shadow: 0 0.125rem 0.5rem #15151567;
+  margin-top: -10em;
+  width: 80%;
 }
 
 .talk-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.speaker-header {
+  min-height: 7rem;
+}
+
+.talk-company {
+  font-size: 1.5rem;
 }
 
 .top-description {
-    color: white;
-    font: Italic 1rem Droid Serif;
-    margin-top: 2vh;
-    text-justify: auto;
+  color: white;
+  font: Italic 1rem Droid Serif;
+  margin-top: 2vh;
+  text-justify: auto;
 }
 
 .workshop-description {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 .speaker-img {
-    border: 0.6em solid $blue;
-    box-shadow: 0.125rem -0.125rem $red;
-    z-index: 5;
+  img {
+    filter: grayscale(100%);
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+  border: 0.6em solid $blue;
+  box-shadow: 0.125rem -0.125rem $red;
+  z-index: 5;
 }
 
 @media (max-width: 780px) {
-    .speaker-shadow {
-        width: 70%;
-    }
-    .speaker-div {
-        width: 80%;
-        margin-bottom: 1rem;
-    }
-    .speaker-shadow {
-        margin-top: -10em;
-    }
+  .speaker-shadow {
+    width: 70%;
+  }
+  .speaker-div {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+  .speaker-shadow {
+    margin-top: -10em;
+  }
 
-    .workshops-heading, .talks-heading {
-        display: none;
-    }
+  .workshops-heading,
+  .talks-heading {
+    display: none;
+  }
 }

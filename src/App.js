@@ -58,7 +58,7 @@ function generateDevspaceFeatures() {
                 </p>
 
                 <img src={image} alt='feature' className="features-image" style={{
-                }}/>
+                }} />
             </div>
         )
     }
@@ -385,14 +385,16 @@ function generateAboutUsFeatures() {
 function generateSpeakerCards(speakers) {
     function generateCards(speaker) {
         return (
-            <div className="speaker-div p-4 text-center">
+            <div className="speaker-div p-4">
                 <div className="speaker-shadow  mx-auto">
                     <div className="speaker-img">
                         <img className="w-100 d-block" src={speaker.image} alt="..."></img>
                     </div>
                 </div>
-                <p className="font-weight-bold talk-name mt-4 mb-1">{speaker.name}</p>
-                <h4 className="font-italic">{speaker.company}</h4>
+                <div className="speaker-header">
+                    <p className="font-weight-bold talk-name mt-4 mb-0">{speaker.name}</p>
+                    <h4 className="font-italic talk-company mt-0">{speaker.company}</h4>
+                </div>
                 <p className="workshop-description">{speaker.description}</p>
             </div>
         )
@@ -400,7 +402,7 @@ function generateSpeakerCards(speakers) {
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={3} className="d-flex justify-content-center">
+            <Col key={speaker.name} md={4} className="d-flex justify-content-center py-5 px-4">
                 {generateCards(speaker)}
             </Col>
         ));
@@ -434,7 +436,7 @@ function generateWorkshops() {
     ]
     return (
         <div class="px-5">
-            <h2 className="section-content-heading workshops-heading pl-5">Workshops at Devspace 2019</h2>
+            <h2 className="section-content-heading workshops-heading mt-4">Workshops at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
     )
@@ -463,8 +465,8 @@ function generateTalks() {
         }
     ]
     return (
-        <div>
-            <h2 className="section-content-heading talks-heading pl-5 ml-5">Talks at Devspace 2019</h2>
+        <div className="px-5">
+            <h2 className="section-content-heading talks-heading ml-5">Talks at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
     )
@@ -532,7 +534,6 @@ function generateInThePast() {
 
     return (
         <div className="p-3">
-            <p className="section-content-heading text-light font-italic">These are our past collaborators/sponeors/something cool vfbgnhjmk,l.</p>
             <Row>
                 {sectionElem}
             </Row>
@@ -873,10 +874,10 @@ function App() {
                                 name: 'register',
                                 content: (
                                     <Container className="pt-3" fluid={true}>
-                                    <h1 className='text-center text-white text-uppercase' style={{
-                                        fontFamily: '\'Bebas Neue\', cursive',
-                                        fontSize: '6rem'
-                                    }}>Register</h1>
+                                        <h1 className='text-center text-white text-uppercase' style={{
+                                            fontFamily: '\'Bebas Neue\', cursive',
+                                            fontSize: '6rem'
+                                        }}>Register</h1>
                                         {generateRegistrationFeatures(loggedIn)}
                                     </Container>
                                 ),
