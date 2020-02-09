@@ -400,7 +400,7 @@ function generateAboutUsFeatures() {
                 </div>
 
                 <div className='mt-4'>View <a href='https://devfolio.co/code-of-conduct' target='_blank' rel='noreferrer noopener'>Code of Conduct</a></div>
-                <div className='mt-2'><a href='/brochure' target='_blank' rel='noreferrer noopener'>Download Brochure</a></div>
+                <div className='mt-2'><a href='https://static.csivit.com/devspace/Devspace_2020_Brochure.pdf' target='_blank' rel='noreferrer noopener'>Download Brochure</a></div>
             </Col>
         );
     }
