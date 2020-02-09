@@ -160,6 +160,11 @@ function generateCollabs() {
             link: 'https://matic.network/'
         },
         {
+            name: 'Fold',
+            image: require("./assets/images/sponsors/fold.png"),
+            link: 'https://fold.money',
+        },
+        {
             name: 'Balsamiq',
             image: require("./assets/images/sponsors/balsamiq-logo-print.png"),
             link: 'https://balsamiq.com/'
@@ -193,7 +198,7 @@ function generateCollabs() {
             name: 'restdbio',
             image: require("./assets/images/sponsors/restdb-logo-white.png"),
             link: 'https://restdb.io/',
-        }
+        },
     ]
     const features = []
     for (const sponsor of sponsors) {
