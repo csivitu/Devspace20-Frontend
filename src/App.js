@@ -183,6 +183,11 @@ function generateCollabs() {
             name: 'taskade',
             image: require("./assets/images/sponsors/taskade.png"),
             link: 'https://www.taskade.com/',
+        },
+        {
+            name: 'restdbio',
+            image: require("./assets/images/sponsors/restdb-logo-white.png"),
+            link: 'https://restdb.io/',
         }
     ]
     const features = []
@@ -256,7 +261,7 @@ function generateCollabs() {
     return (
         <div className="collabs-container pt-5">
             <h3 className="sponsor-heading text-uppercase">Collaborators for Devspace 2020</h3>
-            <Row className="justify-content-center">
+            <Row className="justify-content-start">
                 {features}
             </Row>
             {returnPartners()}
@@ -475,7 +480,7 @@ function generateWorkshops() {
         }
     ]
     return (
-        <div class="talks-container">
+        <div className="talks-container">
             <h2 className="section-content-heading workshops-heading mb-5 mt-4">Workshops at Devspace 2019</h2>
             {generateSpeakerCards(speakers)}
         </div>
@@ -686,7 +691,7 @@ function DevspaceNavbar(slide) {
                     <ScrollLink to='register' spy={true} smooth={true} duration={400} offset={-60} activeclassname="active">
                         <button className="btn-outline-primary register-button px-4 py-2 mx-auto">REGISTER</button>
                     </ScrollLink>
-                    <img src={devspaceBluWht} className="ml-4 devspaceLogo" alt="Devspace Logo"></img>
+                    <img src={devspaceBluWht} className="devspaceLogo" alt="Devspace Logo"></img>
                 </Nav>
             </Navbar>
 

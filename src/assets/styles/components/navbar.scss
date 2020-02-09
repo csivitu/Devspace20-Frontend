@@ -4,6 +4,7 @@
 
 .devspaceLogo {
     height:2rem;
+    margin-left: 1.5rem;
 }
 
 .devspaceNav {
@@ -74,5 +75,19 @@
     .sidebar {
         width: 75vw;
         left: -75vw;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .devspaceLogo {
+        height:1.5rem;
+        margin-left: 1rem;
+    }
+
+    .devspaceNav {
+        .register-button {
+            font-size: 1rem;
+            padding-right: 0.2rem;
+        }
     }
 }
