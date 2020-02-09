@@ -7,7 +7,7 @@ import shortid from 'shortid';
 import queryString from 'query-string';
 import { Lottie } from '@crello/react-lottie';
 import { Link as ScrollLink } from 'react-scroll';
-
+import SweetAlert from 'sweetalert-react';
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht_1@4x.png';
@@ -17,6 +17,7 @@ import githubIcon from './assets/images/githubIcon.svg';
 import instagramIcon from './assets/images/instagramIcon.svg';
 import linkedinIcon from './assets/images/linkedinIcon.svg';
 import devspaceVideo from './assets/videos/dev_10001-0250.m4v';
+import { setAuthToken, API } from './API';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -729,11 +730,24 @@ function LandingPage() {
 
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
+    const [user, setUser] = useState({});
     useEffect(() => {
-        if (localStorage.getItem('token') === null) {
+        const token = localStorage.getItem('token');
+        if (token === null) {
             setloggedIn(false);
         }
         else {
+            setAuthToken(token);
+            API.get(`${process.env.REACT_APP_ACCOUNTS_URL}/user`)
+                .then((response) => {
+                    if (response.data.success) {
+                        setloggedIn(true);
+                        setUser(response.data.user);
+                    } else {
+                        localStorage.removeItem('token');
+                        setloggedIn(false);
+                    }
+                });
             setloggedIn(true);
         }
         // if (loggedIn) {
@@ -920,8 +934,19 @@ function App() {
                             })}
                         </>)
                     }} />
-                    {/* <Route path='/paid' component={
-                    }/> */}
+                    <Route path='/paid' component={() => {
+                        return (
+                            <div>
+                                <SweetAlert
+                                    show={true}
+                                    title="Registered Sucesfully"
+                                    type="success"
+                                    text="You have paid sucesfully! Check your email for a confirmation regarding your registration for Devspace 2020."
+                                    onConfirm={() => window.location.href="/"}
+                                />
+                            </div>
+                        )
+                    }} />
                 </Switch>
             </div>
         </Router>
