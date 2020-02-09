@@ -113,23 +113,11 @@ function generateRegistrationFeatures(loggedIn) {
         //     return '/register';
         // }
         function paymentLink(button) {
-            if (button === "REGISTER") {
-                return (
-                    <Link to="/login" className="reg-link">
-                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
-                    </Link>
-                )
-            }
-            else {
-                return (
-                    <div className="reg-link">
-                        <form action="/api/pay" method="post">
-                            <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
-                            <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
-                        </form>
-                    </div>
-                )
-            }
+            return (
+                <Link to="/login" className="reg-link">
+                    <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
+                </Link>
+            )
         }
         return (
             <div className={classnames("d-flex", "flex-column", "register-box", "mx-4", "justify-content-between", "pb-5", "pt-3")}>
@@ -901,12 +889,12 @@ function App() {
 
                         // Only accept token if state matches
                         if (state === localStorage.getItem('state')) {
-                            localStorage.setItem('token', token);
                             localStorage.removeItem('state');
+                            window.location.href = `${process.env.REACT_APP_BASE_URL}/pay?token=${token}`;
+                            return <div>Redirecting to payment page.....</div>
+                        } else {
+                            return <Redirect to="/" />
                         }
-                        // this.isLoggedIn();
-                        setloggedIn(true);
-                        return <Redirect to='/' />
                     }} />
                     <Route path='/logout' component={() => {
                         localStorage.removeItem('token');
@@ -944,7 +932,7 @@ function App() {
                                     title="Registered Sucesfully"
                                     type="success"
                                     text="You have paid sucesfully! Check your email for a confirmation regarding your registration for Devspace 2020."
-                                    onConfirm={() => window.location.href="/"}
+                                    onConfirm={() => window.location.href = "/"}
                                 />
                             </div>
                         )
