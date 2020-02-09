@@ -96,10 +96,15 @@ function generateRegistrationFeatures(loggedIn) {
             cost: '₹250',
             isLoggedIn: loggedIn.toString()
         },
+        {
+            name: 'CAPTURE THE FLAG',
+            description: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy and attack defense CTF, only at Devspace.",
+            isLoggedIn: loggedIn.toString()
+        },
     ];
     function registerFeature(event) {
         var getClass = {}
-        if (event.name === "HACKATHON") {
+        if (event.name === "HACKATHON" || event.name === 'CAPTURE THE FLAG') {
             getClass.display = "hide"
             event.button = 'COMING SOON';
             event.disabled = true;
