@@ -68,7 +68,7 @@ function generateDevspaceFeatures() {
 
     for (const content of devspaceContent) {
         features.push((
-            <Col key={content.heading} md={5} className="d-flex justify-content-center">
+            <Col key={content.heading} lg={5} className="d-flex justify-content-center">
                 {devspaceFeature(content.heading, content.content, content.image)}
             </Col>
         ));
@@ -136,7 +136,7 @@ function generateRegistrationFeatures(loggedIn) {
     const features = [];
     for (const event of events) {
         features.push((
-            <Col key={event.name} md={4} className="d-flex justify-content-center pb-2">
+            <Col key={event.name} lg={4} className="d-flex justify-content-center pb-2">
                 {registerFeature(event)}
             </Col>
         ))
@@ -319,7 +319,7 @@ function generateFAQCards() {
     let i = 0;
     for (const faq of faqs) {
         faqCards.push((
-            <Col key={i} md={5} className="d-flex justify-content-center p-4">
+            <Col key={i} lg={5} className="d-flex justify-content-center p-4">
                 {generateFAQCard(faq)}
             </Col>
         ));
@@ -452,7 +452,7 @@ function generateSpeakerCards(speakers) {
     const workshops = []
     for (const speaker of speakers) {
         workshops.push((
-            <Col key={speaker.name} md={4} className="d-flex justify-content-center py-3 px-4">
+            <Col key={speaker.name} lg={4} className="d-flex justify-content-center py-3 px-4">
                 {generateCards(speaker)}
             </Col>
         ));
