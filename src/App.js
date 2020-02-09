@@ -460,13 +460,13 @@ function generateWorkshops() {
         {
             name: 'Competitive Coding',
             company: 'by Coding Blocks',
-            description: 'Learn the do\'s and dont\'s of the coding world',
+            description: 'Learn the do\'s and dont\'s of the coding world.',
             image: require("./assets/images/workshops/PrateekNarang.png")
         },
         {
             name: 'Voice UI ',
             company: 'by Amazon',
-            description: 'Learn how to make Alexa sing to your tune',
+            description: 'Learn how to make Alexa sing to your tune.',
             image: require("./assets/images/workshops/Sohan.png")
         }
     ]
@@ -484,19 +484,19 @@ function generateTalks() {
         {
             name: 'Mohan Ram',
             company: 'Digital Ocean',
-            description: 'Simplifying the Cloud a session on scaling.Simplifying the Cloud a session on scaling.Simplifying the Cloud a session on scaling',
+            description: 'Simplifying the Cloud a session on scaling.',
             image: require("./assets/images/speakers/MohanRam.png")
         },
         {
             name: 'LAWRENCE MOHANRAJ',
             company: 'IBM',
-            description: 'Embracing innovation in the digital era',
+            description: 'Embracing innovation in the digital era.',
             image: require("./assets/images/speakers/LawrenceMohanraj.png")
         },
         {
             name: 'VISHWAPRASATH K.S.',
             company: 'Mozilla',
-            description: 'Web AR & Mixed reality on browsers',
+            description: 'Web AR & Mixed reality on browsers.',
             image: require("./assets/images/speakers/ViswaKS.png")
         }
     ]
