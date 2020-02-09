@@ -102,6 +102,7 @@ function generateRegistrationFeatures(loggedIn) {
         if (event.name === "HACKATHON") {
             getClass.display = "hide"
             event.button = 'COMING SOON';
+            event.disabled = true;
         } else if (event.isLoggedIn === "true") {
             event.button = "PAY NOW"
         }
@@ -115,7 +116,7 @@ function generateRegistrationFeatures(loggedIn) {
             if (button === "REGISTER") {
                 return (
                     <Link to="/login" className="reg-link">
-                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto">{event.button}</button>
+                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
                     </Link>
                 )
             }
@@ -124,7 +125,7 @@ function generateRegistrationFeatures(loggedIn) {
                     <div className="reg-link">
                         <form action="/api/pay" method="post">
                             <input type="text" name="token" value={localStorage.getItem('token')} readOnly hidden />
-                            <button className="btn-outline-primary register-button px-5 py-3 mx-auto">{event.button}</button>
+                            <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
                         </form>
                     </div>
                 )
