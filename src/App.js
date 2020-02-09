@@ -731,6 +731,7 @@ function LandingPage() {
 
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [user, setUser] = useState({});
     useEffect(() => {
         const token = localStorage.getItem('token');
