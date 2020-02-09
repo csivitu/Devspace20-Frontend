@@ -103,10 +103,7 @@ function generateRegistrationFeatures(loggedIn) {
             getClass.display = "hide"
             event.button = 'COMING SOON';
             event.disabled = true;
-        } else if (event.isLoggedIn === "true") {
-            event.button = "PAY NOW"
-        }
-        else {
+        } else {
             event.button = "REGISTER"
         }
         // function registerRoute() {
