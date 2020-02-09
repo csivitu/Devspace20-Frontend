@@ -404,8 +404,8 @@ function generateAboutUsFeatures() {
                 <div>
                     <div className='d-inline-block align-top mw-18'>Phone:</div>
                     <div className='d-inline-block'>
-                        <a href='tel:+919003781868'>+91-9003781868</a><br />
-                        <a href='tel:+916379310870'>+91-6379310870</a>
+                        <a href='tel:+919003781868'>+91-9886882121</a><br />
+                        <a href='tel:+916379310870'>+91-9003750079</a>
                     </div>
                 </div>
 
@@ -957,7 +957,7 @@ function App() {
                                     show={true}
                                     title="Registered Sucesfully"
                                     type="success"
-                                    text="You have paid sucesfully! Check your email for a confirmation regarding your registration for Devspace 2020."
+                                    text="You have completed the transaction sucesfully! Check your email for a confirmation regarding your registration for Devspace 2020. If you haven't received an email, contact us at askcsivit@gmail.com."
                                     onConfirm={() => window.location.href = "/"}
                                 />
                             </div>
