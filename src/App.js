@@ -146,42 +146,52 @@ function generateCollabs() {
     const sponsors = [
         {
             name: 'Devfolio',
-            image: require("./assets/images/sponsors/Devfolio-White.png")
+            image: require("./assets/images/sponsors/Devfolio-White.png"),
+            link: 'https://devfolio.co/',
         },
         {
             name: 'Matic',
-            image: require("./assets/images/sponsors/matic.png")
+            image: require("./assets/images/sponsors/matic.png"),
+            link: 'https://matic.network/'
         },
         {
             name: 'Balsamiq',
-            image: require("./assets/images/sponsors/balsamiq-logo-print.png")
+            image: require("./assets/images/sponsors/balsamiq-logo-print.png"),
+            link: 'https://balsamiq.com/'
         },
         {
             name: 'Coworkable',
-            image: require("./assets/images/sponsors/Coworkable_logo_black.png")
+            image: require("./assets/images/sponsors/Coworkable_logo_black.png"),
+            link: 'https://www.coworkable.com/'
         },
         {
             name: 'Creative Tim',
-            image: require("./assets/images/sponsors/creative-tim-transparent-bg.png")
+            image: require("./assets/images/sponsors/creative-tim-transparent-bg.png"),
+            link: 'https://www.creative-tim.com/',
         },
         {
             name: 'Jetbrains',
             image: require("./assets/images/sponsors/jetbrains.png"),
+            link: 'https://www.jetbrains.com/',
         },
         {
             name: '.tech',
-            image: require("./assets/images/sponsors/White-Powered-By-Tech.png")
+            image: require("./assets/images/sponsors/White-Powered-By-Tech.png"),
+            link: 'https://get.tech/',
         },
         {
             name: 'taskade',
-            image: require("./assets/images/sponsors/taskade.png")
+            image: require("./assets/images/sponsors/taskade.png"),
+            link: 'https://www.taskade.com/',
         }
     ]
     const features = []
     for (const sponsor of sponsors) {
         features.push((
             <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
-                <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                <a target="_blank" rel = "noopener noreferrer" href={sponsor.link} >
+                    <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                </a>
             </Col>
         ))
     }
@@ -189,31 +199,38 @@ function generateCollabs() {
         const sponsors = [
             {
                 name: 'Amazon Alexa',
-                image: require("./assets/images/pastcollabs/amazon_alexa.png")
+                image: require("./assets/images/pastcollabs/amazon_alexa.png"),
+                link: 'https://developer.amazon.com/alexa'
             },
             {
                 name: 'Coding Blocks',
-                image: require("./assets/images/pastcollabs/coding-blocks.png")
+                image: require("./assets/images/pastcollabs/coding-blocks.png"),
+                link: ' https://codingblocks.com/'
             },
             {
                 name: 'Digital Ocean',
-                image: require("./assets/images/pastcollabs/DigitalOcean.png")
+                image: require("./assets/images/pastcollabs/DigitalOcean.png"),
+                link: 'https://www.digitalocean.com/',
             },
             {
                 name: 'Github',
-                image: require("./assets/images/pastcollabs/github.png")
+                image: require("./assets/images/pastcollabs/github.png"),
+                link: 'https://github.com/',
             },
             {
                 name: 'IBM',
-                image: require("./assets/images/pastcollabs/ibm.png")
+                image: require("./assets/images/pastcollabs/ibm.png"),
+                link: 'https://www.ibm.com/',
             },
             {
                 name: 'Python Software Foundation',
-                image: require("./assets/images/pastcollabs/psf.png")
+                image: require("./assets/images/pastcollabs/psf.png"),
+                link: 'https://www.python.org/psf/',
             },
             {
                 name: 'Sketch',
-                image: require("./assets/images/pastcollabs/sketch.png")
+                image: require("./assets/images/pastcollabs/sketch.png"),
+                link: 'https://www.sketchapp.com/',
             }
         ];
 
@@ -221,7 +238,9 @@ function generateCollabs() {
         for (const sponsor of sponsors) {
             features.push((
                 <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
-                    <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                    <a target="_blank" rel = "noopener noreferrer"  href={sponsor.link}>
+                        <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                    </a>
                 </Col>
             ))
         }
