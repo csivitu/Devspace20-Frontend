@@ -86,7 +86,7 @@ function generateRegistrationFeatures(loggedIn) {
     const events = [
         {
             name: 'HACKATHON',
-            description: 'Participate in a free hack with high aspirations and higher stakes. Participate in teams of size 2-5.',
+            description: 'Participate in a free hack with high aspirations and higher stakes (Teams of size 2-5).',
             isLoggedIn: loggedIn.toString()
         },
         {
