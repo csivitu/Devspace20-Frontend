@@ -634,7 +634,7 @@ function Sidebar(open, setOpen) {
         link: 'faq',
     },
     {
-        section: "Past Collaborators",
+        section: "Collaborators",
         link: 'collabs'
     },
     {
