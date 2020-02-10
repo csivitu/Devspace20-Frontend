@@ -17,7 +17,6 @@ import githubIcon from './assets/images/githubIcon.svg';
 import instagramIcon from './assets/images/instagramIcon.svg';
 import linkedinIcon from './assets/images/linkedinIcon.svg';
 import devspaceVideo from './assets/videos/dev_10001-0250.m4v';
-import { setAuthToken, API } from './API';
 
 function generateDevspaceFeatures() {
     const devspaceContent = [
@@ -104,7 +103,10 @@ function generateRegistrationFeatures(loggedIn) {
     ];
     function registerFeature(event) {
         var getClass = {}
-        if (event.name === "HACKATHON" || event.name === 'CAPTURE THE FLAG') {
+        if (event.name === 'HACKATHON') {
+            getClass.display = "hide"
+        }
+        else if (event.name === 'CAPTURE THE FLAG') {
             getClass.display = "hide"
             event.button = 'COMING SOON';
             event.disabled = true;
@@ -114,12 +116,18 @@ function generateRegistrationFeatures(loggedIn) {
         // function registerRoute() {
         //     return '/register';
         // }
-        function paymentLink(button) {
-            return (
-                <Link to="/login" className="reg-link">
-                    <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
-                </Link>
-            )
+        function paymentLink(event) {
+            if (event.name === 'HACKATHON') {
+                return (
+                    <button className="mx-auto" id="devfolio-apply-now"><svg className="logo" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 115.46 123.46" style={{ height: '24px', width: '24px', 'marginRight': '8px' }}><path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 124 16 123a12.6 12.6 0 0 1-10.09-7.5 15.85 15.85 0 0 0 5.36 1.5c4 .34 10.72.51 20.13.51 13.82 0 28.84-.38 29-.38h.26a60.14 60.14 0 0 0 54.72-52.47c.05 1.05.08 2.18.08 3.34z" /><path d="M110.93 55.87A55.43 55.43 0 0 1 60.08 111s-36.48.92-48.58-.12C5 110.29.15 104.22 0 97.52l.2-83.84C.38 7 5.26.94 11.76.41c12.11-1 48.59.12 48.59.12a55.41 55.41 0 0 1 50.58 55.34z" /></svg>Apply with Devfolio</button>
+                );
+            } else {
+                return (
+                    <Link to="/login" className="reg-link">
+                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
+                    </Link>
+                )
+            }
         }
         return (
             <div className={classnames("d-flex", "flex-column", "register-box", "mx-4", "justify-content-between", "pb-5", "pt-3")}>
@@ -127,7 +135,7 @@ function generateRegistrationFeatures(loggedIn) {
                 <p className="event-description px-5">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
                 <div className="mt-auto px-4 text-center">
-                    {paymentLink(event.button)}
+                    {paymentLink(event)}
                 </div>
             </div>
         )
@@ -204,7 +212,7 @@ function generateCollabs() {
     for (const sponsor of sponsors) {
         features.push((
             <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
-                <a target="_blank" rel = "noopener noreferrer" href={sponsor.link} >
+                <a target="_blank" rel="noopener noreferrer" href={sponsor.link} >
                     <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
                 </a>
             </Col>
@@ -253,7 +261,7 @@ function generateCollabs() {
         for (const sponsor of sponsors) {
             features.push((
                 <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
-                    <a target="_blank" rel = "noopener noreferrer"  href={sponsor.link}>
+                    <a target="_blank" rel="noopener noreferrer" href={sponsor.link}>
                         <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
                     </a>
                 </Col>
@@ -748,33 +756,25 @@ function LandingPage() {
     )
 }
 
+function appyDevflioScript() {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co';
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+        new window.Devfolio({ key: 'devspace2020', buttonSelector: '#devfolio-apply-now' });
+    };
+}
+
+
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
     // eslint-disable-next-line no-unused-vars
     const [user, setUser] = useState({});
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token === null) {
-            setloggedIn(false);
-        }
-        else {
-            setAuthToken(token);
-            API.get(`${process.env.REACT_APP_ACCOUNTS_URL}/user`)
-                .then((response) => {
-                    if (response.data.success) {
-                        setloggedIn(true);
-                        setUser(response.data.user);
-                    } else {
-                        localStorage.removeItem('token');
-                        setloggedIn(false);
-                    }
-                });
-            setloggedIn(true);
-        }
-        // if (loggedIn) {
-        //     scroller.scrollTo('register');
-        // }
-    }, [loggedIn])
+        window.onload = appyDevflioScript();
+    }, [])
     const colors = {
         white: '#fffaff',
         blue: '#00D5FF',
