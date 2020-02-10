@@ -8,6 +8,8 @@ import queryString from 'query-string';
 import { Lottie } from '@crello/react-lottie';
 import { Link as ScrollLink } from 'react-scroll';
 import SweetAlert from 'sweetalert-react';
+// import Fade from 'react-reveal/Fade';
+// import Zoom from 'react-reveal/Zoom';
 
 import menuIcon from './assets/images/menu-V3.json';
 import devspaceBluWht from './assets/images/DSBluWht_1@4x.png';
@@ -119,12 +121,12 @@ function generateRegistrationFeatures(loggedIn) {
         function paymentLink(event) {
             if (event.name === 'HACKATHON') {
                 return (
-                    <button className="mx-auto" id="devfolio-apply-now"><svg className="logo" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 115.46 123.46" style={{ height: '24px', width: '24px', 'marginRight': '8px' }}><path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 124 16 123a12.6 12.6 0 0 1-10.09-7.5 15.85 15.85 0 0 0 5.36 1.5c4 .34 10.72.51 20.13.51 13.82 0 28.84-.38 29-.38h.26a60.14 60.14 0 0 0 54.72-52.47c.05 1.05.08 2.18.08 3.34z" /><path d="M110.93 55.87A55.43 55.43 0 0 1 60.08 111s-36.48.92-48.58-.12C5 110.29.15 104.22 0 97.52l.2-83.84C.38 7 5.26.94 11.76.41c12.11-1 48.59.12 48.59.12a55.41 55.41 0 0 1 50.58 55.34z" /></svg>Apply with Devfolio</button>
+                    <button className="mx-auto mt-4" id="devfolio-apply-now"><svg className="logo" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 115.46 123.46" style={{ height: '24px', width: '24px', 'marginRight': '8px' }}><path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 124 16 123a12.6 12.6 0 0 1-10.09-7.5 15.85 15.85 0 0 0 5.36 1.5c4 .34 10.72.51 20.13.51 13.82 0 28.84-.38 29-.38h.26a60.14 60.14 0 0 0 54.72-52.47c.05 1.05.08 2.18.08 3.34z" /><path d="M110.93 55.87A55.43 55.43 0 0 1 60.08 111s-36.48.92-48.58-.12C5 110.29.15 104.22 0 97.52l.2-83.84C.38 7 5.26.94 11.76.41c12.11-1 48.59.12 48.59.12a55.41 55.41 0 0 1 50.58 55.34z" /></svg>Apply with Devfolio</button>
                 );
             } else {
                 return (
                     <Link to="/login" className="reg-link">
-                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto" disabled={event.disabled}>{event.button}</button>
+                        <button className="btn-outline-primary register-button px-5 py-3 mx-auto mt-4" disabled={event.disabled}>{event.button}</button>
                     </Link>
                 )
             }
@@ -132,7 +134,7 @@ function generateRegistrationFeatures(loggedIn) {
         return (
             <div className={classnames("d-flex", "flex-column", "register-box", "mx-4", "justify-content-between", "pb-5", "pt-3")}>
                 <h1 className="heading-text px-5 pt-4">{event.name}</h1>
-                <p className="event-description px-5">{event.description}</p>
+                <p className="event-description px-5 my-auto">{event.description}</p>
                 <p className={classnames("cost mt-3 " + getClass.display)}>{event.cost}</p>
                 <div className="mt-auto px-4 text-center">
                     {paymentLink(event)}
