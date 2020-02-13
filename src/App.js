@@ -89,10 +89,11 @@ function generateRegistrationFeatures(loggedIn) {
         {
             name: 'HACKATHON',
             description: 'Participate in a free hack with high aspirations and higher stakes (Teams of size 2-5).',
+            cost: 'FREE',
             isLoggedIn: loggedIn.toString()
         },
         {
-            name: 'DEVSPACE',
+            name: 'TALKS AND WORKSHOPS',
             description: 'Gain insight to the industry with interactive talks and hands on workshops by prominent individuals.',
             cost: '₹250',
             isLoggedIn: loggedIn.toString()
@@ -100,16 +101,14 @@ function generateRegistrationFeatures(loggedIn) {
         {
             name: 'CAPTURE THE FLAG',
             description: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy and attack defense CTF, only at Devspace.",
+            cost: 'FREE',
             isLoggedIn: loggedIn.toString()
         },
     ];
     function registerFeature(event) {
         var getClass = {}
-        if (event.name === 'HACKATHON') {
-            getClass.display = "hide"
-        }
-        else if (event.name === 'CAPTURE THE FLAG') {
-            getClass.display = "hide"
+        if (event.name === 'CAPTURE THE FLAG') {
+            // getClass.display = "hide"
             event.button = 'COMING SOON';
             event.disabled = true;
         } else {
