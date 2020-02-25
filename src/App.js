@@ -8,7 +8,7 @@ import queryString from 'query-string';
 import { Lottie } from '@crello/react-lottie';
 import { Link as ScrollLink } from 'react-scroll';
 import SweetAlert from 'sweetalert-react';
-// import Fade from 'react-reveal/Fade';
+import Fade from 'react-reveal/Fade';
 // import Zoom from 'react-reveal/Zoom';
 
 import menuIcon from './assets/images/menu-V3.json';
@@ -70,7 +70,9 @@ function generateDevspaceFeatures() {
     for (const content of devspaceContent) {
         features.push((
             <Col key={content.heading} lg={5} className="d-flex justify-content-center">
-                {devspaceFeature(content.heading, content.content, content.image)}
+                <Fade bottom distance="30px">
+                    {devspaceFeature(content.heading, content.content, content.image)}
+                </Fade>
             </Col>
         ));
     }
@@ -146,7 +148,9 @@ function generateRegistrationFeatures(loggedIn) {
     for (const event of events) {
         features.push((
             <Col key={event.name} lg={4} className="d-flex justify-content-center pb-2">
-                {registerFeature(event)}
+                <Fade bottom distance="30px">
+                    {registerFeature(event)}
+                </Fade>
             </Col>
         ))
     }
@@ -221,9 +225,11 @@ function generateCollabs() {
     for (const sponsor of sponsors) {
         features.push((
             <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
-                <a target="_blank" rel="noopener noreferrer" href={sponsor.link} >
-                    <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
-                </a>
+                <Fade bottom distance="30px">
+                    <a target="_blank" rel="noopener noreferrer" href={sponsor.link} >
+                        <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                    </a>
+                </Fade>
             </Col>
         ))
     }
@@ -270,9 +276,11 @@ function generateCollabs() {
         for (const sponsor of sponsors) {
             features.push((
                 <Col key={sponsor.name} className="d-flex justify-content-center align-items-center collab-logo" xs={5} md={3}>
-                    <a target="_blank" rel="noopener noreferrer" href={sponsor.link}>
-                        <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
-                    </a>
+                    <Fade bottom distance="30px">
+                        <a target="_blank" rel="noopener noreferrer" href={sponsor.link}>
+                            <img className="sponsor-image mx-auto" src={sponsor.image} alt={sponsor.name}></img>
+                        </a>
+                    </Fade>
                 </Col>
             ))
         }
@@ -342,7 +350,9 @@ function generateFAQCards() {
     for (const faq of faqs) {
         faqCards.push((
             <Col key={i} lg={5} className="d-flex justify-content-center p-4">
-                {generateFAQCard(faq)}
+                <Fade bottom distance="30px">
+                    {generateFAQCard(faq)}
+                </Fade>
             </Col>
         ));
         i += 1;
@@ -406,13 +416,15 @@ function generateAboutUsFeatures() {
     function generateFindUsContent() {
         return (
             <Col md={6} className='mt-5'>
-                {generateHeading('Find Us')}
-                <iframe
-                    className='map-frame mt-3'
-                    src={mapLink}
-                    frameBorder="0"
-                    alt="Anna Auditorium"
-                    title='Map' />
+                <Fade bottom distance="30px">
+                    {generateHeading('Find Us')}
+                    <iframe
+                        className='map-frame mt-3'
+                        src={mapLink}
+                        frameBorder="0"
+                        alt="Anna Auditorium"
+                        title='Map' />
+                </Fade>
             </Col>
         );
     }
@@ -475,7 +487,9 @@ function generateSpeakerCards(speakers) {
     for (const speaker of speakers) {
         workshops.push((
             <Col key={speaker.name} lg={4} className="d-flex justify-content-center py-3 px-4">
-                {generateCards(speaker)}
+                <Fade bottom distance="30px">
+                    {generateCards(speaker)}
+                </Fade>
             </Col>
         ));
     }
@@ -589,17 +603,19 @@ function generateInThePast() {
     for (const section of sections) {
         sectionElem.push((
             <Col key={section.text} md={6} lg={4}>
-                <div className="past-card my-3">
-                    <div
-                        className="image-container">
-                        <img src={section.image} className="w-100" alt={section.text} />
-                    </div>
-                    <div className="past-heading-container text-center text-uppercase bg-dark py-2">
-                        <div className="past-heading">
-                            {section.text}
+                <Fade bottom distance="30px">
+                    <div className="past-card my-3">
+                        <div
+                            className="image-container">
+                            <img src={section.image} className="w-100" alt={section.text} />
+                        </div>
+                        <div className="past-heading-container text-center text-uppercase bg-dark py-2">
+                            <div className="past-heading">
+                                {section.text}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Fade>
             </Col>
         ));
     }
