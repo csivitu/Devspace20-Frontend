@@ -208,6 +208,14 @@ function generateCollabs() {
             image: require("./assets/images/sponsors/restdb-logo-white.png"),
             link: 'https://restdb.io/',
         },
+        {
+            name: 'Bugsee',
+            image: require("./assets/images/sponsors/Bugsee-Logo.svg")
+        },
+        {
+            name: 'Wolfram',
+            image: require("./assets/images/sponsors/wolfram_lang.png")
+        }
     ]
     const features = []
     for (const sponsor of sponsors) {
