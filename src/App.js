@@ -219,6 +219,10 @@ function generateCollabs() {
         {
             name: 'Wolfram',
             image: require("./assets/images/sponsors/wolfram_lang.png")
+        },
+        {
+            name: 'Cloudsploit',
+            image: require("./assets/images/sponsors/cloudsploit.png")
         }
     ]
     const features = []
