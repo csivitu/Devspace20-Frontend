@@ -214,15 +214,23 @@ function generateCollabs() {
         },
         {
             name: 'Bugsee',
-            image: require("./assets/images/sponsors/Bugsee-Logo.svg")
+            image: require("./assets/images/sponsors/Bugsee-Logo.svg"),
+            link: 'https://www.bugsee.com/',
         },
         {
             name: 'Wolfram',
-            image: require("./assets/images/sponsors/wolfram_lang.png")
+            image: require("./assets/images/sponsors/wolfram_lang.png"),
+            link: 'https://www.wolfram.com/'
         },
         {
             name: 'Cloudsploit',
-            image: require("./assets/images/sponsors/cloudsploit.png")
+            image: require("./assets/images/sponsors/cloudsploit.png"),
+            link: 'https://cloudsploit.com/'
+        },
+        {
+            name: 'Roesenfeld',
+            image: require("./assets/images/sponsors/rosenfeld.png"),
+            link: 'https://rosenfeldmedia.com/'
         }
     ]
     const features = []
