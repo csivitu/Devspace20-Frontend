@@ -40,7 +40,7 @@ function generateDevspaceFeatures() {
         },
         {
             heading: (<span>Capture the <br />Flag</span>),
-            content: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy and attack defense CTF, only at Devspace.",
+            content: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy style CTF, only at Devspace.",
             image: require('./assets/images/goal.png'),
         },
     ];
@@ -102,7 +102,7 @@ function generateRegistrationFeatures(loggedIn) {
         },
         {
             name: 'CAPTURE THE FLAG',
-            description: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy and attack defense CTF, only at Devspace.",
+            description: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy style CTF, only at Devspace.",
             cost: 'FREE',
             isLoggedIn: loggedIn.toString()
         },
