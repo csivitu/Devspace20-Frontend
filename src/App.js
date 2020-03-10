@@ -173,6 +173,11 @@ function generateCollabs() {
             link: 'https://matic.network/'
         },
         {
+            name: 'Python Software Foundation',
+            image: require("./assets/images/sponsors/psf.png"),
+            link: 'https://www.python.org/psf/',
+        },
+        {
             name: 'Fold',
             image: require("./assets/images/sponsors/fold.png"),
             link: 'https://fold.money',
@@ -231,6 +236,12 @@ function generateCollabs() {
             name: 'Roesenfeld',
             image: require("./assets/images/sponsors/rosenfeld.png"),
             link: 'https://rosenfeldmedia.com/'
+        },
+        {
+            name: 'Indian Wind Turbine Manufacturers Association',
+            image: require("./assets/images/sponsors/IWTMA.jpg"),
+            link: 'https://www.indianwindpower.com/',
+
         }
     ]
     const features = []
@@ -271,11 +282,6 @@ function generateCollabs() {
                 name: 'IBM',
                 image: require("./assets/images/pastcollabs/ibm.png"),
                 link: 'https://www.ibm.com/',
-            },
-            {
-                name: 'Python Software Foundation',
-                image: require("./assets/images/pastcollabs/psf.png"),
-                link: 'https://www.python.org/psf/',
             },
             {
                 name: 'Sketch',
