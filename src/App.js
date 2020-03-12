@@ -178,6 +178,21 @@ function generateCollabs() {
             link: 'https://www.python.org/psf/',
         },
         {
+            name: 'Digital Ocean',
+            image: require("./assets/images/sponsors/DigitalOcean.png"),
+            link: 'https://www.digitalocean.com/',
+        },
+        {
+            name: 'Cosmos',
+            image: require("./assets/images/sponsors/cosmos.png"),
+            link: ''
+        },
+        {
+            name: 'Persistence',
+            image: require("./assets/images/sponsors/persistence.png"),
+            link: 'https://persistence.one'
+        },
+        {
             name: 'Fold',
             image: require("./assets/images/sponsors/fold.png"),
             link: 'https://fold.money',
@@ -267,11 +282,6 @@ function generateCollabs() {
                 name: 'Coding Blocks',
                 image: require("./assets/images/pastcollabs/coding-blocks.png"),
                 link: ' https://codingblocks.com/'
-            },
-            {
-                name: 'Digital Ocean',
-                image: require("./assets/images/pastcollabs/DigitalOcean.png"),
-                link: 'https://www.digitalocean.com/',
             },
             {
                 name: 'Github',
