@@ -1,0 +1,82 @@
+.speaker-div {
+  margin-top: 10em;
+  background-color: $blue;
+}
+
+.speaker-shadow {
+  box-shadow: 0 0.125rem 0.5rem #15151567;
+  margin-top: -10em;
+  width: 80%;
+}
+
+.talk-name {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.speaker-header {
+  min-height: 7rem;
+}
+
+.talk-company {
+  font-size: 1.5rem;
+}
+
+.top-description {
+  color: white;
+  font: Italic 1rem Droid Serif;
+  margin-top: 2vh;
+  text-justify: auto;
+}
+
+.workshop-description, .talks-description {
+    text-align: justify;
+  font-size: 1rem;
+}
+
+.speaker-img {
+  img {
+    filter: grayscale(100%);
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+  border: 0.6em solid $blue;
+  box-shadow: 0.125rem -0.125rem $red;
+  z-index: 5;
+}
+
+@media (max-width: 780px) {
+  .speaker-shadow {
+    width: 70%;
+  }
+
+  .speaker-header {
+    min-height: 0rem;
+    margin-bottom: 1rem;
+  }
+
+  .talks-heading, .workshops-heading {
+      text-align: center;
+  }
+  .speaker-div {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+  .speaker-shadow {
+    margin-top: -10em;
+  }
+
+  .talk-name {
+    font-size: 1.8rem;
+  }
+
+//   .workshops-heading,
+//   .talks-heading {
+//     display: none;
+//   }
+}

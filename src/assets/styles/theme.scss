@@ -1,0 +1,103 @@
+@import "./theme_variables.scss";
+
+// Import component styles
+@import "./components/navbar.scss";
+@import "./components/App.scss";
+@import "./components/section.scss";
+@import "./components/collabs.scss";
+@import "./components/faq.scss";
+@import "./components/register.scss";
+@import "./components/workshop.scss";
+@import "./components/hackathon.scss";
+@import "./components/aboutus.scss";
+@import "./components/inthepast.scss";
+@import "./components/landingpage.scss";
+
+@import "./assets/styles/sweetalert.css";
+@import "./assets/styles/devfolio.scss";
+// Google fonts
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+$theme-colors: (
+  "primary": $blue,
+  "secondary": $red,
+  "dark": $black,
+  "light": $white
+) !default;
+
+@import "~bootstrap/scss/bootstrap.scss";
+html,
+body {
+  font-size: 16px;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+  background-color: $white;
+  color: $notsoblack;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+a {
+  color: $white;
+  text-decoration: underline;
+}
+
+.bg-red {
+  background-color: $red;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.section-content-heading {
+  font-size: 1.5rem;
+  color: $white;
+  font-family: Droid serif;
+  font-style: italic;
+}
+
+.text-blue {
+  color: $text-blue;
+}
+
+.btn-outline-primary {
+  border-style: solid;
+  border-width: 3px;
+  border-image-source: $blue;
+  border-image-slice: 1;
+  color: white;
+  background: linear-gradient(to right, $blue 50%, rgba(0, 0, 0, 0) 50%) right bottom;
+  background-size: 200% 100%;
+  text-shadow: none !important;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: transparent;
+    color: $black !important;
+    background-position: left bottom;
+  }
+}
+
+@media (min-width: 1600px) {
+  html,
+  body {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden; // Hack to prevent weird overflow on phones
+    font-size: 14px;
+  }
+}

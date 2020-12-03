@@ -1,0 +1,64 @@
+.section-content {
+  width: 88%;
+  min-height: 95vh;
+}
+
+.section-heading {
+  width: 12%;
+  background-color: $white;
+
+  .section-heading-text {
+    font-size: 9rem;
+    line-height: 0.59;
+    font-family: 'Bebas Neue', cursive;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    writing-mode: vertical-lr;
+    position: sticky;
+    top: 4.7rem;
+    width:100%;
+    text-transform: uppercase;
+    color: $notsoblack;
+  }
+}
+
+.section-heading-left .section-heading-text{
+    transform: rotate(180deg);
+}
+
+.section-heading-left, .section-content-left {
+    float:left
+}
+
+.section-heading-right, .section-content-right {
+    float: right;
+}
+
+@media screen and (max-width: 768px) {
+  .section-content {
+    float:none;
+    width:100vw;
+  }
+  .section-heading {
+    float:none;
+    width:100vw;
+    .section-heading-text {
+        font-size: 6rem !important;
+        text-align: center;
+        writing-mode: horizontal-tb;
+        transform: none;
+        // line-height: 1;
+        padding-top:4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+    .section-heading {
+        .section-heading-text {
+            font-size: 7.5rem;
+        }
+    }
+}

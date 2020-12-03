@@ -1,0 +1,93 @@
+.navbar-menu-icon:hover {
+    cursor:pointer;
+}
+
+.devspaceLogo {
+    height:2rem;
+    margin-left: 1.5rem;
+}
+
+.devspaceNav {
+    box-shadow: 0rem 0.3rem 0.8rem #151515c7;
+    z-index: 3;
+    transition: all ease 0.7s;
+}
+
+.navSlide {
+    margin-top: -5rem;
+}
+.slideIn {
+    margin-top: 0;
+}
+
+.sidebar {
+    padding-top: 5rem;
+    position:fixed;
+    height:100%;
+    top:0;
+    left:-20vw;
+    width:20vw;
+    background-color: $black;
+    transition: all 1s ease 0s;
+    z-index: 4;
+
+    .sidebar-link {
+        display: block;
+        font-size: 1.4rem;
+        color: $white;
+        padding: 0.4rem 1.2rem;
+
+        &:hover {
+            background-color: $notsoblack; 
+            color: $white;
+            cursor: pointer;  
+        }
+    }
+
+    .active {
+        background-color: $slightlyblack;
+    }
+
+    .social-media {
+        margin-top: 1rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .social-media-icon {
+        font-size: 0.2rem;
+        margin-right: 1rem;
+        padding: 0rem 0.2rem;
+        display: inline-block;
+    }
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        width: 40vw;
+        left: -40vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 75vw;
+        left: -75vw;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .devspaceLogo {
+        height:1.5rem;
+        margin-left: 1rem;
+    }
+
+    .devspaceNav {
+        .register-button {
+            font-size: 1rem;
+            padding-right: 0.2rem;
+        }
+    }
+}

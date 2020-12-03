@@ -1,0 +1,25 @@
+.hackathon {
+  .hackathon-heading {
+    font-size: 8rem;
+    font-family: 'Bebas Neue', cursive;
+    width: 80%;
+    margin-bottom: 0;
+    padding-top:1rem;
+    position: relative;
+  }
+  .hackathon-details {
+      padding-top: 5rem;
+      margin-top:-5rem;
+  }
+  .hackathon-description {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .hackathon {
+        .hackathon-heading {
+            font-size: 5rem;
+        }
+    }
+}
