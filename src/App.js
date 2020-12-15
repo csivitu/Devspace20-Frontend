@@ -318,7 +318,7 @@ function generateCollabs() {
     }
     return (
         <div className="collabs-container pt-5">
-            <h3 className="sponsor-heading text-uppercase">Collaborators for Devspace 2020</h3>
+            <h3 className="sponsor-heading text-uppercase">Past Collaborators for Devspace</h3>
             <Row className="justify-content-center">
                 {features}
             </Row>
