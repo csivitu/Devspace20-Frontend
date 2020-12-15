@@ -38,11 +38,6 @@ function generateDevspaceFeatures() {
             image: require('./assets/images/browser.svg'),
 
         },
-        {
-            heading: (<span>Capture the <br />Flag</span>),
-            content: "Don't just unleash the hacker in you, challenge yourself beyond your limits with jeopardy style CTF, only at Devspace.",
-            image: require('./assets/images/goal.png'),
-        },
     ];
 
     function devspaceFeature(heading, content, image) {
@@ -666,28 +661,28 @@ function Sidebar(open, setOpen) {
         section: "In Devspace",
         link: 'features'
     },
-    {
-        section: "Workshops",
-        link: 'workshops'
-    },
-    {
-        section: "Talks",
-        link: 'talks'
-    },
+    // {
+    //     section: "Workshops",
+    //     link: 'workshops'
+    // },
+    // {
+    //     section: "Talks",
+    //     link: 'talks'
+    // },
     {
         section: "Hackathon",
         link: 'hackathon'
     },
+    // {
+    //     section: "Register",
+    //     link: 'register'
+    // },
+    // {
+    //     section: "FAQs",
+    //     link: 'faq',
+    // },
     {
-        section: "Register",
-        link: 'register'
-    },
-    {
-        section: "FAQs",
-        link: 'faq',
-    },
-    {
-        section: "Collaborators",
+        section: "Past Collaborators",
         link: 'collabs'
     },
     {
@@ -759,9 +754,9 @@ function DevspaceNavbar(slide) {
                         isStopped={stopped} />
                 </div>
                 <Nav className="ml-auto align-items-center">
-                    <ScrollLink to='register' spy={true} smooth={true} duration={400} offset={-60} activeclassname="active">
+                    {/* <ScrollLink to='register' spy={true} smooth={true} duration={400} offset={-60} activeclassname="active">
                         <button className="btn-outline-primary register-button px-4 py-2 mx-auto">REGISTER</button>
-                    </ScrollLink>
+                    </ScrollLink> */}
                     <img src={devspaceBluWht} className="devspaceLogo" alt="Devspace Logo"></img>
                 </Nav>
             </Navbar>
@@ -791,16 +786,16 @@ function LandingPage() {
                         <img src={devspaceBluWht} className="w-100" alt="Devspace Logo"></img>
                     </div>
                     <div className="landing-events text-white font-weight-bold">
-                        Hackathon | Capture the Flag | Workshops | Talks
+                        Hackathon | Workshops | Talks
                     </div>
                     <div className="landing-description text-white">
-                        20th - 22nd March<br />
+                        Coming soon<br />
                         Vellore Institute of Technology
                     </div>
                     <ScrollLink to='register' spy={true} smooth={true} duration={400} offset={-60} activeclassname="active">
-                        <button className="btn-outline-primary register-button font-weight-bold mt-5 px-4 py-2 mx-auto" style={{
+                        {/* <button className="btn-outline-primary register-button font-weight-bold mt-5 px-4 py-2 mx-auto" style={{
                             fontSize: '1.2rem'
-                        }}>REGISTER</button>
+                        }}>REGISTER</button> */}
                     </ScrollLink>
                 </div>
             </div>
@@ -856,7 +851,7 @@ function App() {
                                     headingAlignment: 'right',
                                     bgcolor: colors.blue
                                 })}
-                                {
+                                {/* {
                                     Section({
                                         headingText: 'WORKSHOPS',
                                         name: 'workshops',
@@ -868,8 +863,8 @@ function App() {
                                         headingAlignment: 'left',
                                         bgcolor: colors.notsoblack
                                     })
-                                }
-                                {
+                                } */}
+                                {/* {
                                     Section({
                                         headingText: 'TALKS',
                                         name: 'talks',
@@ -881,7 +876,7 @@ function App() {
                                         headingAlignment: 'right',
                                         bgcolor: colors.notsoblack
                                     })
-                                }
+                                } */}
                                 <div name='hackathon' className="hackathon">
                                     <h1 className="hackathon-heading mx-auto text-center bg-primary">THE HACKATHON</h1>
                                     <div className="bg-dark hackathon-details pb-5">
@@ -892,7 +887,7 @@ function App() {
                                         <h2 className="text-light text-uppercase text-center">Coming Soon!</h2>
                                     </div>
                                 </div>
-                                {Section({
+                                {/* {Section({
                                     headingText: 'REGISTER',
                                     name: 'register',
                                     content: (
@@ -902,8 +897,8 @@ function App() {
                                     ),
                                     headingAlignment: 'right',
                                     bgcolor: colors.notsoblack
-                                })}
-                                {
+                                })} */}
+                                {/* {
                                     Section({
                                         headingText: 'FAQ',
                                         name: 'faq',
@@ -915,10 +910,10 @@ function App() {
                                         headingAlignment: 'left',
                                         bgcolor: colors.blue
                                     })
-                                }
+                                } */}
                                 {
                                     Section({
-                                        headingText: 'COLLABS',
+                                        headingText: 'PAST COLLABS',
                                         name: 'collabs',
                                         content: (
                                             <Container fluid={true}>
