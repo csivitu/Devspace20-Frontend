@@ -309,7 +309,7 @@ function generateCollabs() {
         }
         return (
             <div className="py-3 mt-4">
-                <h3 className="sponsor-heading text-uppercase">PAST COLLABORATORS</h3>
+                {/* <h3 className="sponsor-heading text-uppercase">PAST COLLABORATORS</h3> */}
                 <Row className="justify-content-center">
                     {features}
                 </Row>
@@ -318,7 +318,7 @@ function generateCollabs() {
     }
     return (
         <div className="collabs-container pt-5">
-            <h3 className="sponsor-heading text-uppercase">Past Collaborators for Devspace</h3>
+            <h3 className="sponsor-heading text-uppercase">PAST COLLABORATORS</h3>
             <Row className="justify-content-center">
                 {features}
             </Row>
