@@ -22,4 +22,4 @@ jobs:
         git config user.name csivitu
         git add -f $FOLDER_NAME
         git commit --amend --no-edit
-        git push origin `git subtree split --prefix $FOLDER_NAME master`:gh-pages --force ||  git subtree push --prefix $FOLDER_NAME origin gh-pages
+        git push origin `git subtree split --prefix $FOLDER_NAME devspace21`:gh-pages --force ||  git subtree push --prefix $FOLDER_NAME origin gh-pages
