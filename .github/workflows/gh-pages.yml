@@ -15,6 +15,7 @@ jobs:
           CNAME: devspace.csivit.com
           FOLDER_NAME: build
       run: |
+        unset CI
         npm ci --only=production
         npm run build
         echo $CNAME > build/CNAME
