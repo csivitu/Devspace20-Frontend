@@ -12,7 +12,7 @@ jobs:
     - uses: actions/setup-node@v1
     - name: push to gh-pages
       env:
-          CNAME: devspace.csivit.com
+          CNAME: devspace21.csivit.com
           FOLDER_NAME: build
       run: |
         unset CI
